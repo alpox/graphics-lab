@@ -150,6 +150,7 @@
 		642829991EC891A300DBD605 /* IdManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IdManager.cpp; sourceTree = "<group>"; };
 		6428299A1EC891A300DBD605 /* System.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		6428299B1EC891A300DBD605 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		642829A21EC8965600DBD605 /* Transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
 		B44186941BA331E300604D7F /* RenderProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderProject.h; sourceTree = "<group>"; };
 		B44186961BA331E300604D7F /* RenderProject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderProject.cpp; sourceTree = "<group>"; };
 		B47949851BA6742B00B5E9DC /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
@@ -375,9 +376,26 @@
 			name = externalLibraries;
 			sourceTree = "<group>";
 		};
+		642829A11EC8963C00DBD605 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				642829A21EC8965600DBD605 /* Transform.h */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		642829A31EC898EB00DBD605 /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Systems;
+			sourceTree = "<group>";
+		};
 		B44186931BA331E300604D7F /* headers */ = {
 			isa = PBXGroup;
 			children = (
+				642829A31EC898EB00DBD605 /* Systems */,
+				642829A11EC8963C00DBD605 /* Components */,
 				B44186941BA331E300604D7F /* RenderProject.h */,
 				642829871EC858EA00DBD605 /* Component.h */,
 				6428298A1EC8606F00DBD605 /* World.h */,

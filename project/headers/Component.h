@@ -14,10 +14,11 @@
 
 #include "IdManager.h"
 
-// Maybe we use a registry later
-const unsigned short COMPONENT_NONE = 1;
-
 typedef unsigned short COMPONENT_MASK;
+
+// Maybe we use a registry later
+const COMPONENT_MASK COMPONENT_NONE = 1;
+const COMPONENT_MASK COMPONENT_POSITION = 1 << 1;
 
 class Component {
 public:
