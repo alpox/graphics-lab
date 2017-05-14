@@ -13,7 +13,7 @@
 #include "vmmlib/matrix.hpp"
 
 class Transform: public Component {
-private:
+protected:
     void setType() override {
         type = COMPONENT_POSITION;
     }
