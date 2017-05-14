@@ -10,6 +10,7 @@
 #define System_hpp
 
 #include <vector>
+#include <algorithm>
 
 #include "World.h"
 

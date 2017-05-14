@@ -22,7 +22,7 @@ const COMPONENT_MASK COMPONENT_POSITION = 1 << 1;
 
 class Component {
 public:
-private:
+protected:
     virtual void setType() {
         type = COMPONENT_NONE;
     }

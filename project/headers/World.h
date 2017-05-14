@@ -10,6 +10,7 @@
 #define World_hpp
 
 #include <vector>
+#include <algorithm>
 
 #include "Entity.h"
 
