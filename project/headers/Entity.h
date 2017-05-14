@@ -14,23 +14,24 @@
 class Entity {
 public:
     Entity(int id): id(id) {}
+    void addComponent(Component* component) {
+        components.insert(std::make_pair((*component).type, std::shared_ptr<Component>(component)));
+        mask |= (*component).type;
+    }
     
-    template<typename T, typename ...Args>
-    T& addComponent(Args&&... args) {
-        T component(args...);
-        components.push_back(component);
-        mask &= component.type;
-        return component;
+    template<typename T>
+    std::shared_ptr<T> getComponent(COMPONENT_MASK maskType) const {
+        return std::dynamic_pointer_cast<T>(components.at(maskType));
     }
     
     bool hasComponents(COMPONENT_MASK type);
     
     int getId() const { return id; }
 private:
-    using ComponentArray = std::vector<Component>;
+    using ComponentMap = std::map<COMPONENT_MASK, std::shared_ptr<Component>>;
     int id;
     
-    ComponentArray components;
+    ComponentMap components;
     COMPONENT_MASK mask;
 };
 

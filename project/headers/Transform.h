@@ -13,12 +13,11 @@
 #include "vmmlib/matrix.hpp"
 
 class Transform: public Component {
-protected:
-    void setType() override {
-        type = COMPONENT_POSITION;
+public:
+    Transform(vmml::Matrix4f modelMatrix): modelMatrix(modelMatrix) {
+        type = COMPONENT_TRANSFORM;
     }
-    
-    vmml::Matrix4f transform;
+    vmml::Matrix4f modelMatrix;
 };
 
 #endif /* Position_h */

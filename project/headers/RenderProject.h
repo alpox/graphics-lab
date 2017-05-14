@@ -2,6 +2,7 @@
 #define PROJECT_MAIN_H
 
 #include "bRenderer.h"
+#include "World.h"
 
 class RenderProject : public IRenderProject
 {
@@ -63,6 +64,7 @@ private:
 	bool _running = false; 
 	GLint _lastStateSpaceKey = 0;
 	vmml::Matrix4f _viewMatrixHUD;
+    World world;
 
 };
 

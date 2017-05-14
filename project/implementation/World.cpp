@@ -8,9 +8,8 @@
 
 #include "World.h"
 
-template<typename ...Args>
-Entity& World::createEntity(Args &&... args) {
-    entities.emplace_back(idManager.next(), args...);
+Entity& World::createEntity() {
+    entities.emplace_back(idManager.next());
     return entities.back();
 }
 
@@ -19,4 +18,10 @@ void World::removeEntity(int id) {
         return entity.getId() == id;
     });
     idManager.removeId(id); // Make id accessible again
+}
+
+void World::applySystems() {
+    std::for_each(systems.begin(), systems.end(), [&](auto& system) {
+        system->apply(entities);
+    });
 }

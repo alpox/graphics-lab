@@ -46,7 +46,7 @@ void RenderProject::initFunction()
 
 	// load models
 	//bRenderer().getObjects()->loadObjModel("cave.obj", true, true, false, 4, true, false);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
-	bRenderer().getObjects()->loadObjModel_o("cave.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
+	bRenderer().getObjects()->loadObjModel_o("junction.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
 	//bRenderer().getObjects()->loadObjModel("cave_stream.obj", true, true, true, 4, false, false, streamProperties);		// automatically loads shader files according to the name of the material
 	bRenderer().getObjects()->loadObjModel_o("cave_stream.obj", 4, FLIP_T | FLIP_Z | SHADER_FROM_FILE, streamProperties);		// automatically loads shader files according to the name of the material
 	//bRenderer().getObjects()->loadObjModel("crystal.obj", false, true, customShader);									// the custom shader created above is used
@@ -73,7 +73,7 @@ void RenderProject::initFunction()
 	bRenderer().getObjects()->createLight("firstLight", vmml::Vector3f(78.0f, -3.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 1.0f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.4f, 100.0f);
 	bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(148.0f, -3.0f, 15.0f), vmml::Vector3f(0.3f, 1.0f, 0.3f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
 	bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(218.0f, -3.0f, 0.0f), vmml::Vector3f(0.8f, 0.2f, 0.2f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-	bRenderer().getObjects()->createLight("torchLight", -bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(1.0f, 0.45f, -0.4f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 1400.0f, 0.9f, 280.0f);
+	bRenderer().getObjects()->createLight("torchLight", -bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(1.0f, 1.0f, 1.0f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 1400.0f, 0.9f, 280.0f);
 
 	// postprocessing
 	bRenderer().getObjects()->createFramebuffer("fbo");					// create framebuffer object
@@ -83,6 +83,23 @@ void RenderProject::initFunction()
 	ShaderPtr blurShader = bRenderer().getObjects()->loadShaderFile_o("blurShader", 0);			// load shader that blurs the texture
 	MaterialPtr blurMaterial = bRenderer().getObjects()->createMaterial("blurMaterial", blurShader);								// create an empty material to assign either texture1 or texture2 to
 	bRenderer().getObjects()->createSprite("blurSprite", blurMaterial);																// create a sprite using the material created above
+    
+    // Add entities
+    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(30.f, -24.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(0.3f));
+    
+    Entity& entity = world.createEntity();
+    
+    Transform *transform = new Transform(modelMatrix);
+    Render *render = new Render(bRenderer(), "junction", "cave_instance", "camera", vmml::Vector3f(1.f, 1.f, 1.f), std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }));
+    
+    render->cullIndividualGeometry = true;
+    
+    render->doFrustrumCulling = true;
+    
+    entity.addComponent(transform);
+    entity.addComponent(render);
+    
+    world.addSystem<RenderSystem>();
 
 	// Update render queue
 	updateRenderQueue("camera", 0.0f);
@@ -185,11 +202,10 @@ void RenderProject::terminateFunction()
 /* Update render queue */
 void RenderProject::updateRenderQueue(const std::string &camera, const double &deltaTime)
 {
+    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(30.f, -24.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(0.3f));
+    
 	/*** Cave ***/
-	// translate and scale 
-	vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(30.f, -24.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(0.3f));
-	// submit to render queue
-	bRenderer().getModelRenderer()->queueModelInstance("cave", "cave_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true);
+    world.applySystems();
 	
 	/*** Cave stream ***/
 	bRenderer().getObjects()->getProperties("streamProperties")->setScalar("offset", _offset);		// pass offset for wave effect
@@ -224,49 +240,6 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
 	modelMatrix *= vmml::create_translation(vmml::Vector3f(0.75f, -1.1f, 0.8f)) * vmml::create_scaling(vmml::Vector3f(1.2f)) * vmml::create_rotation(1.64f, vmml::Vector3f::UNIT_Y); // now position it relative to the camera
 	// submit to render queue
 	bRenderer().getModelRenderer()->queueModelInstance("torch", "torch_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight" }));
-
-	/*** Flame ***/
-	// pass additional properties to the shader
-	bRenderer().getObjects()->getProperties("flameProperties")->setScalar("offset", _randomOffset);		// pass offset for wave effect
-	// create three flames
-	for (GLfloat z = 0.0f; z < 3.0f; z++)
-	{
-		// translate
-		vmml::Matrix4f translation = vmml::create_translation(vmml::Vector3f(0.65f / bRenderer().getView()->getAspectRatio(), 0.6f + (0.08f*z), (-z / 100.0f - 0.50f)));
-		// rotate
-		GLfloat rot = 0.0f;
-		if (fmod(z, 2.0f) != 0.0f)
-			rot = M_PI_F;
-			
-		vmml::Matrix4f rotation = vmml::create_rotation(rot, vmml::Vector3f::UNIT_Z);
-		// scale
-		GLfloat ParticleScale = 1.225f - (0.23f*z);
-		vmml::Matrix4f scaling = vmml::create_scaling(vmml::Vector3f(ParticleScale / bRenderer().getView()->getAspectRatio(), ParticleScale, ParticleScale));
-		// model matrix
-		modelMatrix = translation * scaling * rotation;
-		// submit to render queue
-		bRenderer().getModelRenderer()->queueModelInstance(bRenderer().getObjects()->getModel("flame"), ("flame_instance" + std::to_string(z)), modelMatrix, _viewMatrixHUD, vmml::Matrix4f::IDENTITY, std::vector<std::string>({}), false, false, true, GL_SRC_ALPHA, GL_ONE, (-1.0f - 0.01f*z));  // negative distance because always in foreground
-	}
-
-	/*** Sparks ***/
-	for (GLfloat z = 1.0f; z < 2.0f; z++)
-	{
-		// translate
-		vmml::Matrix4f translation = vmml::create_translation(vmml::Vector3f(0.65f / bRenderer().getView()->getAspectRatio(), 0.65f, (-z / 100.0f - 0.58f)));
-		// rotate
-		GLfloat rot = 1.0f;
-		if (_running)
-			rot = randomNumber(1.0f, 1.1f)*_randomOffset*z;
-		vmml::Matrix4f rotation = vmml::create_rotation(rot, vmml::Vector3f::UNIT_Z);
-		// scale
-		GLfloat ParticleScale = 0.55f - (0.25f*z);
-		vmml::Matrix4f scaling = vmml::create_scaling(vmml::Vector3f(ParticleScale / bRenderer().getView()->getAspectRatio(), 4.0f*ParticleScale, ParticleScale));
-		// model matrix
-		modelMatrix = translation * scaling * rotation;
-
-		// submit to render queue
-		bRenderer().getModelRenderer()->queueModelInstance(bRenderer().getObjects()->getModel("sparks"), ("sparks_instance" + std::to_string(z)), modelMatrix, _viewMatrixHUD, vmml::Matrix4f::IDENTITY, std::vector<std::string>({}), false, false, true, GL_SRC_ALPHA, GL_ONE, (-2.0f - 0.01f*z)); // negative distance because always in foreground
-	}
 
 }
 

@@ -12,22 +12,15 @@
 #include <vector>
 #include <algorithm>
 
-#include "World.h"
-
-class World;
+#include "Entity.h"
 
 class System {
 public:
-    System(World& world): world(world) {}
+    void apply(std::vector<Entity> entities) const;
+protected:
+    virtual void apply(Entity& entity) const = 0;
     
-    void apply();
-private:
-    virtual void apply(Entity& entity);
-    
-    virtual void setRequirements();
-    
-    World& world;
-    COMPONENT_MASK component_mask;
+    COMPONENT_MASK requirements_mask;
 };
 
 #endif /* System_hpp */

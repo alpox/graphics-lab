@@ -18,36 +18,14 @@ typedef unsigned short COMPONENT_MASK;
 
 // Maybe we use a registry later
 const COMPONENT_MASK COMPONENT_NONE = 1;
-const COMPONENT_MASK COMPONENT_POSITION = 1 << 1;
+const COMPONENT_MASK COMPONENT_TRANSFORM = 1 << 1;
+const COMPONENT_MASK COMPONENT_RENDERER = 1 << 2;
 
 class Component {
 public:
-protected:
-    virtual void setType() {
-        type = COMPONENT_NONE;
-    }
+    virtual ~Component() {}
     
     COMPONENT_MASK type;
 };
-
-
-
-/*
-namespace component {
-    typedef Component& (*CreateComponentFunc)();
-    typedef std::map<std::string, CreateComponentFunc> ComponentRegistry;
-    
-    ComponentRegistry& getComponentRegistry() {
-        static ComponentRegistry reg;
-        return reg;
-    }
-    
-    template<typename T>
-    Component createComponent() {
-        return T();
-    }
-    
-    
-}*/
 
 #endif /* Component_hpp */

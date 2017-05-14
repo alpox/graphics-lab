@@ -9,11 +9,11 @@
 #include "System.h"
 
 
-void System::apply() {
-    auto entities = world.getEntities();
+void System::apply(std::vector<Entity> entities) const {
     
     // Apply the system to all entities
     std::for_each(entities.begin(), entities.end(), [&](Entity& entity) {
-        apply(entity);
+        if(entity.hasComponents(requirements_mask))
+            apply(entity);
     });
 }

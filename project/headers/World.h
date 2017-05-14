@@ -13,26 +13,36 @@
 #include <algorithm>
 
 #include "Entity.h"
+#include "System.h"
 
-class System;
+#include "bRenderer.h"
+#include "Transform.h"
+#include "Render.h"
+#include "RenderSystem.h"
 
 class World {
 public:
     using EntityArray = std::vector<Entity>;
-    using SystemArray = std::vector<System>;
+    using SystemArray = std::vector<std::unique_ptr<System>>;
     
     World() = default;
     World(const World& world) = delete;
     World(World&& world) = delete;
     
-    template<typename ...Args>
-    Entity& createEntity(Args&&... args);
+    Entity& createEntity();
     
     void removeEntity(int id);
+    
+    template<typename T>
+    void addSystem() {
+        systems.emplace_back(new T());
+    }
     
     EntityArray& getEntities() {
         return entities;
     }
+    
+    void applySystems();
 private:
     
     EntityArray entities;
