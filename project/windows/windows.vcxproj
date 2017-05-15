@@ -150,7 +150,12 @@
     <ClCompile Include="..\..\externalLibraries\freetype-2.6\src\type42\type42.c" />
     <ClCompile Include="..\..\externalLibraries\freetype-2.6\src\winfonts\winfnt.c" />
     <ClCompile Include="..\..\project\windows\main.cpp" />
+    <ClCompile Include="..\implementation\Component.cpp" />
+    <ClCompile Include="..\implementation\Entity.cpp" />
+    <ClCompile Include="..\implementation\IdManager.cpp" />
     <ClCompile Include="..\implementation\RenderProject.cpp" />
+    <ClCompile Include="..\implementation\System.cpp" />
+    <ClCompile Include="..\implementation\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\bRenderer\bRenderer.h" />
@@ -204,7 +209,17 @@
     <ClInclude Include="..\..\bRenderer\headers\Touch.h" />
     <ClInclude Include="..\..\bRenderer\headers\View.h" />
     <ClInclude Include="..\..\bRenderer\os_specific\ios\BView.h" />
+    <ClInclude Include="..\headers\Component.h" />
+    <ClInclude Include="..\headers\Entity.h" />
+    <ClInclude Include="..\headers\IdManager.h" />
+    <ClInclude Include="..\headers\Render.h" />
     <ClInclude Include="..\headers\RenderProject.h" />
+    <ClInclude Include="..\headers\RenderSystem.h" />
+    <ClInclude Include="..\headers\Stream.h" />
+    <ClInclude Include="..\headers\StreamSystem.h" />
+    <ClInclude Include="..\headers\System.h" />
+    <ClInclude Include="..\headers\Transform.h" />
+    <ClInclude Include="..\headers\World.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\bRenderer\os_specific\ios\BView.mm" />

@@ -49,8 +49,9 @@ void RenderProject::initFunction()
 	bRenderer().getObjects()->loadObjModel_o("boulder01.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 	//bRenderer().getObjects()->loadObjModel("cave.obj", true, true, false, 4, true, false);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
 
-	bRenderer().getObjects()->loadObjModel_o("Chamber02.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
-
+	bRenderer().getObjects()->loadObjModel_o("test1.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
+	bRenderer().getObjects()->loadObjModel_o("stalagmite.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+	
 	//bRenderer().getObjects()->loadObjModel("cave_stream.obj", true, true, true, 4, false, false, streamProperties);		// automatically loads shader files according to the name of the material
 	bRenderer().getObjects()->loadObjModel_o("cave_stream.obj", 4, FLIP_T | FLIP_Z | SHADER_FROM_FILE, streamProperties);		// automatically loads shader files according to the name of the material
 	//bRenderer().getObjects()->loadObjModel("crystal.obj", false, true, customShader);									// the custom shader created above is used
@@ -99,7 +100,7 @@ void RenderProject::initFunction()
     vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 0.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(4.0f));
     
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
-    RenderPtr modelRender = RenderPtr(new Render(bRenderer(), "Chamber02", "Chamber02_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
+    RenderPtr modelRender = RenderPtr(new Render(bRenderer(), "test1", "test1_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
     
     world.createRenderModel(modelTransform, modelRender);
     
@@ -115,13 +116,20 @@ void RenderProject::initFunction()
     modelRender = RenderPtr(new Render(bRenderer(), "boulder01", "boulder01_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
     
     world.createRenderModel(modelTransform, modelRender);
+
+	/*** stalagmite ***/
+	modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 5.0f, 0.0f)) * vmml::create_scaling(vmml::Vector3f(9.0f));
+	modelTransform = TransformPtr(new Transform(modelMatrix));
+	modelRender = RenderPtr(new Render(bRenderer(), "stalagmite", "stalagmite_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
+
+	world.createRenderModel(modelTransform, modelRender);
     
-    /*** Y_Tube ***/
-    modelMatrix = vmml::create_translation(vmml::Vector3f(-75.0f, 35.0, 260.0)) * vmml::create_scaling(vmml::Vector3f(3.0f)) * vmml::create_rotation(3.14f, vmml::Vector3f::UNIT_Y);
-    modelTransform = TransformPtr(new Transform(modelMatrix));
-    modelRender = RenderPtr(new Render(bRenderer(), "L_Curve", "L_Curve_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
+    ///*** Y_Tube ***/
+    //modelMatrix = vmml::create_translation(vmml::Vector3f(-75.0f, 35.0, 260.0)) * vmml::create_scaling(vmml::Vector3f(3.0f)) * vmml::create_rotation(3.14f, vmml::Vector3f::UNIT_Y);
+    //modelTransform = TransformPtr(new Transform(modelMatrix));
+    //modelRender = RenderPtr(new Render(bRenderer(), "L_Curve", "L_Curve_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
     
-    world.createRenderModel(modelTransform, modelRender);
+    //world.createRenderModel(modelTransform, modelRender);
     
     /*** Crystal (blue) ***/
     modelMatrix = vmml::create_translation(vmml::Vector3f(78.0f, -17.0f, 5.5f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
