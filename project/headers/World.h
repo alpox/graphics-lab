@@ -18,7 +18,9 @@
 #include "bRenderer.h"
 #include "Transform.h"
 #include "Render.h"
+#include "Stream.h"
 #include "RenderSystem.h"
+#include "StreamSystem.h"
 
 class World {
 public:
@@ -30,6 +32,7 @@ public:
     World(World&& world) = delete;
     
     Entity& createEntity();
+    Entity& createRenderModel(TransformPtr transform, RenderPtr render);
     
     void removeEntity(int id);
     

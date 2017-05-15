@@ -92,21 +92,59 @@ void RenderProject::initFunction()
 	MaterialPtr blurMaterial = bRenderer().getObjects()->createMaterial("blurMaterial", blurShader);								// create an empty material to assign either texture1 or texture2 to
 	bRenderer().getObjects()->createSprite("blurSprite", blurMaterial);																// create a sprite using the material created above
     
-    // Add entities
-    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(30.f, -24.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(0.3f));
+    //---------------------------------------------------
+    //           ***** Add all entities *****
+    //---------------------------------------------------
     
-    Entity& entity = world.createEntity();
+    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 0.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(4.0f));
     
-    Transform *transform = new Transform(modelMatrix);
-    Render *render = new Render(bRenderer(), "junction", "cave_instance", "camera", vmml::Vector3f(1.f, 1.f, 1.f), std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }));
+    TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
+    RenderPtr modelRender = RenderPtr(new Render(bRenderer(), "Chamber02", "Chamber02_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
     
-    render->cullIndividualGeometry = true;
+    world.createRenderModel(modelTransform, modelRender);
     
-    render->doFrustrumCulling = true;
+    /*** Cave stream ***/
+    modelRender = RenderPtr(new Render(bRenderer(), "cave_stream", "cave_stream_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f));
     
-    entity.addComponent(transform);
-    entity.addComponent(render);
+    Entity& entity = world.createRenderModel(modelTransform, modelRender);
+    entity.addComponent(StreamPtr(new Stream(_offset)));
     
+    /*** boulder ***/
+    modelMatrix = vmml::create_translation(vmml::Vector3f(-70.0f, 50.0f, 280.0f)) * vmml::create_scaling(vmml::Vector3f(1.0f));
+    modelTransform = TransformPtr(new Transform(modelMatrix));
+    modelRender = RenderPtr(new Render(bRenderer(), "boulder01", "boulder01_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
+    
+    world.createRenderModel(modelTransform, modelRender);
+    
+    /*** Y_Tube ***/
+    modelMatrix = vmml::create_translation(vmml::Vector3f(-75.0f, 35.0, 260.0)) * vmml::create_scaling(vmml::Vector3f(3.0f)) * vmml::create_rotation(3.14f, vmml::Vector3f::UNIT_Y);
+    modelTransform = TransformPtr(new Transform(modelMatrix));
+    modelRender = RenderPtr(new Render(bRenderer(), "L_Curve", "L_Curve_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
+    
+    world.createRenderModel(modelTransform, modelRender);
+    
+    /*** Crystal (blue) ***/
+    modelMatrix = vmml::create_translation(vmml::Vector3f(78.0f, -17.0f, 5.5f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
+    modelTransform = TransformPtr(new Transform(modelMatrix));
+    modelRender = RenderPtr(new Render(bRenderer(), "crystal", "crystal_blue", "camera", vmml::Vector3f(0.2f, 0.2f, 1.0f), std::vector<std::string>({ "torchLight", "firstLight" }), true, false, true));
+    
+    world.createRenderModel(modelTransform, modelRender);
+    
+    /*** Crystal (green) ***/
+    modelMatrix = vmml::create_translation(vmml::Vector3f(148.0f, -17.0f, 15.0f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
+    modelTransform = TransformPtr(new Transform(modelMatrix));
+    modelRender = RenderPtr(new Render(bRenderer(), "crystal", "crystal_green", "camera", vmml::Vector3f(0.2f, 0.7f, 0.2f), std::vector<std::string>({ "torchLight", "secondLight" }), true, false, true));
+    
+    world.createRenderModel(modelTransform, modelRender);
+    
+    /*** Crystal (red) ***/
+    modelMatrix = vmml::create_translation(vmml::Vector3f(218.0f, -17.0f, 4.0f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
+    modelTransform = TransformPtr(new Transform(modelMatrix));
+    modelRender = RenderPtr(new Render(bRenderer(), "crystal", "crystal_red", "camera", vmml::Vector3f(0.8f, 0.2f, 0.2f), std::vector<std::string>({ "torchLight", "thirdLight" }), true, false, true));
+    
+    world.createRenderModel(modelTransform, modelRender);
+    
+    world.addSystem<StreamSystem>();
     world.addSystem<RenderSystem>();
 
 	// Update render queue
@@ -215,52 +253,7 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
     world.applySystems();
 	
 	// translate and scale 
-	vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 0.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(4.0f));
-	// submit to render queue
-	bRenderer().getModelRenderer()->queueModelInstance("Chamber02", "Chamber02_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true);
-
-	/*** Cave stream ***/
-	bRenderer().getObjects()->getProperties("streamProperties")->setScalar("offset", _offset);		// pass offset for wave effect
-	// submit to render queue
-	bRenderer().getModelRenderer()->queueModelInstance("cave_stream", "cave_stream_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f);
-
-	/*** boulder ***/
-	// translate and scale
-	modelMatrix = vmml::create_translation(vmml::Vector3f(-70.0f, 50.0f, 280.0f)) * vmml::create_scaling(vmml::Vector3f(1.0f));
-	// submit to render queue
-	bRenderer().getModelRenderer()->queueModelInstance("boulder01", "boulder01_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true);
-
-
-	/*** Y_Tube ***/
-	// translate and scale
-	modelMatrix = vmml::create_translation(vmml::Vector3f(-75.0f, 35.0, 260.0)) * vmml::create_scaling(vmml::Vector3f(3.0f)) * vmml::create_rotation(3.14f, vmml::Vector3f::UNIT_Y);
-	// submit to render queue
-	bRenderer().getModelRenderer()->queueModelInstance("L_Curve", "L_Curve_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true);
-
-
-
-	/*** Crystal (blue) ***/
-	// translate and scale
-	modelMatrix = vmml::create_translation(vmml::Vector3f(78.0f, -17.0f, 5.5f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
-	// submit to render queue
-	bRenderer().getObjects()->setAmbientColor(vmml::Vector3f(0.2f, 0.2f, 1.0f));
-	bRenderer().getModelRenderer()->queueModelInstance("crystal", "crystal_blue", camera, modelMatrix, std::vector<std::string>({ "torchLight", "firstLight" }), true, false, true);
-
-	/*** Crystal (green) ***/
-	// translate and scale 
-	modelMatrix = vmml::create_translation(vmml::Vector3f(148.0f, -17.0f, 15.0f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
-	// submit to render queue
-	bRenderer().getObjects()->setAmbientColor(vmml::Vector3f(0.2f, 0.7f, 0.2f));
-	bRenderer().getModelRenderer()->queueModelInstance("crystal", "crystal_green", camera, modelMatrix, std::vector<std::string>({ "torchLight", "secondLight" }), true, false, true);
-
-	/*** Crystal (red) ***/
-	// translate and scale 
-	modelMatrix = vmml::create_translation(vmml::Vector3f(218.0f, -17.0f, 4.0f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
-	// submit to render queue
-	bRenderer().getObjects()->setAmbientColor(vmml::Vector3f(0.8f, 0.2f, 0.2f));
-	bRenderer().getModelRenderer()->queueModelInstance("crystal", "crystal_red", camera, modelMatrix, std::vector<std::string>({ "torchLight", "thirdLight" }), true, false, true);
-	bRenderer().getObjects()->setAmbientColor(bRenderer::DEFAULT_AMBIENT_COLOR());
-
+	
 
 	/////*** Torch ***/
 	//// Position the torch relative to the camera

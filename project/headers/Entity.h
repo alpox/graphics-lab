@@ -14,8 +14,8 @@
 class Entity {
 public:
     Entity(int id): id(id) {}
-    void addComponent(Component* component) {
-        components.insert(std::make_pair((*component).type, std::shared_ptr<Component>(component)));
+    void addComponent(ComponentPtr component) {
+        components.insert(std::make_pair((*component).type, component));
         mask |= (*component).type;
     }
     

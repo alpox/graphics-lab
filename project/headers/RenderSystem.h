@@ -23,7 +23,7 @@ protected:
         auto renderer = entity.getComponent<Render>(COMPONENT_RENDERER);
         auto transform = entity.getComponent<Transform>(COMPONENT_TRANSFORM);
         
-        //renderer->bRenderer.getObjects()->setAmbientColor(renderer->ambientColor);
+        renderer->bRenderer.getObjects()->setAmbientColor(renderer->ambientColor);
         renderer->bRenderer.getModelRenderer()->queueModelInstance(renderer->modelName, renderer->instanceName,
                                                 renderer->camera, transform->modelMatrix, renderer->lightNames,
                                                 renderer->doFrustrumCulling, renderer->cullIndividualGeometry,

@@ -20,4 +20,6 @@ public:
     vmml::Matrix4f modelMatrix;
 };
 
+typedef std::shared_ptr<Transform> TransformPtr;
+
 #endif /* Position_h */

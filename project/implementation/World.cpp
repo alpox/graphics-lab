@@ -13,6 +13,15 @@ Entity& World::createEntity() {
     return entities.back();
 }
 
+Entity& World::createRenderModel(TransformPtr transform, RenderPtr render) {
+    Entity& entity = createEntity();
+    
+    entity.addComponent(transform);
+    entity.addComponent(render);
+    
+    return entity;
+}
+
 void World::removeEntity(int id) {
     std::remove_if(entities.begin(), entities.end(), [id](const Entity& entity) {
         return entity.getId() == id;

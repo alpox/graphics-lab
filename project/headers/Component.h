@@ -20,6 +20,7 @@ typedef unsigned short COMPONENT_MASK;
 const COMPONENT_MASK COMPONENT_NONE = 1;
 const COMPONENT_MASK COMPONENT_TRANSFORM = 1 << 1;
 const COMPONENT_MASK COMPONENT_RENDERER = 1 << 2;
+const COMPONENT_MASK COMPONENT_STREAM = 1 << 3;
 
 class Component {
 public:
@@ -27,5 +28,7 @@ public:
     
     COMPONENT_MASK type;
 };
+
+typedef std::shared_ptr<Component> ComponentPtr;
 
 #endif /* Component_hpp */
