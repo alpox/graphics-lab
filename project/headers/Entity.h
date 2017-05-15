@@ -28,11 +28,11 @@ public:
     
     int getId() const { return id; }
 private:
-    using ComponentMap = std::map<COMPONENT_MASK, std::shared_ptr<Component>>;
+    using ComponentMap = std::map<COMPONENT_MASK, ComponentPtr>;
     int id;
     
     ComponentMap components;
-    COMPONENT_MASK mask;
+    COMPONENT_MASK mask = 0;
 };
 
 #endif /* Entity_hpp */
