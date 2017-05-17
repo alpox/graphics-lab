@@ -28,8 +28,21 @@
 		6432ED421EC99F1D001E2316 /* L_Curve.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED381EC99F1D001E2316 /* L_Curve.obj */; };
 		6432ED431EC99F1D001E2316 /* Y_Tube.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED391EC99F1D001E2316 /* Y_Tube.mtl */; };
 		6432ED441EC99F1D001E2316 /* Y_Tube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED3A1EC99F1D001E2316 /* Y_Tube.obj */; };
-		6432ED481EC9DC2B001E2316 /* test1.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED471EC9DC2A001E2316 /* test1.mtl */; };
 		6432ED4A1EC9DC31001E2316 /* test1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED491EC9DC31001E2316 /* test1.obj */; };
+		6432ED571EC9F8DF001E2316 /* 3td_Stalag_01_NRM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED531EC9F8DF001E2316 /* 3td_Stalag_01_NRM.png */; };
+		6432ED581EC9F8DF001E2316 /* 3td_StalagTex_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED541EC9F8DF001E2316 /* 3td_StalagTex_01.jpg */; };
+		6432ED591EC9F8DF001E2316 /* stalagmite.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED551EC9F8DF001E2316 /* stalagmite.mtl */; };
+		6432ED5A1EC9F8DF001E2316 /* test1.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED561EC9F8DF001E2316 /* test1.mtl */; };
+		6432ED5C1EC9FBD1001E2316 /* stalagmite.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6432ED5B1EC9FBD1001E2316 /* stalagmite.obj */; };
+		644F240E1ECC8E7B000CB84A /* test2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 644F240D1ECC8E7B000CB84A /* test2.obj */; };
+		644F24121ECC8EA7000CB84A /* 3td_Vino_04_NRM.png in Resources */ = {isa = PBXBuildFile; fileRef = 644F240F1ECC8EA7000CB84A /* 3td_Vino_04_NRM.png */; };
+		644F24131ECC8EA7000CB84A /* 3td_Vino_04_SPEC.png in Resources */ = {isa = PBXBuildFile; fileRef = 644F24101ECC8EA7000CB84A /* 3td_Vino_04_SPEC.png */; };
+		644F24141ECC8EA7000CB84A /* 3td_Vino_04.png in Resources */ = {isa = PBXBuildFile; fileRef = 644F24111ECC8EA7000CB84A /* 3td_Vino_04.png */; };
+		644F24161ECC9CBB000CB84A /* test2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 644F24151ECC9CBB000CB84A /* test2.mtl */; };
+		644F24181ECCA46D000CB84A /* sceneShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 644F24171ECCA46D000CB84A /* sceneShader.frag */; };
+		644F241A1ECCA4B8000CB84A /* sceneShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 644F24191ECCA4B8000CB84A /* sceneShader.vert */; };
+		644F241C1ECCB1E5000CB84A /* test21.obj in Resources */ = {isa = PBXBuildFile; fileRef = 644F241B1ECCB1E5000CB84A /* test21.obj */; };
+		644F241E1ECCB1EE000CB84A /* test21.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 644F241D1ECCB1EE000CB84A /* test21.mtl */; };
 		B44186971BA331E300604D7F /* RenderProject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B44186961BA331E300604D7F /* RenderProject.cpp */; };
 		B47949A21BA6742B00B5E9DC /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B47949851BA6742B00B5E9DC /* arial.ttf */; };
 		B47949A31BA6742B00B5E9DC /* basicTitle_light.png in Resources */ = {isa = PBXBuildFile; fileRef = B47949861BA6742B00B5E9DC /* basicTitle_light.png */; };
@@ -189,8 +202,21 @@
 		6432ED3A1EC99F1D001E2316 /* Y_Tube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Y_Tube.obj; sourceTree = "<group>"; };
 		6432ED451EC9A536001E2316 /* Stream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stream.h; sourceTree = "<group>"; };
 		6432ED461EC9A581001E2316 /* StreamSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StreamSystem.h; sourceTree = "<group>"; };
-		6432ED471EC9DC2A001E2316 /* test1.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test1.mtl; path = ../../../../../../../Downloads/test1.mtl; sourceTree = "<group>"; };
 		6432ED491EC9DC31001E2316 /* test1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = test1.obj; path = ../../../../../../../Downloads/test1.obj; sourceTree = "<group>"; };
+		6432ED531EC9F8DF001E2316 /* 3td_Stalag_01_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Stalag_01_NRM.png; sourceTree = "<group>"; };
+		6432ED541EC9F8DF001E2316 /* 3td_StalagTex_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3td_StalagTex_01.jpg; sourceTree = "<group>"; };
+		6432ED551EC9F8DF001E2316 /* stalagmite.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stalagmite.mtl; sourceTree = "<group>"; };
+		6432ED561EC9F8DF001E2316 /* test1.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test1.mtl; sourceTree = "<group>"; };
+		6432ED5B1EC9FBD1001E2316 /* stalagmite.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stalagmite.obj; sourceTree = "<group>"; };
+		644F240D1ECC8E7B000CB84A /* test2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.obj; sourceTree = "<group>"; };
+		644F240F1ECC8EA7000CB84A /* 3td_Vino_04_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Vino_04_NRM.png; sourceTree = "<group>"; };
+		644F24101ECC8EA7000CB84A /* 3td_Vino_04_SPEC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Vino_04_SPEC.png; sourceTree = "<group>"; };
+		644F24111ECC8EA7000CB84A /* 3td_Vino_04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Vino_04.png; sourceTree = "<group>"; };
+		644F24151ECC9CBB000CB84A /* test2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.mtl; sourceTree = "<group>"; };
+		644F24171ECCA46D000CB84A /* sceneShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sceneShader.frag; sourceTree = "<group>"; };
+		644F24191ECCA4B8000CB84A /* sceneShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sceneShader.vert; sourceTree = "<group>"; };
+		644F241B1ECCB1E5000CB84A /* test21.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test21.obj; sourceTree = "<group>"; };
+		644F241D1ECCB1EE000CB84A /* test21.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test21.mtl; sourceTree = "<group>"; };
 		B44186941BA331E300604D7F /* RenderProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderProject.h; sourceTree = "<group>"; };
 		B44186961BA331E300604D7F /* RenderProject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderProject.cpp; sourceTree = "<group>"; };
 		B47949851BA6742B00B5E9DC /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
@@ -466,8 +492,14 @@
 		B47949841BA6742B00B5E9DC /* data */ = {
 			isa = PBXGroup;
 			children = (
+				644F241D1ECCB1EE000CB84A /* test21.mtl */,
+				644F241B1ECCB1E5000CB84A /* test21.obj */,
+				6432ED531EC9F8DF001E2316 /* 3td_Stalag_01_NRM.png */,
+				6432ED541EC9F8DF001E2316 /* 3td_StalagTex_01.jpg */,
+				6432ED551EC9F8DF001E2316 /* stalagmite.mtl */,
+				6432ED5B1EC9FBD1001E2316 /* stalagmite.obj */,
+				6432ED561EC9F8DF001E2316 /* test1.mtl */,
 				6432ED491EC9DC31001E2316 /* test1.obj */,
-				6432ED471EC9DC2A001E2316 /* test1.mtl */,
 				6432ED311EC99F1D001E2316 /* 3td_LayerRock_001_NRM.png */,
 				6432ED321EC99F1D001E2316 /* 3td_LayerRock_001.png */,
 				6432ED331EC99F1D001E2316 /* boulder01.mtl */,
@@ -513,6 +545,13 @@
 				B479499F1BA6742B00B5E9DC /* torch.mtl */,
 				B47949A01BA6742B00B5E9DC /* torch.obj */,
 				B47949A11BA6742B00B5E9DC /* torchSurface_Color.png */,
+				644F240F1ECC8EA7000CB84A /* 3td_Vino_04_NRM.png */,
+				644F24101ECC8EA7000CB84A /* 3td_Vino_04_SPEC.png */,
+				644F24111ECC8EA7000CB84A /* 3td_Vino_04.png */,
+				644F240D1ECC8E7B000CB84A /* test2.obj */,
+				644F24151ECC9CBB000CB84A /* test2.mtl */,
+				644F24171ECCA46D000CB84A /* sceneShader.frag */,
+				644F24191ECCA4B8000CB84A /* sceneShader.vert */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -841,38 +880,51 @@
 				B47949AB1BA6742B00B5E9DC /* cave_stream.mtl in Resources */,
 				B47949B61BA6742B00B5E9DC /* flame.mtl in Resources */,
 				B47949AE1BA6742B00B5E9DC /* cave_stream_n.png in Resources */,
+				644F24131ECC8EA7000CB84A /* 3td_Vino_04_SPEC.png in Resources */,
 				B47949B51BA6742B00B5E9DC /* flame.frag in Resources */,
 				B47949AC1BA6742B00B5E9DC /* cave_stream.obj in Resources */,
 				642829B91EC8C10800DBD605 /* junction.obj in Resources */,
+				6432ED591EC9F8DF001E2316 /* stalagmite.mtl in Resources */,
+				6432ED571EC9F8DF001E2316 /* 3td_Stalag_01_NRM.png in Resources */,
 				642829B81EC8C10800DBD605 /* junction.mtl in Resources */,
 				642829B21EC8BF9600DBD605 /* 3td_Stone_24_NRM.png in Resources */,
 				B47949A61BA6742B00B5E9DC /* cave.mtl in Resources */,
+				644F24121ECC8EA7000CB84A /* 3td_Vino_04_NRM.png in Resources */,
 				B47949B21BA6742B00B5E9DC /* crystal_d.png in Resources */,
 				B47949A21BA6742B00B5E9DC /* arial.ttf in Resources */,
+				644F241C1ECCB1E5000CB84A /* test21.obj in Resources */,
 				642829B51EC8BF9600DBD605 /* L-Segment.obj in Resources */,
+				644F24181ECCA46D000CB84A /* sceneShader.frag in Resources */,
 				6432ED3E1EC99F1D001E2316 /* boulder01.obj in Resources */,
 				B47949B41BA6742B00B5E9DC /* crystal_s.png in Resources */,
 				6432ED3F1EC99F1D001E2316 /* Chamber02.mtl in Resources */,
+				644F24161ECC9CBB000CB84A /* test2.mtl in Resources */,
 				B47949B71BA6742B00B5E9DC /* flame.obj in Resources */,
-				6432ED481EC9DC2B001E2316 /* test1.mtl in Resources */,
 				B4794A2A1BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949A51BA6742B00B5E9DC /* blurShader.vert in Resources */,
 				B47949AA1BA6742B00B5E9DC /* cave_stream.frag in Resources */,
 				B47949AD1BA6742B00B5E9DC /* cave_stream.vert in Resources */,
+				644F241A1ECCA4B8000CB84A /* sceneShader.vert in Resources */,
 				B47949AF1BA6742B00B5E9DC /* config.json in Resources */,
 				6432ED401EC99F1D001E2316 /* Chamber02.obj in Resources */,
+				6432ED5C1EC9FBD1001E2316 /* stalagmite.obj in Resources */,
 				B47949BD1BA6742B00B5E9DC /* torch.obj in Resources */,
 				B47949A71BA6742B00B5E9DC /* cave.obj in Resources */,
+				644F241E1ECCB1EE000CB84A /* test21.mtl in Resources */,
 				6432ED4A1EC9DC31001E2316 /* test1.obj in Resources */,
 				B47949B81BA6742B00B5E9DC /* flame.png in Resources */,
+				6432ED5A1EC9F8DF001E2316 /* test1.mtl in Resources */,
 				642829B31EC8BF9600DBD605 /* 3td_Stone_24.jpg in Resources */,
 				B47949BE1BA6742B00B5E9DC /* torchSurface_Color.png in Resources */,
 				B47949B91BA6742B00B5E9DC /* flame.vert in Resources */,
+				644F24141ECC8EA7000CB84A /* 3td_Vino_04.png in Resources */,
+				644F240E1ECC8E7B000CB84A /* test2.obj in Resources */,
 				B47949A31BA6742B00B5E9DC /* basicTitle_light.png in Resources */,
 				6432ED3B1EC99F1D001E2316 /* 3td_LayerRock_001_NRM.png in Resources */,
 				B47949BC1BA6742B00B5E9DC /* torch.mtl in Resources */,
 				642829B41EC8BF9600DBD605 /* L-Segment.mtl in Resources */,
 				6432ED421EC99F1D001E2316 /* L_Curve.obj in Resources */,
+				6432ED581EC9F8DF001E2316 /* 3td_StalagTex_01.jpg in Resources */,
 				6432ED411EC99F1D001E2316 /* L_Curve.mtl in Resources */,
 				B47949A41BA6742B00B5E9DC /* blurShader.frag in Resources */,
 				B47949BB1BA6742B00B5E9DC /* sparks.png in Resources */,

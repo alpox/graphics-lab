@@ -270,7 +270,8 @@ void OBJLoader::material_name_callback(const std::string& material_name)
 	bRenderer::log("usemtl " + material_name);
 	MaterialData &material = _materials[material_name];
 
-	material.name = material_name;
+    material.name = material_name;
+    createGroup(material_name);
 	_group->materialData = material;
 }
 

@@ -35,7 +35,7 @@ void RenderProject::initFunction()
 	bRenderer().getObjects()->setShaderVersionES("#version 100");
 
 	// load materials and shaders before loading the model
-	ShaderPtr customShader = bRenderer().getObjects()->generateShader("customShader", { 2, true, true, true, true, true, true, true, true, true, false, false, false });	// automatically generates a shader with a maximum of 2 lights
+	ShaderPtr customShader = bRenderer().getObjects()->generateShader("customShader", { 5, true, true, true, true, true, true, true, true, true, false, false, false });	// automatically generates a shader with a maximum of 2 lights
 	//ShaderPtr flameShader = bRenderer().getObjects()->loadShaderFile("flame", 0, false, true, true, false, false);				// load shader from file without lighting, the number of lights won't ever change during rendering (no variable number of lights)
 	ShaderPtr flameShader = bRenderer().getObjects()->loadShaderFile_o("flame", 0, AMBIENT_LIGHTING);				// load shader from file without lighting, the number of lights won't ever change during rendering (no variable number of lights)
 	MaterialPtr flameMaterial = bRenderer().getObjects()->loadObjMaterial("flame.mtl", "flame", flameShader);				// load material from file using the shader created above
@@ -49,7 +49,7 @@ void RenderProject::initFunction()
 	bRenderer().getObjects()->loadObjModel_o("boulder01.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 	//bRenderer().getObjects()->loadObjModel("cave.obj", true, true, false, 4, true, false);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
 
-	bRenderer().getObjects()->loadObjModel_o("test1.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
+	bRenderer().getObjects()->loadObjModel_o("test2.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
 	bRenderer().getObjects()->loadObjModel_o("stalagmite.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 	
 	//bRenderer().getObjects()->loadObjModel("cave_stream.obj", true, true, true, 4, false, false, streamProperties);		// automatically loads shader files according to the name of the material
@@ -100,7 +100,7 @@ void RenderProject::initFunction()
     vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 0.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(4.0f));
     
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
-    RenderPtr modelRender = RenderPtr(new Render(bRenderer(), "test1", "test1_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
+    RenderPtr modelRender = RenderPtr(new Render(bRenderer(), "test2", "test1_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true, true));
     
     world.createRenderModel(modelTransform, modelRender);
     
