@@ -57,33 +57,44 @@ void main() {
     vec3 surfaceToCamera = normalize(surfaceToCameraTangentSpace);
     vec3 surfaceNormal = normalize(texture2D(NormalMap, texCoordVarying).xyz *2.0 - 1.0);
     float intensity = 0.0;
+    
     if (intensityBasedOnDist_0 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_0)), 0.0)) > 0.0){
         intensity = clamp(intensity, 0.0, 1.0);
         diffuse += vec4(lightDiffuseColor_0 * (intensity * intensityBasedOnDist_0), 0.0);
         specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_0), surfaceNormal))), Ns);
         specular += vec4(lightSpecularColor_0 * (specularCoefficient * intensity * intensityBasedOnDist_0), 0.0);
-    }if (intensityBasedOnDist_1 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_1)), 0.0)) > 0.0){
+    }
+    /*
+    if (intensityBasedOnDist_1 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_1)), 0.0)) > 0.0){
         intensity = clamp(intensity, 0.0, 1.0);
         diffuse += vec4(lightDiffuseColor_1 * (intensity * intensityBasedOnDist_1), 0.0);
         specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_1), surfaceNormal))), Ns);
         specular += vec4(lightSpecularColor_1 * (specularCoefficient * intensity * intensityBasedOnDist_1), 0.0);
-    }if (intensityBasedOnDist_2 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_2)), 0.0)) > 0.0){
+    }
+    
+    if (intensityBasedOnDist_2 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_2)), 0.0)) > 0.0){
         intensity = clamp(intensity, 0.0, 1.0);
         diffuse += vec4(lightDiffuseColor_2 * (intensity * intensityBasedOnDist_2), 0.0);
         specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_2), surfaceNormal))), Ns);
         specular += vec4(lightSpecularColor_2 * (specularCoefficient * intensity * intensityBasedOnDist_2), 0.0);
-    }if (intensityBasedOnDist_3 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_3)), 0.0)) > 0.0){
+    }
+    
+    if (intensityBasedOnDist_3 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_3)), 0.0)) > 0.0){
         intensity = clamp(intensity, 0.0, 1.0);
         diffuse += vec4(lightDiffuseColor_3 * (intensity * intensityBasedOnDist_3), 0.0);
         specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_3), surfaceNormal))), Ns);
         
         specular += vec4(lightSpecularColor_3 * (specularCoefficient * intensity * intensityBasedOnDist_3), 0.0);
-    }if (intensityBasedOnDist_4 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_4)), 0.0)) > 0.0){
+    }
+    
+    if (intensityBasedOnDist_4 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_4)), 0.0)) > 0.0){
         intensity = clamp(intensity, 0.0, 1.0);
         diffuse += vec4(lightDiffuseColor_4 * (intensity * intensityBasedOnDist_4), 0.0);
         specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_4), surfaceNormal))), Ns);
         specular += vec4(lightSpecularColor_4 * (specularCoefficient * intensity * intensityBasedOnDist_4), 0.0);
-    }diffuse = diffuse * vec4(Kd,1.0) * texture2D(DiffuseMap, texCoordVarying);
+    }*/
+    
+    diffuse = diffuse * vec4(Kd,1.0) * texture2D(DiffuseMap, texCoordVarying);
     specular = specular  * vec4(Ks, 0.0) * texture2D(SpecularMap, texCoordVarying);
     gl_FragColor = clamp(ambient+diffuse+specular, 0.0, 1.0);
 }

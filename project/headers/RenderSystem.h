@@ -23,6 +23,14 @@ protected:
         auto renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
         auto transform = entity->getComponent<Transform>(COMPONENT_TRANSFORM);
         
+        ShaderPtr shader = entity->shader();
+        
+        if(shader != nullptr) {
+            vmml::Matrix3f normalMatrix;
+            vmml::compute_inverse(vmml::transpose(vmml::Matrix3f(transform->modelMatrix)), normalMatrix);
+            shader->setUniform("NormalMatrix", normalMatrix);
+        }
+        
         entity->renderer().getObjects()->setAmbientColor(renderer->ambientColor);
         entity->renderer().getModelRenderer()->queueModelInstance(entity->modelName(), entity->instanceName(),
                                                 renderer->camera, transform->modelMatrix, renderer->lightNames,

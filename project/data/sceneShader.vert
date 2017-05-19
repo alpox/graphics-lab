@@ -66,7 +66,7 @@ void main() {
     if (lightDistance <= lightRadius_0) {
         intensityBasedOnDist_0 = clamp(lightIntensity_0 / (lightAttenuation_0*lightDistance*lightDistance), 0.0, 1.0);
     }
-    lightVectorTangentSpace_1 = TBN*(lightPositionViewSpace_1.xyz - posViewSpace.xyz);
+    /*lightVectorTangentSpace_1 = TBN*(lightPositionViewSpace_1.xyz - posViewSpace.xyz);
     lightDistance = distance(posViewSpace, lightPositionViewSpace_1);
     intensityBasedOnDist_1 = 0.0;
     if (lightDistance <= lightRadius_1) {
@@ -89,6 +89,6 @@ void main() {
     intensityBasedOnDist_4 = 0.0;
     if (lightDistance <= lightRadius_4) {
         intensityBasedOnDist_4 = clamp(lightIntensity_4 / (lightAttenuation_4*lightDistance*lightDistance), 0.0, 1.0);
-    }
+    }*/
     gl_Position = ProjectionMatrix*posViewSpace;
 }
