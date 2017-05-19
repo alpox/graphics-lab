@@ -34,6 +34,7 @@ public:
             renderer.getObjects()->loadObjModel_o(modelName + ".obj", shader, options, properties);
         
         _instanceName = _modelName + std::to_string(id);
+        _shader = shader;
     }
     
     Entity(int id, Renderer& renderer, std::string& modelName,
@@ -74,12 +75,17 @@ public:
     Renderer& renderer() const {
         return _renderer;
     }
+    
+    ShaderPtr shader() const {
+        return _shader;
+    }
 private:
     using ComponentMap = std::map<COMPONENT_MASK, ComponentPtr>;
     int _id;
     std::string _modelName;
     std::string _instanceName;
     Renderer& _renderer;
+    ShaderPtr _shader;
     
     ComponentMap components;
     COMPONENT_MASK mask = 0;

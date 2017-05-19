@@ -73,13 +73,13 @@ void RenderProject::initFunction()
 	bRenderer().getObjects()->createCamera("camera", vmml::Vector3f(-33.0, 0.f, -13.0), vmml::Vector3f(0.f, -M_PI_F / 2, 0.f));
 
 	// create lights
-	bRenderer().getObjects()->createLight("firstLight", vmml::Vector3f(0.0f, 50.0f, -120.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50000.0f);
+	//bRenderer().getObjects()->createLight("firstLight", vmml::Vector3f(0.0f, 50.0f, -120.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("firstLight", vmml::Vector3f(78.0f, -3.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 1.0f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.4f, 100.0f);
-	bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(-60.0f, 50.0f, 270.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50000.0f);
+	//bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(-60.0f, 50.0f, 270.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(148.0f, -3.0f, 15.0f), vmml::Vector3f(0.3f, 1.0f, 0.3f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-	bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(0.0f, 50.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50000.0f);
+	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(0.0f, 50.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(218.0f, -3.0f, 0.0f), vmml::Vector3f(0.8f, 0.2f, 0.2f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-	bRenderer().getObjects()->createLight("torchLight", -bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50000.0f);
+    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50000.0f);
 
 
 	// postprocessing
@@ -95,10 +95,10 @@ void RenderProject::initFunction()
     //           ***** Add all entities *****
     //---------------------------------------------------
     
-    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 0.0f, 0.0f)) * vmml::create_scaling(vmml::Vector3f(4.f));
+    vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(4.f));
     
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
-    RenderPtr modelRender = RenderPtr(new Render(std::vector<std::string>({ "torchLight" , "firstLight", "secondLight", "thirdLight"}), true, true, true));
+    RenderPtr modelRender = RenderPtr(new Render(std::vector<std::string>({ "torchLight" }), true, true, true));
     
     ShaderPtr sceneShader = bRenderer().getObjects()->loadShaderFile("sceneShader", 4, true, true, true, true, false);
     world.createRenderModel("test22", modelTransform, modelRender, sceneShader, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
@@ -230,8 +230,8 @@ void RenderProject::loopFunction(const double &deltaTime, const double &elapsedT
 		GLfloat flickeringLightPosY = -bRenderer().getObjects()->getCamera("camera")->getPosition().y();
 		GLfloat flickeringLightPosZ = -bRenderer().getObjects()->getCamera("camera")->getPosition().z();
 		// let the light flicker
-		flickeringLightPosX += 2*sin(flickeringLightPosY + 0.5f*_randomOffset);
-		flickeringLightPosY += 2*sin(flickeringLightPosX + 0.5f*_randomOffset);
+		/*flickeringLightPosX += 2*sin(flickeringLightPosY + 0.5f*_randomOffset);
+		flickeringLightPosY += 2*sin(flickeringLightPosX + 0.5f*_randomOffset);*/
 		bRenderer().getObjects()->getLight("torchLight")->setPosition(vmml::Vector3f(flickeringLightPosX, flickeringLightPosY, flickeringLightPosZ) - bRenderer().getObjects()->getCamera("camera")->getForward()*10.0f);
 	}
 	else{
