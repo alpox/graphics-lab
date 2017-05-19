@@ -24,15 +24,27 @@
 
 class World {
 public:
-    using EntityArray = std::vector<Entity>;
+    using EntityArray = std::vector<EntityPtr>;
     using SystemArray = std::vector<std::unique_ptr<System>>;
     
-    World() = default;
-    World(const World& world) = delete;
-    World(World&& world) = delete;
+    World(Renderer& renderer): renderer(renderer) {}
     
-    Entity& createEntity();
-    Entity& createRenderModel(TransformPtr transform, RenderPtr render);
+    template<typename... Args>
+    EntityPtr createEntity(Args&&...args) {
+        auto entity = EntityPtr(new Entity(idManager.next(), args...));
+        entities.push_back(entity);
+        return entities.back();
+    }
+    
+    template<typename ...Args>
+    EntityPtr createRenderModel(std::string modelName, TransformPtr transform, RenderPtr render, Args&&... args) {
+        EntityPtr entity = createEntity(renderer, modelName, args...);
+        
+        entity->addComponent(transform);
+        entity->addComponent(render);
+        
+        return entity;
+    }
     
     void removeEntity(int id);
     
@@ -47,6 +59,7 @@ public:
     
     void applySystems();
 private:
+    Renderer& renderer;
     
     EntityArray entities;
     SystemArray systems;

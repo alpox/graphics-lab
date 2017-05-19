@@ -45,20 +45,18 @@ void RenderProject::initFunction()
 	PropertiesPtr streamProperties = bRenderer().getObjects()->createProperties("streamProperties");
 
 	// load models
-	bRenderer().getObjects()->loadObjModel_o("L_Curve.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
-	bRenderer().getObjects()->loadObjModel_o("boulder01.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+	//bRenderer().getObjects()->loadObjModel_o("L_Curve.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+	//bRenderer().getObjects()->loadObjModel_o("boulder01.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 	//bRenderer().getObjects()->loadObjModel("cave.obj", true, true, false, 4, true, false);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
-
-	bRenderer().getObjects()->loadObjModel_o("test2.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
-	bRenderer().getObjects()->loadObjModel_o("stalagmite.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+							// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
+	//bRenderer().getObjects()->loadObjModel_o("stalagmite.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 	
 	//bRenderer().getObjects()->loadObjModel("cave_stream.obj", true, true, true, 4, false, false, streamProperties);		// automatically loads shader files according to the name of the material
-	bRenderer().getObjects()->loadObjModel_o("cave_stream.obj", 4, FLIP_T | FLIP_Z | SHADER_FROM_FILE, streamProperties);		// automatically loads shader files according to the name of the material
+	//bRenderer().getObjects()->loadObjModel_o("cave_stream.obj", 4, FLIP_T | FLIP_Z | SHADER_FROM_FILE, streamProperties);		// automatically loads shader files according to the name of the material
 	//bRenderer().getObjects()->loadObjModel("crystal.obj", false, true, customShader);									// the custom shader created above is used
-	bRenderer().getObjects()->loadObjModel_o("crystal.obj", customShader, FLIP_Z);									// the custom shader created above is used
+	//bRenderer().getObjects()->loadObjModel_o("crystal.obj", customShader, FLIP_Z);									// the custom shader created above is used
 	//bRenderer().getObjects()->loadObjModel("torch.obj", false, true, false, 1, false, true);							// create custom shader with a maximum of 1 light
 	//bRenderer().getObjects()->loadObjModel_o("torch.obj", 1, FLIP_Z | AMBIENT_LIGHTING);							// create custom shader with a maximum of 1 light
-
 	// create sprites
 	bRenderer().getObjects()->createSprite_o("flame", flameMaterial, NO_OPTION, flameProperties);				// create a sprite using the material created above, to pass additional properties a Properties object is used
 	bRenderer().getObjects()->createSprite("sparks", "sparks.png");										// create a sprite displaying sparks as a texture
@@ -97,32 +95,33 @@ void RenderProject::initFunction()
     //           ***** Add all entities *****
     //---------------------------------------------------
     
-    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 0.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(4.0f));
+    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 0.0f, 0.0f)) * vmml::create_scaling(vmml::Vector3f(4.f));
     
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
-    RenderPtr modelRender = RenderPtr(new Render(bRenderer(), "test2", "test1_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true, true));
+    RenderPtr modelRender = RenderPtr(new Render(std::vector<std::string>({ "torchLight" , "firstLight", "secondLight", "thirdLight"}), true, true, true));
     
-    world.createRenderModel(modelTransform, modelRender);
+    ShaderPtr sceneShader = bRenderer().getObjects()->loadShaderFile("sceneShader", 4, true, true, true, true, false);
+    world.createRenderModel("test2", modelTransform, modelRender, sceneShader, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
     
     /*** Cave stream ***/
-    modelRender = RenderPtr(new Render(bRenderer(), "cave_stream", "cave_stream_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f));
+    /*modelRender = RenderPtr(new Render(bRenderer(), "cave_stream", "cave_stream_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f));
     
     Entity& entity = world.createRenderModel(modelTransform, modelRender);
-    entity.addComponent(StreamPtr(new Stream(_offset)));
+    entity.addComponent(StreamPtr(new Stream(_offset)));*/
     
     /*** boulder ***/
-    modelMatrix = vmml::create_translation(vmml::Vector3f(-70.0f, 50.0f, 280.0f)) * vmml::create_scaling(vmml::Vector3f(1.0f));
+    /*modelMatrix = vmml::create_translation(vmml::Vector3f(-70.0f, 50.0f, 280.0f)) * vmml::create_scaling(vmml::Vector3f(1.0f));
     modelTransform = TransformPtr(new Transform(modelMatrix));
     modelRender = RenderPtr(new Render(bRenderer(), "boulder01", "boulder01_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
     
-    world.createRenderModel(modelTransform, modelRender);
+    world.createRenderModel(modelTransform, modelRender);*/
 
 	/*** stalagmite ***/
-	modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 5.0f, 0.0f)) * vmml::create_scaling(vmml::Vector3f(9.0f));
+	/*modelMatrix = vmml::create_translation(vmml::Vector3f(0.0f, 5.0f, 0.0f)) * vmml::create_scaling(vmml::Vector3f(9.0f));
 	modelTransform = TransformPtr(new Transform(modelMatrix));
 	modelRender = RenderPtr(new Render(bRenderer(), "stalagmite", "stalagmite_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true));
 
-	world.createRenderModel(modelTransform, modelRender);
+	world.createRenderModel(modelTransform, modelRender);*/
     
     ///*** Y_Tube ***/
     //modelMatrix = vmml::create_translation(vmml::Vector3f(-75.0f, 35.0, 260.0)) * vmml::create_scaling(vmml::Vector3f(3.0f)) * vmml::create_rotation(3.14f, vmml::Vector3f::UNIT_Y);
@@ -132,25 +131,26 @@ void RenderProject::initFunction()
     //world.createRenderModel(modelTransform, modelRender);
     
     /*** Crystal (blue) ***/
-    modelMatrix = vmml::create_translation(vmml::Vector3f(78.0f, -17.0f, 5.5f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
+    /*modelMatrix = vmml::create_translation(vmml::Vector3f(78.0f, -17.0f, 5.5f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
     modelTransform = TransformPtr(new Transform(modelMatrix));
     modelRender = RenderPtr(new Render(bRenderer(), "crystal", "crystal_blue", "camera", vmml::Vector3f(0.2f, 0.2f, 1.0f), std::vector<std::string>({ "torchLight", "firstLight" }), true, false, true));
     
-    world.createRenderModel(modelTransform, modelRender);
+    world.createRenderModel(modelTransform, modelRender);*/
     
     /*** Crystal (green) ***/
-    modelMatrix = vmml::create_translation(vmml::Vector3f(148.0f, -17.0f, 15.0f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
+    /*modelMatrix = vmml::create_translation(vmml::Vector3f(148.0f, -17.0f, 15.0f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
     modelTransform = TransformPtr(new Transform(modelMatrix));
     modelRender = RenderPtr(new Render(bRenderer(), "crystal", "crystal_green", "camera", vmml::Vector3f(0.2f, 0.7f, 0.2f), std::vector<std::string>({ "torchLight", "secondLight" }), true, false, true));
     
-    world.createRenderModel(modelTransform, modelRender);
+    world.createRenderModel(modelTransform, modelRender);*/
     
     /*** Crystal (red) ***/
-    modelMatrix = vmml::create_translation(vmml::Vector3f(218.0f, -17.0f, 4.0f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
+    /*modelMatrix = vmml::create_translation(vmml::Vector3f(218.0f, -17.0f, 4.0f)) * vmml::create_scaling(vmml::Vector3f(0.1f));
     modelTransform = TransformPtr(new Transform(modelMatrix));
     modelRender = RenderPtr(new Render(bRenderer(), "crystal", "crystal_red", "camera", vmml::Vector3f(0.8f, 0.2f, 0.2f), std::vector<std::string>({ "torchLight", "thirdLight" }), true, false, true));
+
     
-    world.createRenderModel(modelTransform, modelRender);
+    world.createRenderModel(modelTransform, modelRender);    */
     
     world.addSystem<StreamSystem>();
     world.addSystem<RenderSystem>();
@@ -259,7 +259,10 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
     
 	/*** Cave ***/
     world.applySystems();
-	
+     // translate and scale
+     //vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(30.f, -24.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(0.3f));
+     // submit to render queue
+     //bRenderer().getModelRenderer()->queueModelInstance("test2", "cave_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true, true);
 	// translate and scale 
 	
 

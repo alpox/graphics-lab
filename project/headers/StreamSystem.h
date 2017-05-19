@@ -16,11 +16,11 @@ public:
     }
     
 protected:
-    void apply(Entity& entity) const {
-        auto renderer = entity.getComponent<Render>(COMPONENT_RENDERER);
-        auto stream = entity.getComponent<Stream>(COMPONENT_STREAM);
+    void apply(EntityPtr entity) const {
+        auto renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
+        auto stream = entity->getComponent<Stream>(COMPONENT_STREAM);
         
-        renderer->bRenderer.getObjects()->getProperties("streamProperties")->setScalar("offset", stream->offset);
+        entity->renderer().getObjects()->getProperties("streamProperties")->setScalar("offset", stream->offset);
     }
 };
 

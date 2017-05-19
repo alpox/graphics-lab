@@ -19,16 +19,17 @@ public:
     }
     
 protected:
-    void apply(Entity& entity) const {
-        auto renderer = entity.getComponent<Render>(COMPONENT_RENDERER);
-        auto transform = entity.getComponent<Transform>(COMPONENT_TRANSFORM);
+    void apply(EntityPtr entity) const {
+        auto renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
+        auto transform = entity->getComponent<Transform>(COMPONENT_TRANSFORM);
         
-        renderer->bRenderer.getObjects()->setAmbientColor(renderer->ambientColor);
-        renderer->bRenderer.getModelRenderer()->queueModelInstance(renderer->modelName, renderer->instanceName,
+        entity->renderer().getObjects()->setAmbientColor(renderer->ambientColor);
+        entity->renderer().getModelRenderer()->queueModelInstance(entity->modelName(), entity->instanceName(),
                                                 renderer->camera, transform->modelMatrix, renderer->lightNames,
                                                 renderer->doFrustrumCulling, renderer->cullIndividualGeometry,
                                                 renderer->isTransparent, renderer->blendSfactor,
                                                 renderer->blendDfactor, renderer->customDistance);
+        entity->renderer().getObjects()->setAmbientColor(bRenderer::DEFAULT_AMBIENT_COLOR());
     }
 };
 

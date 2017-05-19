@@ -9,28 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bRenderer/os_specific/ios/BView.mm"
-            timestampString = "514820985.800775"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
-            landmarkName = "-touchesCancelled:withEvent:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "516728793.194633"
+            timestampString = "516813721.788111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "288"
-            endingLineNumber = "288"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "RenderProject::updateRenderQueue(const std::string &amp;camera, const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -63,7 +47,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
             endingLineNumber = "17"
-            landmarkName = "System::apply(std::vector&lt;Entity&gt; entities)"
+            landmarkName = "System::apply(std::vector&lt;EntityPtr&gt; entities)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -79,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "System::apply(std::vector&lt;Entity&gt; entities)"
+            landmarkName = "System::apply(std::vector&lt;EntityPtr&gt; entities)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "516532399.74639"
+            timestampString = "516809419.16095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "World::applySystems()"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "516728793.194633"
+            timestampString = "516813721.788111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "289"
-            endingLineNumber = "289"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "RenderProject::updateRenderQueue(const std::string &amp;camera, const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -266,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "516728793.194633"
+            timestampString = "516813404.235426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "RenderProject::initFunction()"
             landmarkType = "7">
          </BreakpointContent>
@@ -487,12 +471,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Render.h"
-            timestampString = "516532399.74639"
+            timestampString = "516809654.648373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "Render(Renderer&amp; renderer, std::string modelName, std::string instanceName, std::string camera, vmml::Vector3f&amp;&amp; ambientColor, std::vector&lt;std::string&gt;&amp;&amp; lightNames, bool doFrustrumCulling = true, bool cullIndividualGeometry = false, bool isTransparent = false, GLenum blendSfactor = GL_SRC_ALPHA, GLenum blendDfactor = GL_ONE_MINUS_SRC_ALPHA, GLfloat customDistance = 10000.0f)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "Render( vmml::Vector3f&amp;&amp; ambientColor, std::vector&lt;std::string&gt;&amp;&amp; lightNames, bool doFrustrumCulling = true, bool cullIndividualGeometry = false, bool isTransparent = false, GLenum blendSfactor = GL_SRC_ALPHA, GLenum blendDfactor = GL_ONE_MINUS_SRC_ALPHA, GLfloat customDistance = 10000.0f)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -503,12 +487,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/RenderSystem.h"
-            timestampString = "516489112.481349"
+            timestampString = "516801119.552439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "apply(Entity&amp; entity)"
+            landmarkName = "apply(EntityPtr entity)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -519,11 +503,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "516491845.81958"
+            timestampString = "516809419.16095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "addComponent(ComponentPtr component)"
             landmarkType = "7">
          </BreakpointContent>
@@ -535,12 +519,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Render.h"
-            timestampString = "516532399.74639"
+            timestampString = "516809654.648373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "Render(Renderer&amp; renderer, std::string modelName, std::string instanceName, std::string camera, vmml::Vector3f&amp;&amp; ambientColor, std::vector&lt;std::string&gt;&amp;&amp; lightNames, bool doFrustrumCulling = true, bool cullIndividualGeometry = false, bool isTransparent = false, GLenum blendSfactor = GL_SRC_ALPHA, GLenum blendDfactor = GL_ONE_MINUS_SRC_ALPHA, GLfloat customDistance = 10000.0f)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "Render( vmml::Vector3f&amp;&amp; ambientColor, std::vector&lt;std::string&gt;&amp;&amp; lightNames, bool doFrustrumCulling = true, bool cullIndividualGeometry = false, bool isTransparent = false, GLenum blendSfactor = GL_SRC_ALPHA, GLenum blendDfactor = GL_ONE_MINUS_SRC_ALPHA, GLfloat customDistance = 10000.0f)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -556,7 +540,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "24"
             endingLineNumber = "24"
-            landmarkName = "apply(Entity&amp; entity)"
+            landmarkName = "apply(EntityPtr entity)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -567,11 +551,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "516491845.81958"
+            timestampString = "516809419.16095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "getComponent(COMPONENT_MASK maskType)"
             landmarkType = "7">
             <Locations>
@@ -620,7 +604,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "apply(Entity&amp; entity)"
+            landmarkName = "apply(EntityPtr entity)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -631,12 +615,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/RenderSystem.h"
-            timestampString = "516492917.283618"
+            timestampString = "516801119.552439"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "apply(Entity&amp; entity)"
+            landmarkName = "apply(EntityPtr entity)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -652,7 +636,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "apply(Entity&amp; entity)"
+            landmarkName = "apply(EntityPtr entity)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -668,7 +652,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "16"
             endingLineNumber = "16"
-            landmarkName = "System::apply(std::vector&lt;Entity&gt; entities)"
+            landmarkName = "System::apply(std::vector&lt;EntityPtr&gt; entities)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -695,11 +679,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "516532665.304055"
+            timestampString = "516809419.16095"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "addComponent(ComponentPtr component)"
             landmarkType = "7">
          </BreakpointContent>
@@ -716,7 +700,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "apply(Entity&amp; entity)"
+            landmarkName = "apply(EntityPtr entity)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -732,7 +716,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "apply(Entity&amp; entity)"
+            landmarkName = "apply(EntityPtr entity)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -941,6 +925,166 @@
             startingLineNumber = "359"
             endingLineNumber = "359"
             landmarkName = "OBJLoader::load(std::istream&amp; istream)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/RenderSystem.h"
+            timestampString = "516801370.595205"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "apply(EntityPtr entity)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/Entity.h"
+            timestampString = "516809419.16095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "Entity(int id, Renderer&amp; renderer, std::string&amp; modelName, GLuint shaderMaxLights = bRenderer::DEFAULT_SHADER_MAX_LIGHTS(), OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/World.h"
+            timestampString = "516809191.067097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "createEntity(Args&amp;&amp;...args)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/Entity.h"
+            timestampString = "516811219.55856"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "Entity(int id, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/Entity.h"
+            timestampString = "516811221.645531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "Entity(int id, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/Entity.h"
+            timestampString = "516811222.27097"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "Entity(int id, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/RenderProject.cpp"
+            timestampString = "516813721.788111"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "RenderProject::initFunction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bRenderer/headers/ObjectManager.h"
+            timestampString = "516811694.060176"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "loadObjModel_o(const std::string &amp;fileName, ShaderPtr shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bRenderer/implementation/ModelRenderer.cpp"
+            timestampString = "516823335.388699"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "ModelRenderer::queueModelInstance(ModelPtr model, const std::string &amp;instanceName, const vmml::Matrix4f &amp;modelMatrix, const vmml::Matrix4f &amp;viewMatrix, const vmml::Matrix4f &amp;projectionMatrix, const std::vector&lt;std::string&gt; &amp;lightNames, bool doFrustumCulling, bool cullIndividualGeometry, bool isTransparent, GLenum blendSfactor, GLenum blendDfactor, GLfloat customDistance)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bRenderer/implementation/ModelRenderer.cpp"
+            timestampString = "516823823.34122"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "ModelRenderer::queueModelInstance(ModelPtr model, const std::string &amp;instanceName, const vmml::Matrix4f &amp;modelMatrix, const vmml::Matrix4f &amp;viewMatrix, const vmml::Matrix4f &amp;projectionMatrix, const std::vector&lt;std::string&gt; &amp;lightNames, bool doFrustumCulling, bool cullIndividualGeometry, bool isTransparent, GLenum blendSfactor, GLenum blendDfactor, GLfloat customDistance)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

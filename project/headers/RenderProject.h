@@ -8,7 +8,7 @@ class RenderProject : public IRenderProject
 {
 public:
 	/* Constructor and Destructor */
-	RenderProject() : IRenderProject(){}
+	RenderProject() : IRenderProject(), world(World(bRenderer())) {}
     virtual ~RenderProject(){bRenderer::log("RenderProject deleted");}
 
     /* Initialize the Project */

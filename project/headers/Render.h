@@ -13,34 +13,30 @@
 
 class Render: public Component {
 public:
-    Render(Renderer& renderer, std::string modelName, std::string instanceName,
-           std::string camera, std::vector<std::string>&&lightNames,
+    Render(
+           std::vector<std::string>&&lightNames,
            bool doFrustrumCulling = true, bool cullIndividualGeometry = false, bool isTransparent = false,
            GLenum blendSfactor = GL_SRC_ALPHA, GLenum blendDfactor = GL_ONE_MINUS_SRC_ALPHA,
            GLfloat customDistance = 10000.0f):
-    bRenderer(renderer), modelName(modelName), instanceName(instanceName), camera(camera),
+    ambientColor(bRenderer::DEFAULT_AMBIENT_COLOR()),
     lightNames(lightNames), doFrustrumCulling(doFrustrumCulling),
     cullIndividualGeometry(cullIndividualGeometry), isTransparent(isTransparent),
     blendSfactor(blendSfactor), blendDfactor(blendDfactor), customDistance(customDistance){
         type = COMPONENT_RENDERER;
     }
     
-    Render(Renderer& renderer, std::string modelName, std::string instanceName,
-                    std::string camera, vmml::Vector3f&& ambientColor, std::vector<std::string>&& lightNames,
+    Render(
+                    vmml::Vector3f&& ambientColor, std::vector<std::string>&& lightNames,
                     bool doFrustrumCulling = true, bool cullIndividualGeometry = false, bool isTransparent = false,
                     GLenum blendSfactor = GL_SRC_ALPHA, GLenum blendDfactor = GL_ONE_MINUS_SRC_ALPHA,
                     GLfloat customDistance = 10000.0f):
-            bRenderer(renderer), modelName(modelName), instanceName(instanceName), camera(camera),
             ambientColor(ambientColor), lightNames(lightNames), doFrustrumCulling(doFrustrumCulling),
             cullIndividualGeometry(cullIndividualGeometry), isTransparent(isTransparent),
             blendSfactor(blendSfactor), blendDfactor(blendDfactor), customDistance(customDistance) {
                 type = COMPONENT_RENDERER;
-    }
-    
-    Renderer& bRenderer;
-    std::string modelName;
-    std::string instanceName;
-    std::string camera;
+            }
+    // Renderqueue properties
+    std::string camera = "camera";
     std::vector<std::string> lightNames;
     vmml::Vector3f ambientColor;
     bool doFrustrumCulling = true;
@@ -49,6 +45,9 @@ public:
     GLenum blendSfactor = GL_SRC_ALPHA;
     GLenum blendDfactor = GL_ONE_MINUS_SRC_ALPHA;
     GLfloat customDistance = 10000.0f;
+    
+    // Model properties
+    PropertiesPtr properties;
 };
 
 typedef std::shared_ptr<Render> RenderPtr;

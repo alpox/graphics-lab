@@ -1,3 +1,4 @@
+precision mediump float;
 uniform vec4 lightPositionViewSpace_0;
 uniform float lightIntensity_0;
 uniform float lightAttenuation_0;
@@ -40,54 +41,49 @@ varying vec3 lightVectorTangentSpace_4;
 varying float intensityBasedOnDist_4;
 varying vec2 texCoordVarying;
 varying vec3 surfaceToCameraTangentSpace;
-uniform mat4 ModelViewMatrix;
-uniform mat4 ProjectionMatrix;
-attribute vec4 Position;
-attribute vec3 Normal;
-attribute vec3 Tangent;
-attribute vec3 Bitangent;
-attribute vec4 TexCoord;
+uniform sampler2D DiffuseMap;
+uniform sampler2D NormalMap;
+uniform sampler2D SpecularMap;
+uniform vec3 ambientColor;
+uniform vec3 Ka;
+uniform vec3 Kd;
+uniform vec3 Ks;
+uniform float Ns;
 void main() {
-    vec4 posViewSpace = ModelViewMatrix*Position;
-    float lightDistance = 0.0;
-    texCoordVarying = TexCoord.st;
-    vec3 vertexNormal_ViewSpace = mat3(ModelViewMatrix) * Normal;
-    vec3 vertexTangent_ViewSpace = mat3(ModelViewMatrix) * Tangent;
-    vec3 vertexBitangent_ViewSpace = mat3(ModelViewMatrix) * Bitangent;
-    vec3 firstRow = vec3(vertexTangent_ViewSpace.x, vertexBitangent_ViewSpace.x, vertexNormal_ViewSpace.x);
-    vec3 secondRow = vec3(vertexTangent_ViewSpace.y, vertexBitangent_ViewSpace.y, vertexNormal_ViewSpace.y);
-    vec3 thirdRow = vec3(vertexTangent_ViewSpace.z, vertexBitangent_ViewSpace.z, vertexNormal_ViewSpace.z);
-    mat3 TBN = mat3(firstRow, secondRow, thirdRow);
-    surfaceToCameraTangentSpace = TBN*( - posViewSpace.xyz );
-    lightVectorTangentSpace_0 = TBN*(lightPositionViewSpace_0.xyz - posViewSpace.xyz);
-    lightDistance = distance(posViewSpace, lightPositionViewSpace_0);
-    intensityBasedOnDist_0 = 0.0;
-    if (lightDistance <= lightRadius_0) {
-        intensityBasedOnDist_0 = clamp(lightIntensity_0 / (lightAttenuation_0*lightDistance*lightDistance), 0.0, 1.0);
-    }
-    lightVectorTangentSpace_1 = TBN*(lightPositionViewSpace_1.xyz - posViewSpace.xyz);
-    lightDistance = distance(posViewSpace, lightPositionViewSpace_1);
-    intensityBasedOnDist_1 = 0.0;
-    if (lightDistance <= lightRadius_1) {
-        intensityBasedOnDist_1 = clamp(lightIntensity_1 / (lightAttenuation_1*lightDistance*lightDistance), 0.0, 1.0);
-    }
-    lightVectorTangentSpace_2 = TBN*(lightPositionViewSpace_2.xyz - posViewSpace.xyz);
-    lightDistance = distance(posViewSpace, lightPositionViewSpace_2);
-    intensityBasedOnDist_2 = 0.0;
-    if (lightDistance <= lightRadius_2) {
-        intensityBasedOnDist_2 = clamp(lightIntensity_2 / (lightAttenuation_2*lightDistance*lightDistance), 0.0, 1.0);
-    }
-    lightVectorTangentSpace_3 = TBN*(lightPositionViewSpace_3.xyz - posViewSpace.xyz);
-    lightDistance = distance(posViewSpace, lightPositionViewSpace_3);
-    intensityBasedOnDist_3 = 0.0;
-    if (lightDistance <= lightRadius_3) {
-        intensityBasedOnDist_3 = clamp(lightIntensity_3 / (lightAttenuation_3*lightDistance*lightDistance), 0.0, 1.0);
-    }
-    lightVectorTangentSpace_4 = TBN*(lightPositionViewSpace_4.xyz - posViewSpace.xyz);
-    lightDistance = distance(posViewSpace, lightPositionViewSpace_4);
-    intensityBasedOnDist_4 = 0.0;
-    if (lightDistance <= lightRadius_4) {
-        intensityBasedOnDist_4 = clamp(lightIntensity_4 / (lightAttenuation_4*lightDistance*lightDistance), 0.0, 1.0);
-    }
-    gl_Position = ProjectionMatrix*posViewSpace;
+    vec4 ambient  = vec4(clamp(ambientColor*Ka, 0.0, 1.0), 0.0);
+    vec4 diffuse = vec4(0.0,0.0,0.0,1.0);
+    vec4 specular = vec4(0.0,0.0,0.0,0.0);
+    float specularCoefficient = 0.0;
+    vec3 surfaceToCamera = normalize(surfaceToCameraTangentSpace);
+    vec3 surfaceNormal = normalize(texture2D(NormalMap, texCoordVarying).xyz *2.0 - 1.0);
+    float intensity = 0.0;
+    if (intensityBasedOnDist_0 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_0)), 0.0)) > 0.0){
+        intensity = clamp(intensity, 0.0, 1.0);
+        diffuse += vec4(lightDiffuseColor_0 * (intensity * intensityBasedOnDist_0), 0.0);
+        specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_0), surfaceNormal))), Ns);
+        specular += vec4(lightSpecularColor_0 * (specularCoefficient * intensity * intensityBasedOnDist_0), 0.0);
+    }if (intensityBasedOnDist_1 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_1)), 0.0)) > 0.0){
+        intensity = clamp(intensity, 0.0, 1.0);
+        diffuse += vec4(lightDiffuseColor_1 * (intensity * intensityBasedOnDist_1), 0.0);
+        specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_1), surfaceNormal))), Ns);
+        specular += vec4(lightSpecularColor_1 * (specularCoefficient * intensity * intensityBasedOnDist_1), 0.0);
+    }if (intensityBasedOnDist_2 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_2)), 0.0)) > 0.0){
+        intensity = clamp(intensity, 0.0, 1.0);
+        diffuse += vec4(lightDiffuseColor_2 * (intensity * intensityBasedOnDist_2), 0.0);
+        specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_2), surfaceNormal))), Ns);
+        specular += vec4(lightSpecularColor_2 * (specularCoefficient * intensity * intensityBasedOnDist_2), 0.0);
+    }if (intensityBasedOnDist_3 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_3)), 0.0)) > 0.0){
+        intensity = clamp(intensity, 0.0, 1.0);
+        diffuse += vec4(lightDiffuseColor_3 * (intensity * intensityBasedOnDist_3), 0.0);
+        specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_3), surfaceNormal))), Ns);
+        
+        specular += vec4(lightSpecularColor_3 * (specularCoefficient * intensity * intensityBasedOnDist_3), 0.0);
+    }if (intensityBasedOnDist_4 > 0.0 && (intensity = max(dot(surfaceNormal, normalize(lightVectorTangentSpace_4)), 0.0)) > 0.0){
+        intensity = clamp(intensity, 0.0, 1.0);
+        diffuse += vec4(lightDiffuseColor_4 * (intensity * intensityBasedOnDist_4), 0.0);
+        specularCoefficient = pow(max(0.0, dot(surfaceToCamera, reflect(-normalize(lightVectorTangentSpace_4), surfaceNormal))), Ns);
+        specular += vec4(lightSpecularColor_4 * (specularCoefficient * intensity * intensityBasedOnDist_4), 0.0);
+    }diffuse = diffuse * vec4(Kd,1.0) * texture2D(DiffuseMap, texCoordVarying);
+    specular = specular  * vec4(Ks, 0.0) * texture2D(SpecularMap, texCoordVarying);
+    gl_FragColor = clamp(ambient+diffuse+specular, 0.0, 1.0);
 }
