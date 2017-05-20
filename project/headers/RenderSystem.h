@@ -20,16 +20,14 @@ public:
     
 protected:
     void apply(EntityPtr entity) const {
-        auto renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
-        auto transform = entity->getComponent<Transform>(COMPONENT_TRANSFORM);
+        RenderPtr renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
+        TransformPtr transform = entity->getComponent<Transform>(COMPONENT_TRANSFORM);
         
         ShaderPtr shader = entity->shader();
         
-        if(shader != nullptr) {
-            vmml::Matrix3f normalMatrix;
-            vmml::compute_inverse(vmml::transpose(vmml::Matrix3f(transform->modelMatrix)), normalMatrix);
-            shader->setUniform("NormalMatrix", normalMatrix);
-        }
+        if(shader != nullptr)
+            setUniforms(entity, shader, renderer, transform);
+        
         
         entity->renderer().getObjects()->setAmbientColor(renderer->ambientColor);
         entity->renderer().getModelRenderer()->queueModelInstance(entity->modelName(), entity->instanceName(),
@@ -38,6 +36,56 @@ protected:
                                                 renderer->isTransparent, renderer->blendSfactor,
                                                 renderer->blendDfactor, renderer->customDistance);
         entity->renderer().getObjects()->setAmbientColor(bRenderer::DEFAULT_AMBIENT_COLOR());
+    }
+    
+    void setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform) const {
+        
+        ObjectManagerPtr objectManager = entity->renderer().getObjects();
+        
+        vmml::Matrix4f viewMatrix = objectManager->getCamera(render->camera)->getViewMatrix();
+        vmml::Matrix4f projectionMatrix = objectManager->getCamera(render->camera)->getProjectionMatrix();
+        
+        vmml::Matrix3f normalMatrix;
+        vmml::compute_inverse(vmml::transpose(vmml::Matrix3f(transform->modelMatrix)), normalMatrix);
+        shader->setUniform("normalMatrix", normalMatrix);
+        
+        // Calculate and set inverse model matrix
+        vmml::Matrix4f inverseModelMatrix;
+        vmml::compute_inverse(transform->modelMatrix, inverseModelMatrix);
+        shader->setUniform("inverseModel", inverseModelMatrix);
+        
+        // Calculate and set inverse view matrix
+        vmml::Matrix4f inverseViewMatrix;
+        vmml::compute_inverse(viewMatrix, inverseViewMatrix);
+        shader->setUniform("inverseView", inverseViewMatrix);
+        
+        // Calculate and set inverse view matrix
+        vmml::Matrix4f inverseProjectionMatrix;
+        vmml::compute_inverse(projectionMatrix, inverseProjectionMatrix);
+        shader->setUniform("inverseProjection", inverseProjectionMatrix);
+        
+        // Set all model/view/projection matrizes
+        shader->setUniform("model", transform->modelMatrix);
+        shader->setUniform("view", viewMatrix);
+        shader->setUniform("projection", projectionMatrix);
+        
+        shader->setUniform("eyePosition", objectManager->getCamera(render->camera)->getPosition());
+        
+        shader->setUniform("ambient", render->ambientColor);
+        
+        for(int i = 0; i < render->lightNames.size(); i++) {
+            LightPtr light = objectManager->getLight(render->lightNames.at(i));
+            std::string lightName = "lights[" + std::to_string(i) + "]";
+            
+            shader->setUniform(lightName + ".position", light->getPosition());
+            shader->setUniform(lightName + ".diffuse", light->getDiffuseColor());
+            shader->setUniform(lightName + ".specular", light->getSpecularColor());
+            shader->setUniform(lightName + ".shininess", light->getIntensity());
+            shader->setUniform(lightName + ".attenuation", light->getAttenuation());
+            shader->setUniform(lightName + ".radius", light->getRadius());
+        }
+        
+        shader->setUniform("numLights", (GLint)render->lightNames.size());
     }
 };
 

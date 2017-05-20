@@ -79,7 +79,7 @@ void RenderProject::initFunction()
 	//bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(148.0f, -3.0f, 15.0f), vmml::Vector3f(0.3f, 1.0f, 0.3f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(0.0f, 50.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(218.0f, -3.0f, 0.0f), vmml::Vector3f(0.8f, 0.2f, 0.2f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50000.0f);
+    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 1000.0f);
 
 
 	// postprocessing
@@ -98,10 +98,11 @@ void RenderProject::initFunction()
     vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(4.f));
     
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
-    RenderPtr modelRender = RenderPtr(new Render(std::vector<std::string>({ "torchLight" }), true, true, true));
+    RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.2f, 0.2f, 0.2f }), std::vector<std::string>({ "torchLight" }), true, true, true));
     
     ShaderPtr sceneShader = bRenderer().getObjects()->loadShaderFile("sceneShader", 4, true, true, true, true, false);
-    world.createRenderModel("test2", modelTransform, modelRender, sceneShader, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene", 0);
+    world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
     
     /*** Cave stream ***/
     /*modelRender = RenderPtr(new Render(bRenderer(), "cave_stream", "cave_stream_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f));

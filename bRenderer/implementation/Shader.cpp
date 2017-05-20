@@ -98,6 +98,17 @@ void Shader::setUniform(const std::string &name, const vmml::Matrix3f &arg)
     }
 }
 
+void Shader::setUniform(const std::string &name, GLint arg)
+{
+    glUseProgram(_programID);
+    
+    GLint loc = findUniformLocation(name);
+    if (loc > -1)
+    {
+        glUniform1i(loc, arg);
+    }
+}
+
 void Shader::setUniform(const std::string &name, GLfloat arg)
 {
     glUseProgram(_programID);

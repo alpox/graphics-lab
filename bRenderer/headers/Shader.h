@@ -76,6 +76,12 @@ public:
 	*/
     virtual void setUniform(const std::string &name, const vmml::Vector3f &arg);
 
+    /**	@brief Pass a number to the shader
+     *	@param[in] name Uniform name
+     *	@param[in] arg number
+     */
+    virtual void setUniform(const std::string &name, GLint arg);
+    
 	/**	@brief Pass a floating-point number to the shader
 	*	@param[in] name Uniform name
 	*	@param[in] arg Floating-point number
