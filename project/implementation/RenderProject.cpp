@@ -100,8 +100,11 @@ void RenderProject::initFunction()
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
     RenderPtr modelRender = RenderPtr(new Render(std::vector<std::string>({ "torchLight" }), true, true, true));
     
-    ShaderPtr sceneShader = bRenderer().getObjects()->loadShaderFile("sceneShader", 4, true, true, true, true, false);
-    world.createRenderModel("test22", modelTransform, modelRender, sceneShader, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+    //ShaderPtr sceneShader = bRenderer().getObjects()->loadShaderFile("sceneShader", 4, true, true, true, true, false);
+    //world.createRenderModel("test22", modelTransform, modelRender, sceneShader, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+
+	ShaderPtr caveShader = bRenderer().getObjects()->loadShaderFile("caveShader", 4, true, true, true, true, false);
+	world.createRenderModel("test22", modelTransform, modelRender, caveShader, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
     
     /*** Cave stream ***/
     /*modelRender = RenderPtr(new Render(bRenderer(), "cave_stream", "cave_stream_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f));
