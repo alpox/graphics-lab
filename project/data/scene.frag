@@ -5,7 +5,7 @@ precision mediump int;
 struct PointLight {
     vec3 diffuse;
     vec3 specular;
-    vec3 position;
+    vec4 position;
     float shininess;
     float attenuation;
     float radius;
@@ -39,12 +39,9 @@ uniform sampler2D SpecularMap;
 
 varying vec2 fragTexCoord;
 varying vec3 fragTangent;
+varying vec3 fragBitangent;
 varying vec3 fragNormal;
 varying vec4 fragPosition;
-
-float lambertWeight(vec3 n, vec3 d) {
-    return clamp(dot(n, d), 0.0, 1.0);
-}
 
 float phongWeight(
                   vec3 lightDirection,
@@ -63,19 +60,14 @@ float phongWeight(
     return clamp(pow(eyeLight, shininess), 0.0, 1.0);
 }
 
-mediump mat3 tbn(vec3 tangent, vec3 normal) {
+mediump mat3 tbn(vec3 tangent, vec3 bitangent, vec3 normal) {
     mediump vec3 t = normalize(tangent - dot(normal, tangent) * normal);
     mediump vec3 b = cross(normal, t);
     
-    if (dot(cross(normal, t), b) > 0.0){
+    if (dot(cross(normal, t), b) < 0.0)
         t = t * -1.0;
-    }
     
-    vec3 firstRow = vec3(t.x, b.x, normal.x);
-    vec3 secondRow = vec3(t.y, b.y, normal.y);
-    vec3 thirdRow = vec3(t.z, b.z, normal.z);
-    
-    return mat3(firstRow, secondRow, thirdRow);
+    return mat3(t, b, normal);
 }
 
 void main() {
@@ -86,8 +78,7 @@ void main() {
     vec3 diffuseLight = vec3(0.0);
     vec3 specularLight = vec3(0.0);
     
-    vec3 normalForTBN = normalize(fragNormal);
-    mat3 tbn = tbn(fragTangent, normalForTBN);
+    mat3 tbn = tbn(normalize(fragTangent), normalize(fragBitangent),  normalize(fragNormal));
     
     // Get textures
     vec3 color = texture2D(DiffuseMap, fragTexCoord).xyz;
@@ -96,6 +87,7 @@ void main() {
     normal = normal * 2.0 - vec3(1.0);
     normal = normalize(tbn * normal);
     
+    float intensity;
     
     // Calculate diffuse and specular light
     // for each light
@@ -103,17 +95,17 @@ void main() {
         PointLight light = lights[i];
         
         // Normalize light direction
-        vec3 direction = tbn * normalize(light.position - position);
+        vec3 direction = normalize(light.position.xyz - position);
         
         // Calculate lambert weight
-        float intensity = lambertWeight(normal, direction);
+        intensity = clamp(dot(normal, direction), 0.0, 1.0);
         
         // Sum up diffuse light
-        diffuseLight += clamp(light.diffuse * intensity, 0.0, 1.0);
+        diffuseLight += clamp(light.diffuse * intensity * light.shininess, 0.0, 1.0);
         
         if(intensity > 0.0) {
             // Calculate phong weight
-            float phong = phongWeight(direction, normal, tbn * normalize(eyePosition - position), Ns);
+            float phong = phongWeight(direction, normal, normalize(eyePosition - position), Ns);
         
             vec3 specularResult = light.specular * phong * light.shininess;
             specularLight += clamp(specularResult, 0.0, 1.0);
@@ -121,7 +113,7 @@ void main() {
     }
     
     // Set the final color
-    gl_FragColor = vec4(Ka * ambient * color +
-                        Kd * diffuseLight * color +
-                        Ks * specularLight, 1.0);
+    //gl_FragColor = vec4(Ka * ambient + clamp(vec3(normalize(lights[0].position)), 0.0, 1.0), 1.0);
+    gl_FragColor = clamp(vec4(vec3(intensity), 1.0), 0.0, 1.0);
+    //gl_FragColor = vec4(normal, 1.0);
 }

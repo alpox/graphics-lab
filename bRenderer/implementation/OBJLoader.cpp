@@ -499,6 +499,11 @@ void OBJLoader::createFaceNormals()
 		const vmml::Vector3f &p1 = _vertices[indexV1].position;
 		const vmml::Vector3f &p2 = _vertices[indexV2].position;
 		const vmml::Vector3f &p3 = _vertices[indexV3].position;
+        
+        // obtain each of this face's texture coordinates
+        const vmml::Vector2f &t1 = _texCoords[indexV1];
+        const vmml::Vector2f &t2 = _texCoords[indexV2];
+        const vmml::Vector2f &t3 = _texCoords[indexV3];
 
 		vmml::Vector3f e = p2 - p1;
 		vmml::Vector3f f = p3 - p1;
@@ -511,23 +516,27 @@ void OBJLoader::createFaceNormals()
 		// set face normal
 		face.normal = vmml::normalize(normal);
 
-		// if texture coordinates for this face exist
-		size_t nT = _texCoords.size();
-		if (nT > indexV1 && nT > indexV2 && nT > indexV3)
-		{
-			vmml::Vector3f v1(0.0, 0.0, 0.0);
-			v1.cross(face.normal, vmml::Vector3f(0.0, 0.0, -1.0));
-			vmml::Vector3f v2(0.0, 0.0, 0.0);
-			v2.cross(face.normal, vmml::Vector3f(0.0, -1.0, 0.0));
-			if (v1.length() > v2.length()){
-				face.tangent = v1;
-			}
-			else{
-				face.tangent = v2;
-			}
-			face.bitangent.cross(face.normal, face.tangent);
-			face.bitangent = vmml::normalize(face.bitangent);
-		}
+        vmml::Matrix<2, 2, float> matUV;
+        matUV.set_row(0, t2 - t1);
+        matUV.set_row(1, t3 - t1);
+        
+        vmml::Matrix<2, 2, float> matUVInverse;
+        vmml::compute_inverse(matUV, matUVInverse);
+        
+        vmml::Matrix<2, 3, float> matE;
+        matE.set_row(0, e);
+        matE.set_row(1, f);
+        
+        vmml::Matrix<2, 3, float> tbMat = matUVInverse * matE;
+        
+        vmml::Vector3f t = tbMat.get_row(0);
+        vmml::Vector3f b = tbMat.get_row(1);
+        
+        t = normalize(t - vmml::dot(normal, t) * normal);
+        b = normalize(b - vmml::dot(normal, b) * normal - vmml::dot(t, b) * t);
+        
+        face.tangent = t;
+        face.bitangent = normalize(b);
 	}
 }
 
@@ -558,9 +567,19 @@ void OBJLoader::createVertexNormals()
 			tangentSum += _faces[face].tangent;
 			bitangentSum += _faces[face].bitangent;
 		}
-
-		vertex.normal = n;
-		vertex.tangent = vmml::normalize(tangentSum);
+        
 		vertex.bitangent = vmml::normalize(bitangentSum);
+        
+        vertex.normal = n;
+        // TODO: calculate tangent for vertex, orthogonalize
+        // vertex.tangent = ... ;
+        vmml::Vector3f t = normalize(tangentSum);
+        vmml::Vector3f b;
+        
+        t = normalize(t - vmml::dot(n, t) * n);
+        b = normalize(b - vmml::dot(n, b) * n - vmml::dot(t, b) * t);
+        
+        vertex.tangent = t;
+        vertex.bitangent = b;
 	}
 }
