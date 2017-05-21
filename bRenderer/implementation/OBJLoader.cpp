@@ -164,6 +164,8 @@ void OBJLoader::triangular_face_geometric_vertices_vertex_normals_callback(const
 	genVertex< true, false, true >(d1);
     genVertex< true, false, true >(d2);
     genVertex< true, false, true >(d3);
+    
+    genFace< false >(d1, d2, d3);
 }
 
 void OBJLoader::triangular_face_geometric_vertices_texture_vertices_vertex_normals_callback(const obj::index_3_tuple_type& v1_vt1_vn1, const obj::index_3_tuple_type& v2_vt2_vn2, const obj::index_3_tuple_type& v3_vt3_vn3)
@@ -186,6 +188,8 @@ void OBJLoader::triangular_face_geometric_vertices_texture_vertices_vertex_norma
 	genVertex< true, true, true >(d1);
 	genVertex< true, true, true >(d2);
 	genVertex< true, true, true >(d3);
+    
+    genFace< false >(d1, d2, d3);
 }
 
 void OBJLoader::polygonal_face_geometric_vertices_begin_callback(obj::index_type v1, obj::index_type v2, obj::index_type v3)

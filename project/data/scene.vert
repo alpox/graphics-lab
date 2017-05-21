@@ -43,22 +43,27 @@ uniform sampler2D DiffuseMap;
 uniform sampler2D NormalMap;
 uniform sampler2D SpecularMap;
 
-varying vec4 fragTexCoord;
+varying vec2 fragTexCoord;
 varying vec3 fragTangent;
-varying vec4 fragNormal;
+varying vec3 fragNormal;
 varying vec4 fragPosition;
 
 void main() {
     // Set texture coords
-    fragTexCoord = TexCoord;
+    fragTexCoord = TexCoord.st;
     
     // Set tangent
-    fragTangent = normalMatrix * Tangent;
+    //fragTangent = normalize(normalMatrix * Tangent);
     
     // Set the normal and the position for usage in the
     // fragment shader
-    fragNormal = vec4(normalMatrix * Normal, 0.0);
+    fragTangent = normalize(mat3(model) * normalMatrix * Tangent);
+    fragNormal = normalize(mat3(model) * normalMatrix * Normal);
     fragPosition = model * vec4(Position.xyz, 1.0);
+    
+    vec3 normal = mat3(model) * Normal;
+    vec3 tangent = mat3(model) * Tangent;
+    vec3 bitangent = mat3(model) * Bitangent;
     
     gl_Position = projection * view * fragPosition;
 }
