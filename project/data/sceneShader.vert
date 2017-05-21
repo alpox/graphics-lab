@@ -59,7 +59,7 @@ void main() {
     vec3 secondRow = vec3(vertexTangent_ViewSpace.y, vertexBitangent_ViewSpace.y, vertexNormal_ViewSpace.y);
     vec3 thirdRow = vec3(vertexTangent_ViewSpace.z, vertexBitangent_ViewSpace.z, vertexNormal_ViewSpace.z);
     
-    mat3 TBN = mat3(vertexTangent_ViewSpace, vertexBitangent_ViewSpace, vertexNormal_ViewSpace);
+    mat3 TBN = mat3(firstRow, secondRow, thirdRow);
     surfaceToCameraTangentSpace = TBN*( - posViewSpace.xyz );
     lightVectorTangentSpace_0 = TBN*(lightPositionViewSpace_0.xyz - posViewSpace.xyz);
     lightDistance = distance(posViewSpace, lightPositionViewSpace_0);
