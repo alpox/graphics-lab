@@ -164,8 +164,7 @@ void OBJLoader::triangular_face_geometric_vertices_vertex_normals_callback(const
 	genVertex< true, false, true >(d1);
     genVertex< true, false, true >(d2);
     genVertex< true, false, true >(d3);
-    
-    genFace< false >(d1, d2, d3);
+  
 }
 
 void OBJLoader::triangular_face_geometric_vertices_texture_vertices_vertex_normals_callback(const obj::index_3_tuple_type& v1_vt1_vn1, const obj::index_3_tuple_type& v2_vt2_vn2, const obj::index_3_tuple_type& v3_vt3_vn3)
@@ -189,7 +188,6 @@ void OBJLoader::triangular_face_geometric_vertices_texture_vertices_vertex_norma
 	genVertex< true, true, true >(d2);
 	genVertex< true, true, true >(d3);
     
-    genFace< false >(d1, d2, d3);
 }
 
 void OBJLoader::polygonal_face_geometric_vertices_begin_callback(obj::index_type v1, obj::index_type v2, obj::index_type v3)
@@ -478,6 +476,119 @@ void OBJLoader::loadObjMtl(const std::string &fileName, MaterialMap &materials, 
 	}
 }
 
+void OBJLoader::createVertexNormals()
+{
+	for (VertexData &vertex : _vertices)
+	{
+		// only calculate vertex normal if not present
+		vmml::Vector3f n = vmml::Vector3f::ZERO;
+		if (vertex.normal.squared_length() < std::numeric_limits< float >::epsilon())
+		{
+			vmml::Vector3f normalSum = vmml::Vector3f::ZERO;
+			for (Index &face : vertex.faces)
+			{
+				normalSum += _faces[face].normal;
+			}
+			n = vmml::normalize(normalSum);
+		}
+		else
+		{
+			n = vmml::normalize(vertex.normal);
+		}
+
+		vmml::Vector3f tangentSum = vmml::Vector3f::ZERO;
+		vmml::Vector3f bitangentSum = vmml::Vector3f::ZERO;
+		for (Index &face : vertex.faces)
+		{
+			tangentSum += _faces[face].tangent;
+			bitangentSum += _faces[face].bitangent;
+		}
+
+		vertex.bitangent = vmml::normalize(bitangentSum);
+
+		vertex.normal = n;
+		// TODO: calculate tangent for vertex, orthogonalize
+		// vertex.tangent = ... ;
+		vmml::Vector3f t = normalize(tangentSum);
+		vmml::Vector3f b;
+
+		t = normalize(t - vmml::dot(n, t) * n);
+		b = normalize(b - vmml::dot(n, b) * n - vmml::dot(t, b) * t);
+
+		vertex.tangent = t;
+		vertex.bitangent = b;
+	}
+}
+
+void OBJLoader::createFaceNormals()
+{
+	for (int i = 0; i < _faces.size(); ++i)
+	{
+		// obtain reference to face
+		FaceData &face = _faces[i];
+
+		// obtain indices of this face's three vertices
+		Index indexV1 = face.v1;
+		Index indexV2 = face.v2;
+		Index indexV3 = face.v3;
+
+		// add this face's index to list of adjacent faces of each vertex
+		_vertices[indexV1].faces.push_back(i);
+		_vertices[indexV2].faces.push_back(i);
+		_vertices[indexV3].faces.push_back(i);
+
+		// obtain each of this face's vertex positions
+		const vmml::Vector3f &p1 = _vertices[indexV1].position;
+		const vmml::Vector3f &p2 = _vertices[indexV2].position;
+		const vmml::Vector3f &p3 = _vertices[indexV3].position;
+
+		// obtain each of this face's texture coordinates
+		const vmml::Vector2f &t1 = _texCoords[indexV1];
+		const vmml::Vector2f &t2 = _texCoords[indexV2];
+		const vmml::Vector2f &t3 = _texCoords[indexV3];
+
+		vmml::Vector3f e = p2 - p1;
+		vmml::Vector3f f = p3 - p1;
+
+		// calculate normal for this face
+		vmml::Vector3f normal = e.cross(f);
+		//invert z Axis
+		normal.set(normal.x(), normal.y(), (-1.0f)*normal.z());
+
+		// set face normal
+		face.normal = vmml::normalize(normal);
+
+		vmml::Matrix<2, 2, float> matUV;
+		matUV.set_row(0, t2 - t1);
+		matUV.set_row(1, t3 - t1);
+
+		vmml::Matrix<2, 2, float> matUVInverse;
+		vmml::compute_inverse(matUV, matUVInverse);
+
+		vmml::Matrix<2, 3, float> matE;
+		matE.set_row(0, e);
+		matE.set_row(1, f);
+
+		vmml::Matrix<2, 3, float> tbMat = matUVInverse * matE;
+
+		vmml::Vector3f t = tbMat.get_row(0);
+		vmml::Vector3f b = tbMat.get_row(1);
+
+		t = normalize(t - vmml::dot(normal, t) * normal);
+		b = normalize(b - vmml::dot(normal, b) * normal - vmml::dot(t, b) * t);
+
+		face.tangent = t;
+		face.bitangent = normalize(b);
+	}
+}
+
+
+
+
+
+
+
+/*
 void OBJLoader::createFaceNormals()
 {
 	for (int i = 0; i < _faces.size(); ++i)
@@ -564,3 +675,4 @@ void OBJLoader::createVertexNormals()
 		vertex.bitangent = vmml::normalize(bitangentSum);
 	}
 }
+*/
