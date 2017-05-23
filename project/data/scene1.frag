@@ -23,6 +23,8 @@ uniform mat4 inverseProjection;
 
 uniform vec3 eyePosition;
 
+uniform int blueShift;
+
 uniform vec3 ambient;
 
 uniform PointLight lights[4];
@@ -75,6 +77,7 @@ mediump mat3 tbn(vec3 tangent, vec3 normal) {
 }
 
 void main() {
+	vec3 blueShiftWeight = vec3(1.0, 1.0, 6.0);
     // Normalize position
     vec3 position = fragPosition.xyz;
     
@@ -85,8 +88,12 @@ void main() {
     vec3 normalForTBN = normalize(fragNormal);
     mat3 tbn = tbn(fragTangent, normalForTBN);
     
+	vec3 color;
     // Get textures
-    vec3 color = texture2D(DiffuseMap, fragTexCoord).xyz;
+	if(blueShift == 1){
+		color = blueShiftWeight * texture2D(DiffuseMap, fragTexCoord).xyz;
+	}
+	else{color = texture2D(DiffuseMap, fragTexCoord).xyz;}
     vec3 spec = texture2D(SpecularMap, fragTexCoord).xyz;
     vec3 normal = texture2D(NormalMap, fragTexCoord).xyz;
     normal = normal * 2.0 - vec3(1.0);

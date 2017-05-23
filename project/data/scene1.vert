@@ -19,6 +19,8 @@ attribute vec4 TexCoord;
 
 uniform vec3 eyePosition;
 
+uniform int blueShift;
+
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;

@@ -27,7 +27,7 @@ void RenderProject::initFunction()
 	_offset = 0.0f;
 	_randomOffset = 0.0f;
 	_cameraSpeed = 40.0f;
-	_running = false; _lastStateSpaceKey = bRenderer::INPUT_UNDEFINED;
+	_running = false; _lastStateSpaceKey = bRenderer::INPUT_UNDEFINED; _lastBlueState = bRenderer::INPUT_UNDEFINED;
 	_viewMatrixHUD = Camera::lookAt(vmml::Vector3f(0.0f, 0.0f, 0.25f), vmml::Vector3f::ZERO, vmml::Vector3f::UP);
 
 	// set shader versions (optional)
@@ -79,7 +79,7 @@ void RenderProject::initFunction()
 	//bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(148.0f, -3.0f, 15.0f), vmml::Vector3f(0.3f, 1.0f, 0.3f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(0.0f, 50.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(218.0f, -3.0f, 0.0f), vmml::Vector3f(0.8f, 0.2f, 0.2f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.05f, 0.05f, 0.05f), 0.8f, 0.0f, 70.0f);
+    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.05f, 0.05f, 0.05f), 1.2f, 0.0f, 200.0f);
 
 
 	// postprocessing
@@ -243,8 +243,7 @@ void RenderProject::loopFunction(const double &deltaTime, const double &elapsedT
     bRenderer().getObjects()->getLight("torchLight")->setPosition(vmml::Vector3f(flickeringLightPosX, 10.f, flickeringLightPosY));
      */
     
-    bRenderer().getObjects()->getLight("torchLight")->setPosition(-bRenderer().getObjects()->getCamera("camera")->getPosition() +
-                                                                  bRenderer().getObjects()->getCamera("camera")->getForward()* 20.f);
+    bRenderer().getObjects()->getLight("torchLight")->setPosition(-bRenderer().getObjects()->getCamera("camera")->getPosition());
     
     /*
 	//// Torch Light ////
@@ -292,6 +291,20 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
     
 	/*** Cave ***/
     world.applySystems(deltaTime);
+
+	GLint currentBlueState = bRenderer().getInput()->getKeyState(bRenderer::KEY_B);
+	if (currentBlueState != _lastBlueState)
+	{
+		_lastBlueState = currentBlueState;
+		if (currentBlueState == bRenderer::INPUT_PRESS) {
+			if (bRenderer().getObjects()->getShader("scene1") != nullptr) {
+				if (stateChange == 0) { stateChange = 1; }
+				else { stateChange = 0; }
+				bRenderer().getObjects()->getShader("scene1")->setUniform("blueShift", stateChange);
+				std::cout << "I was here and need a longer message" << _lastBlueState;
+			}
+		}
+	}
     
      // translate and scale
     vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(bRenderer().getObjects()->getLight("torchLight")->getPosition())) * vmml::create_scaling(vmml::Vector3f(3.f));

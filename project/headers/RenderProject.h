@@ -64,6 +64,8 @@ private:
 	double _mouseX, _mouseY;
 	bool _running = false; 
 	GLint _lastStateSpaceKey = 0;
+	GLint _lastBlueState = 0;
+	GLint stateChange = 0;
 	vmml::Matrix4f _viewMatrixHUD;
     World world;
 
