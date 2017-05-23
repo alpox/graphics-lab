@@ -60,6 +60,7 @@ private:
 	GLfloat _randomOffset;
 	GLfloat _offset;
 	GLfloat _cameraSpeed;
+    float _timeElapsed;
 	double _mouseX, _mouseY;
 	bool _running = false; 
 	GLint _lastStateSpaceKey = 0;

@@ -57,7 +57,7 @@ public:
         return entities;
     }
     
-    void applySystems();
+    void applySystems(const double &deltaTime);
 private:
     Renderer& renderer;
     

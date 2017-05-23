@@ -45,7 +45,7 @@ void RenderProject::initFunction()
 	PropertiesPtr streamProperties = bRenderer().getObjects()->createProperties("streamProperties");
 
 	// load models
-	//bRenderer().getObjects()->loadObjModel_o("L_Curve.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+	bRenderer().getObjects()->loadObjModel_o("cube.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 	//bRenderer().getObjects()->loadObjModel_o("boulder01.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 	//bRenderer().getObjects()->loadObjModel("cave.obj", true, true, false, 4, true, false);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
 							// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
@@ -70,7 +70,7 @@ void RenderProject::initFunction()
 		bRenderer().getObjects()->createTextSprite("instructions", vmml::Vector3f(1.f, 1.f, 1.f), "Press space to start", font);
 
 	// create camera
-	bRenderer().getObjects()->createCamera("camera", vmml::Vector3f(-33.0, 0.f, -13.0), vmml::Vector3f(0.f, -M_PI_F / 2, 0.f));
+	bRenderer().getObjects()->createCamera("camera", vmml::Vector3f(0.f, 0.f, 0.f), vmml::Vector3f(0.f, 0.f, 0.f));
 
 	// create lights
 	//bRenderer().getObjects()->createLight("firstLight", vmml::Vector3f(0.0f, 50.0f, -120.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
@@ -95,7 +95,7 @@ void RenderProject::initFunction()
     //           ***** Add all entities *****
     //---------------------------------------------------
     
-    vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(4.f));
+    vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(10.f));
     
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
     RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.2f, 0.2f, 0.2f }), std::vector<std::string>({ "torchLight" }), true, true, true));
@@ -107,10 +107,13 @@ void RenderProject::initFunction()
 	//ShaderPtr caveShader = bRenderer().getObjects()->loadShaderFile("caveShader", 4, true, true, true, true, false);
 	//world.createRenderModel("test22", modelTransform, modelRender, caveShader, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 
-    ShaderPtr sceneShader = bRenderer().getObjects()->loadShaderFile("sceneShader", 4, true, true, true, true, false);
-    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene", 0);
-    world.createRenderModel("test3", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+    //ShaderPtr sceneShader = bRenderer().getObjects()->loadShaderFile("sceneShader", 4, true, true, true, true, false);
+    //ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene", 0);
+    //world.createRenderModel("test3", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
 
+
+    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
+    world.createRenderModel("test23", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
     
     /*** Cave stream ***/
     /*modelRender = RenderPtr(new Render(bRenderer(), "cave_stream", "cave_stream_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f));
@@ -227,7 +230,22 @@ void RenderProject::loopFunction(const double &deltaTime, const double &elapsedT
 
 	//// Camera Movement ////
 	updateCamera("camera", deltaTime);
-	
+
+    
+    /*
+    _timeElapsed += deltaTime;
+    
+    // let the light flicker
+    float flickeringLightPosX = 20*sin(_timeElapsed);
+    float flickeringLightPosY = 20*cos(_timeElapsed);
+    
+    bRenderer().getObjects()->getLight("torchLight")->setPosition(vmml::Vector3f(flickeringLightPosX, 10.f, flickeringLightPosY));
+     */
+    
+    bRenderer().getObjects()->getLight("torchLight")->setPosition(-bRenderer().getObjects()->getCamera("camera")->getPosition() +
+                                                                  bRenderer().getObjects()->getCamera("camera")->getForward()* 20.f);
+    
+    /*
 	//// Torch Light ////
 	if (_running){
 		if (deltaTime > 0.0f){
@@ -239,16 +257,20 @@ void RenderProject::loopFunction(const double &deltaTime, const double &elapsedT
 		GLfloat flickeringLightPosY = -bRenderer().getObjects()->getCamera("camera")->getPosition().y();
 		GLfloat flickeringLightPosZ = -bRenderer().getObjects()->getCamera("camera")->getPosition().z();
 		// let the light flicker
-		/*flickeringLightPosX += 2*sin(flickeringLightPosY + 0.5f*_randomOffset);
-		flickeringLightPosY += 2*sin(flickeringLightPosX + 0.5f*_randomOffset);*/
-		bRenderer().getObjects()->getLight("torchLight")->setPosition(vmml::Vector3f(flickeringLightPosX, flickeringLightPosY, flickeringLightPosZ) - bRenderer().getObjects()->getCamera("camera")->getForward()*10.0f);
+		flickeringLightPosX += 2*sin(flickeringLightPosY + 0.5f*_randomOffset);
+		flickeringLightPosY += 2*sin(flickeringLightPosX + 0.5f*_randomOffset);
+		bRenderer().getObjects()->getLight("torchLight")->setPosition(bRenderer().getObjects()->getCamera("camera")->getPosition());
 	}
 	else{
 		// set the light to be at the camera position
+<<<<<<< HEAD
 		//bRenderer().getObjects()->getLight("torchLight")->setPosition(-bRenderer().getObjects()->getCamera("camera")->getPosition() - bRenderer().getObjects()->getCamera("camera")->getForward()*10.0f);
 		bRenderer().getObjects()->getLight("torchLight")->setPosition(-bRenderer().getObjects()->getCamera("camera")->getPosition());
+=======
+		bRenderer().getObjects()->getLight("torchLight")->setPosition(bRenderer().getObjects()->getCamera("camera")->getPosition());
+>>>>>>> 112ced26759920f4357bd228c73d520f31fd0fcb
 	}
-
+     */
 	/// Update render queue ///
 	updateRenderQueue("camera", deltaTime);
 
@@ -268,12 +290,12 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
 {
     
 	/*** Cave ***/
-    world.applySystems();
+    world.applySystems(deltaTime);
+    
      // translate and scale
-     //vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(30.f, -24.0, 0.0)) * vmml::create_scaling(vmml::Vector3f(0.3f));
-     // submit to render queue
-     //bRenderer().getModelRenderer()->queueModelInstance("test2", "cave_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, true, true);
-	// translate and scale 
+    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(bRenderer().getObjects()->getLight("torchLight")->getPosition())) * vmml::create_scaling(vmml::Vector3f(3.f));
+
+    bRenderer().getModelRenderer()->queueModelInstance("cube", "cube_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight" }), true, true, true);
 	
 
 	/////*** Torch ***/

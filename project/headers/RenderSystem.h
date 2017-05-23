@@ -19,14 +19,14 @@ public:
     }
     
 protected:
-    void apply(EntityPtr entity) const {
+    void apply(EntityPtr entity, const double &deltaTime) const {
         RenderPtr renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
         TransformPtr transform = entity->getComponent<Transform>(COMPONENT_TRANSFORM);
         
         ShaderPtr shader = entity->shader();
         
         if(shader != nullptr)
-            setUniforms(entity, shader, renderer, transform);
+            setUniforms(entity, shader, renderer, transform, deltaTime);
         
         
         entity->renderer().getObjects()->setAmbientColor(renderer->ambientColor);
@@ -38,7 +38,7 @@ protected:
         entity->renderer().getObjects()->setAmbientColor(bRenderer::DEFAULT_AMBIENT_COLOR());
     }
     
-    void setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform) const {
+    void setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &deltaTime) const {
         
         ObjectManagerPtr objectManager = entity->renderer().getObjects();
         
@@ -69,7 +69,7 @@ protected:
         shader->setUniform("view", viewMatrix);
         shader->setUniform("projection", projectionMatrix);
         
-        shader->setUniform("eyePosition", objectManager->getCamera(render->camera)->getPosition());
+        shader->setUniform("eyePosition", -objectManager->getCamera(render->camera)->getPosition());
         
         shader->setUniform("ambient", render->ambientColor);
         
@@ -80,12 +80,16 @@ protected:
             shader->setUniform(lightName + ".position", light->getPosition());
             shader->setUniform(lightName + ".diffuse", light->getDiffuseColor());
             shader->setUniform(lightName + ".specular", light->getSpecularColor());
-            shader->setUniform(lightName + ".shininess", light->getIntensity());
+            shader->setUniform(lightName + ".intensity", light->getIntensity());
             shader->setUniform(lightName + ".attenuation", light->getAttenuation());
             shader->setUniform(lightName + ".radius", light->getRadius());
         }
         
         shader->setUniform("numLights", (GLint)render->lightNames.size());
+    }
+        
+    GLfloat randomNumber(GLfloat min, GLfloat max) const {
+        return min + static_cast <GLfloat> (rand()) / (static_cast <GLfloat> (RAND_MAX / (max - min)));
     }
 };
 

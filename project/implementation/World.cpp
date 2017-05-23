@@ -15,8 +15,8 @@ void World::removeEntity(int id) {
     idManager.removeId(id); // Make id accessible again
 }
 
-void World::applySystems() {
+void World::applySystems(const double &deltaTime) {
     std::for_each(systems.begin(), systems.end(), [&](const auto& system) {
-        system->apply(entities);
+        system->apply(entities, deltaTime);
     });
 }

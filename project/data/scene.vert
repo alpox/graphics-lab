@@ -5,7 +5,7 @@ precision mediump int;
 struct PointLight {
     vec3 diffuse;
     vec3 specular;
-    vec3 position;
+    vec4 position;
     float shininess;
     float attenuation;
     float radius;
@@ -16,8 +16,6 @@ attribute vec3 Normal;
 attribute vec3 Tangent;
 attribute vec3 Bitangent;
 attribute vec4 TexCoord;
-
-attribute vec3 eyePosition;
 
 uniform mat4 model;
 uniform mat4 view;

@@ -3,9 +3,9 @@ precision mediump int;
 
 //This is the light datatype
 struct PointLight {
+    vec4 position;
     vec3 diffuse;
     vec3 specular;
-    vec3 position;
     float shininess;			//change to intensity please :)
     float attenuation;
     float radius;
@@ -42,10 +42,6 @@ varying vec3 fragTangent;
 varying vec3 fragBitangent;
 varying vec3 fragNormal;
 varying vec4 fragPosition;
-
-float lambertWeight(vec3 n, vec3 d) {
-    return clamp(dot(n, d), 0.0, 1.0);
-}
 
 float phongWeight(
                   vec3 lightDirection,
@@ -87,7 +83,7 @@ mediump mat3 tbn(vec3 tangent, vec3 normal) {
     vec3 secondRow = vec3(b.x, b.y, b.z);
     vec3 thirdRow = vec3(normal.x, normal.y, normal.z);
     
-    return mat3(firstRow, secondRow, thirdRow);
+    return mat3(t, b, normal);
 }
 
 mediump mat3 alttbn(vec3 tangent, vec3 normal, vec3 bitangent) {
@@ -108,15 +104,18 @@ void main() {
     
     vec3 normalForTBN = normalize(fragNormal);
 	vec3 tempNorm = normalize((fragNormal + vec3(1.0))/2);
-    mat3 tbn = tbn(fragTangent, normalForTBN);
-	//mat3 tbn = alttbn(fragTangent, normalForTBN, fragBitangent);
+    //mat3 tbn = tbn(fragTangent, normalForTBN);
+	mat3 tbn = alttbn(fragTangent, normalForTBN, fragBitangent);
     
     // Get textures
     vec3 color = texture2D(DiffuseMap, fragTexCoord).xyz;
     vec3 spec = texture2D(SpecularMap, fragTexCoord).xyz;
     vec3 normal = texture2D(NormalMap, fragTexCoord).xyz;
-    normal = normal * 2.0 - vec3(1.0);											//???
-	normal = normalize(tbn * normal);
+
+    normal = normal * 2.0 - vec3(1.0);
+    normal = normalize(tbn * normal);
+    
+    float intensity;
     
     // Calculate diffuse and specular light
     // for each light
@@ -124,26 +123,18 @@ void main() {
         PointLight light = lights[i];
         
         // Normalize light direction
-        //vec3 direction = tbn * normalize(light.position - position);
-		vec3 direction = normalize(light.position.xyz - position);				//without TBN
+		vec3 direction = normalize(light.position.xyz - position);
         
         // Calculate lambert weight
-        float intensity = lambertWeight(normal, direction);
-		vec3 diffuse = Kd * intensity * light.diffuse * light.shininess;
-		diffuseLight = clamp(diffuse, 0.0, 1.0);			//clamp diffuse term again after multiplying Kd
-        
-        // Sum up diffuse light
-        //diffuseLight += clamp(light.diffuse * intensity, 0.0, 1.0);
+        intensity = clamp(dot(normal, direction), 0.0, 1.0);
+		diffuseLight += clamp(Kd * intensity * light.diffuse * light.shininess, 0.0, 1.0);
         
         if(intensity > 0.0) {
             // Calculate phong weight
             float phong = phongWeight(direction, normal, normalize(eyePosition - position), Ns);
 			
 			vec3 specularResult = Ks * phong * light.specular * light.shininess;
-			specularLight = clamp(specularResult, 0.0, 1.0);
-
-            //vec3 specularResult = light.specular * phong * light.shininess;
-            //specularLight += clamp(specularResult, 0.0, 1.0);
+			specularLight += clamp(specularResult, 0.0, 1.0);
         }
     }
     
