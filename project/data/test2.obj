@@ -1,6 +1,6 @@
 # Blender v2.78 (sub 0) OBJ File: 'test22.blend'
 # www.blender.org
-mtllib test23.mtl
+mtllib test2.mtl
 o VineOne200
 v 40.715458 35.177490 11.758797
 v 41.444180 31.924221 11.737034
@@ -26,6 +26,7 @@ vt 0.9988 0.6687
 vt 0.9973 1.0017
 vt 1.0002 0.3357
 vt 1.0017 0.0027
+g VineOne200_VineOne200_Vine04
 usemtl Vine04
 s 1
 f 1/1 2/2 6/3
@@ -783,6 +784,7 @@ vt 0.0821 0.1785
 vt -0.0313 0.2938
 vt -0.2403 0.0424
 vt 0.0039 -0.0217
+g collision-1.001_collision-1.001_Stone24jpg
 usemtl Stone24jpg
 s 1
 f 17/13 174/14 85/15
@@ -2112,6 +2114,7 @@ vt 0.0821 0.1785
 vt -0.0313 0.2938
 vt -0.2403 0.0424
 vt 0.0039 -0.0217
+g T_Junct_ONE300_T_Junct_ONE300_Stone24jpg
 usemtl Stone24jpg
 s 1
 f 340/432 497/433 408/434
@@ -3690,6 +3693,7 @@ vt 0.6640 2.4598
 vt 0.1770 2.2448
 vt 0.3969 2.4718
 vt 0.0792 2.4201
+g Untitled.001_collision-1_Stone24
 usemtl Stone24
 s 1
 f 659/851 865/852 763/853
@@ -5476,6 +5480,7 @@ vt 0.6640 2.4598
 vt 0.1770 2.2448
 vt 0.3969 2.4718
 vt 0.0792 2.4201
+g Untitled_CaveTwo300_Stone24
 usemtl Stone24
 s 1
 f 1065/1436 1271/1437 1169/1438
