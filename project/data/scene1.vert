@@ -3,10 +3,10 @@ precision mediump int;
 
 //This is the light datatype
 struct PointLight {
+    vec4 position;
     vec3 diffuse;
     vec3 specular;
-    vec3 position;
-    float shininess;
+    float intensity;			//change to intensity please :)
     float attenuation;
     float radius;
 };
@@ -17,7 +17,7 @@ attribute vec3 Tangent;
 attribute vec3 Bitangent;
 attribute vec4 TexCoord;
 
-attribute vec3 eyePosition;
+uniform vec3 eyePosition;
 
 uniform mat4 model;
 uniform mat4 view;
@@ -59,6 +59,9 @@ void main() {
 	fragBitangent = normalize(mat3(model) * Bitangent);
     fragNormal = normalize(normalMatrix * Normal);
     fragPosition = model * vec4(Position.xyz, 1.0);
+    
+    fragNormal = Normal;
+    fragPosition = Position;
     
     gl_Position = projection * view * fragPosition;
 }

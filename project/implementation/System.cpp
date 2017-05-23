@@ -9,11 +9,11 @@
 #include "System.h"
 
 
-void System::apply(std::vector<EntityPtr> entities) const {
+void System::apply(std::vector<EntityPtr> entities, const double &deltaTime) const {
     
     // Apply the system to all entities
     std::for_each(entities.begin(), entities.end(), [&](EntityPtr entity) {
         if(entity->hasComponents(requirements_mask))
-            apply(entity);
+            apply(entity, deltaTime);
     });
 }

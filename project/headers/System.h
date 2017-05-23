@@ -16,9 +16,9 @@
 
 class System {
 public:
-    void apply(std::vector<EntityPtr> entities) const;
+    void apply(std::vector<EntityPtr> entities, const double &deltaTime) const;
 protected:
-    virtual void apply(EntityPtr entity) const = 0;
+    virtual void apply(EntityPtr entity, const double &deltaTime) const = 0;
     
     COMPONENT_MASK requirements_mask;
 };

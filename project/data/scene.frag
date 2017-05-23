@@ -3,9 +3,9 @@ precision mediump int;
 
 //This is the light datatype
 struct PointLight {
+    vec4 position;
     vec3 diffuse;
     vec3 specular;
-    vec4 position;
     float shininess;
     float attenuation;
     float radius;

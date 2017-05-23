@@ -3,10 +3,10 @@ precision mediump int;
 
 //This is the light datatype
 struct PointLight {
+    vec4 position;
     vec3 diffuse;
     vec3 specular;
-    vec3 position;
-    float shininess;			//change to intensity please :)
+    float intensity;
     float attenuation;
     float radius;
 };
@@ -27,6 +27,8 @@ uniform vec3 ambient;
 
 uniform PointLight lights[4];
 uniform int numLights;
+
+uniform vec4 lightPos;
 
 uniform vec3 Ka;
 uniform vec3 Kd;
@@ -72,14 +74,6 @@ mediump mat3 tbn(vec3 tangent, vec3 normal) {
     return mat3(t, b, normal);
 }
 
-mediump mat3 alttbn(vec3 tangent, vec3 normal, vec3 bitangent) {
-	mediump vec3 t = normalize(tangent - dot(normal, tangent) * normal);
-	mediump vec3 b = normalize(bitangent - dot(normal, bitangent) * normal - dot(t,bitangent) * t);
-
-	return mat3(t,b,normal);
-}
-
-
 void main() {
     // Normalize position
     vec3 position = fragPosition.xyz;
@@ -90,7 +84,6 @@ void main() {
     
     vec3 normalForTBN = normalize(fragNormal);
     mat3 tbn = tbn(fragTangent, normalForTBN);
-	//mat3 tbn = alttbn(fragTangent, normalForTBN, fragBitangent);
     
     // Get textures
     vec3 color = texture2D(DiffuseMap, fragTexCoord).xyz;
@@ -107,11 +100,11 @@ void main() {
         
         // Normalize light direction
         //vec3 direction = tbn * normalize(light.position - position);
-		vec3 direction = normalize(light.position - position);
+		vec3 direction = normalize(light.position.xyz - position);
         
         // Calculate lambert weight
         float intensity = lambertWeight(normal, direction);
-		vec3 diffuse = Kd * intensity * light.diffuse * light.shininess;
+		vec3 diffuse = Kd * intensity * light.diffuse * light.intensity;
 		diffuseLight += clamp(diffuse, 0.0, 1.0);
         
         
@@ -119,7 +112,7 @@ void main() {
             // Calculate phong weight
             float phong = phongWeight(direction, normal, normalize(eyePosition - position), Ns);
 			
-			vec3 specularResult = Ks * phong * light.specular * light.shininess;
+			vec3 specularResult = Ks * phong * light.specular * light.intensity;
 			specularLight += clamp(specularResult, 0.0, 1.0);
         }
     }
@@ -128,6 +121,10 @@ void main() {
     vec4 diffuseResult = vec4(diffuseLight * color, 1.0);
     vec4 specularResult = vec4(specularLight * spec, 0.0);
     
+    
+    vec4 lightPosition = clamp(inverseView * vec4(0.0, 0.0, 0.0, 1.0), 0.0, 1.0);
+    vec3 lightVector = lights[0].position.xyz - position;
+    
     // Set the final color
-    gl_FragColor = clamp(ambientResult + diffuseResult + specularResult, 0.0, 1.0);
+    gl_FragColor = ambientResult + diffuseResult + specularResult;
 }

@@ -16,7 +16,7 @@ public:
     }
     
 protected:
-    void apply(EntityPtr entity) const {
+    void apply(EntityPtr entity, const double &deltaTime) const {
         auto renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
         auto stream = entity->getComponent<Stream>(COMPONENT_STREAM);
         

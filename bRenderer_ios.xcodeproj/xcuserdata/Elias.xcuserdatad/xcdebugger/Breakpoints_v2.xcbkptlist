@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "516985843.171656"
+            timestampString = "517241724.376794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "RenderProject::updateRenderQueue(const std::string &amp;camera, const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -79,7 +79,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "World::applySystems()"
+            landmarkName = "World::applySystems(const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "516985843.171656"
+            timestampString = "517241724.376794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "RenderProject::updateRenderQueue(const std::string &amp;camera, const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -144,22 +144,6 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "ModelData::load(const std::string &amp;fileName)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
-            landmarkName = "OBJLoader::load(std::istream&amp; istream)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -455,11 +439,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/RenderProject.h"
-            timestampString = "516477159.259074"
+            timestampString = "517240645.103576"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "class RenderProject"
             landmarkType = "3">
          </BreakpointContent>
@@ -492,7 +476,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
             endingLineNumber = "32"
-            landmarkName = "apply(EntityPtr entity)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -540,7 +524,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
-            landmarkName = "apply(EntityPtr entity)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -604,7 +588,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "apply(EntityPtr entity)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -620,7 +604,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
             endingLineNumber = "33"
-            landmarkName = "apply(EntityPtr entity)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -636,7 +620,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
             endingLineNumber = "23"
-            landmarkName = "apply(EntityPtr entity)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -700,7 +684,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "apply(EntityPtr entity)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -716,152 +700,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
             endingLineNumber = "21"
-            landmarkName = "apply(EntityPtr entity)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "OBJLoader::loadObjMtl(const std::string &amp;fileName, MaterialMap &amp;materials, const std::string &amp;materialName)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "390"
-            endingLineNumber = "390"
-            landmarkName = "OBJLoader::loadObjMtl(const std::string &amp;fileName, MaterialMap &amp;materials, const std::string &amp;materialName)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "394"
-            endingLineNumber = "394"
-            landmarkName = "OBJLoader::loadObjMtl(const std::string &amp;fileName, MaterialMap &amp;materials, const std::string &amp;materialName)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "OBJLoader::material_library_callback(const std::string&amp; filename)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "274"
-            endingLineNumber = "274"
-            landmarkName = "OBJLoader::material_name_callback(const std::string&amp; material_name)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "OBJLoader::material_library_callback(const std::string&amp; filename)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "454"
-            endingLineNumber = "454"
-            landmarkName = "OBJLoader::loadObjMtl(const std::string &amp;fileName, MaterialMap &amp;materials, const std::string &amp;materialName)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "449"
-            endingLineNumber = "449"
-            landmarkName = "OBJLoader::loadObjMtl(const std::string &amp;fileName, MaterialMap &amp;materials, const std::string &amp;materialName)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "465"
-            endingLineNumber = "465"
-            landmarkName = "OBJLoader::loadObjMtl(const std::string &amp;fileName, MaterialMap &amp;materials, const std::string &amp;materialName)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -886,61 +726,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "279"
-            endingLineNumber = "279"
-            landmarkName = "OBJLoader::material_name_callback(const std::string&amp; material_name)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "323"
-            endingLineNumber = "323"
-            landmarkName = "OBJLoader::load(std::istream&amp; istream)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "OBJLoader::load(std::istream&amp; istream)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "project/headers/RenderSystem.h"
             timestampString = "516986407.841405"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
             endingLineNumber = "38"
-            landmarkName = "apply(EntityPtr entity)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1116,7 +908,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform)"
+            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1132,24 +924,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
-            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform)"
+            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime)"
             landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "516989451.814318"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "236"
-            endingLineNumber = "236"
-            landmarkName = "RenderProject::loopFunction(const double &amp;deltaTime, const double &amp;elapsedTime)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1164,23 +940,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
             endingLineNumber = "82"
-            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "project/headers/RenderSystem.h"
-            timestampString = "517001411.98672"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform)"
+            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1262,38 +1022,6 @@
             endingLineNumber = "110"
             landmarkName = "Vertex"
             landmarkType = "14">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517073555.840393"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "517"
-            endingLineNumber = "517"
-            landmarkName = "OBJLoader::createFaceNormals()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
-            landmarkName = "OBJLoader::load(std::istream&amp; istream)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1405,22 +1133,6 @@
             startingLineNumber = "152"
             endingLineNumber = "152"
             landmarkName = "OBJLoader::triangular_face_geometric_vertices_vertex_normals_callback(const obj::index_2_tuple_type&amp; v1_vn1, const obj::index_2_tuple_type&amp; v2_vn2, const obj::index_2_tuple_type&amp; v3_vn3)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "bRenderer/implementation/OBJLoader.cpp"
-            timestampString = "517063585.71713"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
-            landmarkName = "OBJLoader::triangular_face_geometric_vertices_texture_vertices_vertex_normals_callback(const obj::index_3_tuple_type&amp; v1_vt1_vn1, const obj::index_3_tuple_type&amp; v2_vt2_vn2, const obj::index_3_tuple_type&amp; v3_vt3_vn3)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1852,7 +1564,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
             endingLineNumber = "72"
-            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform)"
+            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1918,6 +1630,118 @@
             endingLineNumber = "12"
             landmarkName = "Material::initialize(ObjectManager *o, const MaterialData &amp;materialData, ShaderPtr shader)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bRenderer/implementation/Shader.cpp"
+            timestampString = "517151752.20878"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "Shader::setUniform(const std::string &amp;name, GLfloat arg)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bRenderer/implementation/Shader.cpp"
+            timestampString = "517151764.34034"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "Shader::setUniform(const std::string &amp;name, const vmml::Vector3f &amp;arg)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bRenderer/implementation/Shader.cpp"
+            timestampString = "517151767.119015"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "Shader::setUniform(const std::string &amp;name, const vmml::Vector4f &amp;arg)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/RenderSystem.h"
+            timestampString = "517153459.887397"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "setUniforms(EntityPtr entity, ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bRenderer/implementation/OBJLoader.cpp"
+            timestampString = "517161252.890278"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "OBJLoader::genVertex(const IndexData &amp;d)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void OBJLoader::genVertex&lt;true, false, true&gt;(IndexData const&amp;)"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/bRenderer/implementation/OBJLoader.cpp"
+                  timestampString = "517161253.356248"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "288">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "void OBJLoader::genVertex&lt;true, true, true&gt;(IndexData const&amp;)"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/bRenderer/implementation/OBJLoader.cpp"
+                  timestampString = "517161253.365498"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "448">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
