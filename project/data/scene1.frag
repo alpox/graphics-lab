@@ -99,12 +99,19 @@ void main() {
         PointLight light = lights[i];
         
         // Normalize light direction
-        //vec3 direction = tbn * normalize(light.position - position);
-		vec3 direction = normalize(light.position.xyz - position);
+        vec3 lightVector = light.position.xyz - position;
+        
+		vec3 direction = normalize(lightVector);
+        float distance = length(lightVector);
+        
+        float intensityBasedOnDistance = 0.0;
+        
+        if(distance < light.radius)
+            intensityBasedOnDistance = 1.0 - distance / light.radius;
         
         // Calculate lambert weight
         float intensity = lambertWeight(normal, direction);
-		vec3 diffuse = Kd * intensity * light.diffuse * light.intensity;
+		vec3 diffuse = Kd * intensity * light.diffuse * light.intensity * intensityBasedOnDistance;
 		diffuseLight += clamp(diffuse, 0.0, 1.0);
         
         
@@ -112,7 +119,7 @@ void main() {
             // Calculate phong weight
             float phong = phongWeight(direction, normal, normalize(eyePosition - position), Ns);
 			
-			vec3 specularResult = Ks * phong * light.specular * light.intensity;
+			vec3 specularResult = Ks * phong * light.specular * light.intensity * intensityBasedOnDistance;
 			specularLight += clamp(specularResult, 0.0, 1.0);
         }
     }
@@ -120,10 +127,6 @@ void main() {
     vec4 ambientResult = vec4(Ka * ambient * color, 1.0);
     vec4 diffuseResult = vec4(diffuseLight * color, 1.0);
     vec4 specularResult = vec4(specularLight * spec, 0.0);
-    
-    
-    vec4 lightPosition = clamp(inverseView * vec4(0.0, 0.0, 0.0, 1.0), 0.0, 1.0);
-    vec3 lightVector = lights[0].position.xyz - position;
     
     // Set the final color
     gl_FragColor = ambientResult + diffuseResult + specularResult;
