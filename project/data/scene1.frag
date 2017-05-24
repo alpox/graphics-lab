@@ -77,7 +77,7 @@ mediump mat3 tbn(vec3 tangent, vec3 normal) {
 }
 
 void main() {
-	vec3 blueShiftWeight = vec3(1.0, 1.0, 6.0);
+	vec4 blueShiftWeight = vec4(1.0, 1.0, 6.0, 1.0);
     // Normalize position
     vec3 position = fragPosition.xyz;
     
@@ -88,12 +88,8 @@ void main() {
     vec3 normalForTBN = normalize(fragNormal);
     mat3 tbn = tbn(fragTangent, normalForTBN);
     
-	vec3 color;
     // Get textures
-	if(blueShift == 1){
-		color = blueShiftWeight * texture2D(DiffuseMap, fragTexCoord).xyz;
-	}
-	else{color = texture2D(DiffuseMap, fragTexCoord).xyz;}
+    vec4 color = (blueShift == 1 ? blueShiftWeight : vec4(1.0)) * texture2D(DiffuseMap, fragTexCoord);
     vec3 spec = texture2D(SpecularMap, fragTexCoord).xyz;
     vec3 normal = texture2D(NormalMap, fragTexCoord).xyz;
     normal = normal * 2.0 - vec3(1.0);
@@ -131,8 +127,8 @@ void main() {
         }
     }
     
-    vec4 ambientResult = vec4(Ka * ambient * color, 1.0);
-    vec4 diffuseResult = vec4(diffuseLight * color, 1.0);
+    vec4 ambientResult = vec4(Ka * ambient, 1.0) * color;
+    vec4 diffuseResult = vec4(diffuseLight, 1.0) * color;
     vec4 specularResult = vec4(specularLight * spec, 0.0);
     
     // Set the final color

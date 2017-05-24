@@ -79,7 +79,7 @@ void RenderProject::initFunction()
 	//bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(148.0f, -3.0f, 15.0f), vmml::Vector3f(0.3f, 1.0f, 0.3f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(0.0f, 50.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(218.0f, -3.0f, 0.0f), vmml::Vector3f(0.8f, 0.2f, 0.2f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.05f, 0.05f, 0.05f), 1.2f, 0.0f, 200.0f);
+    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.05f, 0.05f, 0.05f), 1.2f, 0.0f, 100.f);
 
 
 	// postprocessing
