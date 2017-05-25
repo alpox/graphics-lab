@@ -3,6 +3,15 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "RenderSystem::setUniforms(std::__1::shared_ptr&lt;Entity&gt;, std::__1::shared_ptr&lt;Shader&gt;, std::__1::shared_ptr&lt;Render&gt;, std::__1::shared_ptr&lt;Transform&gt;) const:RenderSystem.h">
+      </ContextState>
+      <ContextState
+         contextName = "Texture::Texture(TextureData const&amp;):Texture.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "RenderSystem::apply(std::__1::shared_ptr&lt;Entity&gt;, double const&amp;) const:RenderSystem.h">
+      </ContextState>
+      <ContextState
          contextName = "RenderSystem::apply(std::__1::shared_ptr&lt;Entity&gt;) const:RenderSystem.h">
          <PersistentStrings>
             <PersistentString
@@ -11,10 +20,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Texture::Texture(TextureData const&amp;):Texture.cpp">
+         contextName = "RenderSystem::setUniforms(std::__1::shared_ptr&lt;Entity&gt;, std::__1::shared_ptr&lt;Shader&gt;, std::__1::shared_ptr&lt;Render&gt;, std::__1::shared_ptr&lt;Transform&gt;, double const&amp;) const:RenderSystem.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "transform">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "RenderSystem::setUniforms(std::__1::shared_ptr&lt;Entity&gt;, std::__1::shared_ptr&lt;Shader&gt;, std::__1::shared_ptr&lt;Render&gt;, std::__1::shared_ptr&lt;Transform&gt;) const:RenderSystem.h">
+         contextName = "System::apply(std::__1::vector&lt;std::__1::shared_ptr&lt;Entity&gt;, std::__1::allocator&lt;std::__1::shared_ptr&lt;Entity&gt; &gt; &gt;, double const&amp;) const::$_0::operator()(std::__1::shared_ptr&lt;Entity&gt;) const:System.cpp">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

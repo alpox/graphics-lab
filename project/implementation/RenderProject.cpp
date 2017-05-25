@@ -44,9 +44,7 @@ void RenderProject::initFunction()
 	PropertiesPtr flameProperties = bRenderer().getObjects()->createProperties("flameProperties");
 	PropertiesPtr streamProperties = bRenderer().getObjects()->createProperties("streamProperties");
 
-	// load models
-	bRenderer().getObjects()->loadObjModel_o("cube.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
-	//bRenderer().getObjects()->loadObjModel_o("boulder01.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
+	// load models	//bRenderer().getObjects()->loadObjModel_o("boulder01.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
 	//bRenderer().getObjects()->loadObjModel("cave.obj", true, true, false, 4, true, false);								// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
 							// automatically generates a shader with a maximum of 4 lights (number of lights may vary between 0 and 4 during rendering without performance loss)
 	//bRenderer().getObjects()->loadObjModel_o("stalagmite.obj", 4, FLIP_T | FLIP_Z | VARIABLE_NUMBER_OF_LIGHTS);
@@ -79,7 +77,7 @@ void RenderProject::initFunction()
 	//bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(148.0f, -3.0f, 15.0f), vmml::Vector3f(0.3f, 1.0f, 0.3f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(0.0f, 50.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(218.0f, -3.0f, 0.0f), vmml::Vector3f(0.8f, 0.2f, 0.2f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.05f, 0.05f, 0.05f), 1.2f, 0.0f, 100.f);
+    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.15f, 0.15f, 0.15f), 1.5f, 0.0f, 600.f);
 
 
 	// postprocessing
@@ -95,7 +93,7 @@ void RenderProject::initFunction()
     //           ***** Add all entities *****
     //---------------------------------------------------
     
-    vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(10.f));
+    vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(3.f));
     
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
     RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
@@ -112,10 +110,16 @@ void RenderProject::initFunction()
     //world.createRenderModel("test3", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
 
 
-    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
+    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("cel_shader", 0, false, false, false, false, false);
     world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
-
     
+    /*
+    ShaderPtr scene2 = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
+    modelMatrix = vmml::create_translation(vmml::Vector3f(0.f, 30.f, 0.f)) * vmml::create_scaling(vmml::Vector3f(3.f));
+    TransformPtr cubeTransform = TransformPtr(new Transform(modelMatrix));
+    RenderPtr cubeRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
+    world.createRenderModel("cube", cubeTransform, cubeRender, scene2, FLIP_T | FLIP_Z);
+    */
     /*** Cave stream ***/
     /*modelRender = RenderPtr(new Render(bRenderer(), "cave_stream", "cave_stream_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f));
     
@@ -305,11 +309,6 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
 			}
 		}
 	}
-    
-     // translate and scale
-    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f(bRenderer().getObjects()->getLight("torchLight")->getPosition())) * vmml::create_scaling(vmml::Vector3f(3.f));
-
-    bRenderer().getModelRenderer()->queueModelInstance("cube", "cube_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight" }), true, true, true);
 	
 
 	/////*** Torch ***/
@@ -319,7 +318,7 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
 	//// submit to render queue
 	//bRenderer().getModelRenderer()->queueModelInstance("torch", "torch_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight" }));
 
-	///*** Flame ***/
+	///*** Flame **/
 	//// pass additional properties to the shader
 	//bRenderer().getObjects()->getProperties("flameProperties")->setScalar("offset", _randomOffset);		// pass offset for wave effect
 	//// create three flames

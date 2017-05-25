@@ -50,6 +50,10 @@
 		64896DF61ED486560010CE00 /* test2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 64896DF41ED486560010CE00 /* test2.obj */; };
 		64AEBBB61ECDF1B50089C224 /* 3td_Stone_24_NRM.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AEBBB41ECDF1B50089C224 /* 3td_Stone_24_NRM.png */; };
 		64AEBBB71ECDF1B50089C224 /* 3td_Stone_24.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64AEBBB51ECDF1B50089C224 /* 3td_Stone_24.jpg */; };
+		64B8E5B31ED6089200396BBB /* caveShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 64B8E5AF1ED6089200396BBB /* caveShader.frag */; };
+		64B8E5B41ED6089200396BBB /* caveShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 64B8E5B01ED6089200396BBB /* caveShader.vert */; };
+		64B8E5B51ED6089200396BBB /* cel_shader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 64B8E5B11ED6089200396BBB /* cel_shader.frag */; };
+		64B8E5B61ED6089200396BBB /* cel_shader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 64B8E5B21ED6089200396BBB /* cel_shader.vert */; };
 		B44186971BA331E300604D7F /* RenderProject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B44186961BA331E300604D7F /* RenderProject.cpp */; };
 		B47949A21BA6742B00B5E9DC /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B47949851BA6742B00B5E9DC /* arial.ttf */; };
 		B47949A31BA6742B00B5E9DC /* basicTitle_light.png in Resources */ = {isa = PBXBuildFile; fileRef = B47949861BA6742B00B5E9DC /* basicTitle_light.png */; };
@@ -231,6 +235,10 @@
 		64896DF41ED486560010CE00 /* test2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.obj; sourceTree = "<group>"; };
 		64AEBBB41ECDF1B50089C224 /* 3td_Stone_24_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Stone_24_NRM.png; sourceTree = "<group>"; };
 		64AEBBB51ECDF1B50089C224 /* 3td_Stone_24.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3td_Stone_24.jpg; sourceTree = "<group>"; };
+		64B8E5AF1ED6089200396BBB /* caveShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = caveShader.frag; sourceTree = "<group>"; };
+		64B8E5B01ED6089200396BBB /* caveShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = caveShader.vert; sourceTree = "<group>"; };
+		64B8E5B11ED6089200396BBB /* cel_shader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cel_shader.frag; sourceTree = "<group>"; };
+		64B8E5B21ED6089200396BBB /* cel_shader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cel_shader.vert; sourceTree = "<group>"; };
 		B44186941BA331E300604D7F /* RenderProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderProject.h; sourceTree = "<group>"; };
 		B44186961BA331E300604D7F /* RenderProject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderProject.cpp; sourceTree = "<group>"; };
 		B47949851BA6742B00B5E9DC /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
@@ -506,6 +514,10 @@
 		B47949841BA6742B00B5E9DC /* data */ = {
 			isa = PBXGroup;
 			children = (
+				64B8E5AF1ED6089200396BBB /* caveShader.frag */,
+				64B8E5B01ED6089200396BBB /* caveShader.vert */,
+				64B8E5B11ED6089200396BBB /* cel_shader.frag */,
+				64B8E5B21ED6089200396BBB /* cel_shader.vert */,
 				646D41381ED342D100C5904B /* test3.mtl */,
 				646D41391ED342D100C5904B /* test3.obj */,
 				646D41341ED3408300C5904B /* cube.mtl */,
@@ -568,11 +580,11 @@
 				644F24191ECCA4B8000CB84A /* sceneShader.vert */,
 				646D41201ED076A800C5904B /* scene.frag */,
 				646D41221ED076B600C5904B /* scene.vert */,
-				646D412C1ED2102F00C5904B /* scene1.frag */,
-				646D412D1ED2102F00C5904B /* scene1.vert */,
 				646D41321ED22B1900C5904B /* specular.png */,
 				64896DF31ED486560010CE00 /* test2.mtl */,
 				64896DF41ED486560010CE00 /* test2.obj */,
+				646D412C1ED2102F00C5904B /* scene1.frag */,
+				646D412D1ED2102F00C5904B /* scene1.vert */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -925,7 +937,9 @@
 				B47949B71BA6742B00B5E9DC /* flame.obj in Resources */,
 				B4794A2A1BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949A51BA6742B00B5E9DC /* blurShader.vert in Resources */,
+				64B8E5B61ED6089200396BBB /* cel_shader.vert in Resources */,
 				64896DF61ED486560010CE00 /* test2.obj in Resources */,
+				64B8E5B31ED6089200396BBB /* caveShader.frag in Resources */,
 				B47949AA1BA6742B00B5E9DC /* cave_stream.frag in Resources */,
 				B47949AD1BA6742B00B5E9DC /* cave_stream.vert in Resources */,
 				644F241A1ECCA4B8000CB84A /* sceneShader.vert in Resources */,
@@ -950,12 +964,14 @@
 				B47949BC1BA6742B00B5E9DC /* torch.mtl in Resources */,
 				642829B41EC8BF9600DBD605 /* L-Segment.mtl in Resources */,
 				6432ED421EC99F1D001E2316 /* L_Curve.obj in Resources */,
+				64B8E5B41ED6089200396BBB /* caveShader.vert in Resources */,
 				6432ED581EC9F8DF001E2316 /* 3td_StalagTex_01.jpg in Resources */,
 				6432ED411EC99F1D001E2316 /* L_Curve.mtl in Resources */,
 				64AEBBB71ECDF1B50089C224 /* 3td_Stone_24.jpg in Resources */,
 				B47949A41BA6742B00B5E9DC /* blurShader.frag in Resources */,
 				B47949BB1BA6742B00B5E9DC /* sparks.png in Resources */,
 				B47949BA1BA6742B00B5E9DC /* KozGoPro-ExtraLight.otf in Resources */,
+				64B8E5B51ED6089200396BBB /* cel_shader.frag in Resources */,
 				B4794A301BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949B31BA6742B00B5E9DC /* crystal_n.png in Resources */,
 				6432ED431EC99F1D001E2316 /* Y_Tube.mtl in Resources */,

@@ -58,7 +58,7 @@ void main() {
     // Set the normal and the position for usage in the
     // fragment shader in world coordinates
     fragTangent = normalize(mat3(model) * Tangent);
-	fragBitangent = normalize(mat3(model) * Bitangent);
+    fragBitangent = normalize(mat3(model) * Bitangent);
     fragNormal = normalize(normalMatrix * Normal);
     fragPosition = model * vec4(Position.xyz, 1.0);
     

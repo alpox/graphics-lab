@@ -557,28 +557,32 @@ void OBJLoader::createFaceNormals()
 
 		// set face normal
 		face.normal = vmml::normalize(normal);
+        
+        size_t nT = _texCoords.size();
+        
+        if (nT > indexV1 && nT > indexV2 && nT > indexV3) {
+            vmml::Matrix<2, 2, float> matUV;
+            matUV.set_row(0, t2 - t1);
+            matUV.set_row(1, t3 - t1);
 
-		vmml::Matrix<2, 2, float> matUV;
-		matUV.set_row(0, t2 - t1);
-		matUV.set_row(1, t3 - t1);
+            vmml::Matrix<2, 2, float> matUVInverse;
+            vmml::compute_inverse(matUV, matUVInverse);
 
-		vmml::Matrix<2, 2, float> matUVInverse;
-		vmml::compute_inverse(matUV, matUVInverse);
+            vmml::Matrix<2, 3, float> matE;
+            matE.set_row(0, e);
+            matE.set_row(1, f);
 
-		vmml::Matrix<2, 3, float> matE;
-		matE.set_row(0, e);
-		matE.set_row(1, f);
+            vmml::Matrix<2, 3, float> tbMat = matUVInverse * matE;
 
-		vmml::Matrix<2, 3, float> tbMat = matUVInverse * matE;
+            vmml::Vector3f t = tbMat.get_row(0);
+            vmml::Vector3f b = tbMat.get_row(1);
 
-		vmml::Vector3f t = tbMat.get_row(0);
-		vmml::Vector3f b = tbMat.get_row(1);
-
-		t = normalize(t - vmml::dot(normal, t) * normal);
-		b = normalize(b - vmml::dot(normal, b) * normal - vmml::dot(t, b) * t);
-
-		face.tangent = t;
-		face.bitangent = normalize(b);
+            t = normalize(t - vmml::dot(normal, t) * normal);
+            b = normalize(b - vmml::dot(normal, b) * normal - vmml::dot(t, b) * t);
+            
+            face.tangent = t;
+            face.bitangent = normalize(b);
+        }
 	}
 }
 

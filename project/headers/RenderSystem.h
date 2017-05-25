@@ -25,6 +25,13 @@ protected:
         
         ShaderPtr shader = entity->shader();
         
+        // small hack
+        if(entity->modelName() == "cube") {
+            transform->modelMatrix = vmml::create_translation(vmml::Vector3f(entity->renderer().getObjects()->getLight("torchLight")->getPosition()) +
+                                                              entity->renderer().getObjects()->getCamera("camera")->getForward()*20.f
+                                                              ) * vmml::create_scaling(vmml::Vector3f(3.f));
+        }
+        
         if(shader != nullptr)
             setUniforms(entity, shader, renderer, transform, deltaTime);
         
@@ -86,10 +93,6 @@ protected:
         }
         
         shader->setUniform("numLights", (GLint)render->lightNames.size());
-    }
-        
-    GLfloat randomNumber(GLfloat min, GLfloat max) const {
-        return min + static_cast <GLfloat> (rand()) / (static_cast <GLfloat> (RAND_MAX / (max - min)));
     }
 };
 
