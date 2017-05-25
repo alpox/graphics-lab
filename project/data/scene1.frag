@@ -101,7 +101,7 @@ void main() {
     for(int i = 0; i < numLights; ++i) {
         PointLight light = lights[i];
         
-		light.radius += blueShift == 1 ? 500 : 0;
+		light.radius += blueShift == 1 ? 500.0 : 0.0;
 
         // Normalize light direction
         vec3 lightVector = light.position.xyz - position;
