@@ -110,7 +110,7 @@ void RenderProject::initFunction()
     //world.createRenderModel("test3", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
 
 
-    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
+    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("cel_shader", 0, false, false, false, false, false);
     world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
     
     /*

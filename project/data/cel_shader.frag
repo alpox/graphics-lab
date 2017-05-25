@@ -146,15 +146,8 @@ void main() {
 
     vec4 lightColor = ambientResult + diffuseResult + specularResult;
     
-    vec3 lightDirection = normalize(lights[0].position.xyz - position);
-    
-    
-    if (dot(viewDirection, normal)
-        < mix(0.0, 0.3,
-              max(0.0, dot(normal, lightDirection))))
-    {
+    if (dot(viewDirection, normal) < 0.3)
         lightColor = vec4(vec3(0.0), lightColor.w);
-    }
     
     gl_FragColor = lightColor;
 }
