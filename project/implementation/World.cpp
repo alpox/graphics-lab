@@ -54,6 +54,8 @@ void World::render(const double &deltaTime) const {
         entity->render(deltaTime, SECOND_PASS);
     });
     
+    glClear(GL_DEPTH_BUFFER_BIT);
+    
     // Third pass
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE);
