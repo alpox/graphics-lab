@@ -109,5 +109,4 @@ void World::render(const double &deltaTime) const {
     // Bind first pass texture and draw the fullscreen geometry
     geometry->draw();
 
-    glDisable(GL_BLEND);
 }
