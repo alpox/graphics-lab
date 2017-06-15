@@ -110,16 +110,18 @@ void RenderProject::initFunction()
     //world.createRenderModel("test3", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
 
 
-    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("cel_shader", 0, false, false, false, false, false);
+    ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
     world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
     
-    /*
-    ShaderPtr scene2 = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
-    modelMatrix = vmml::create_translation(vmml::Vector3f(0.f, 30.f, 0.f)) * vmml::create_scaling(vmml::Vector3f(3.f));
+    ShaderPtr scene2 = bRenderer().getObjects()->loadShaderFile("colorShader", 0, false, false, false, false, false);
+    modelMatrix = vmml::Matrix4f::IDENTITY;
     TransformPtr cubeTransform = TransformPtr(new Transform(modelMatrix));
-    RenderPtr cubeRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
-    world.createRenderModel("cube", cubeTransform, cubeRender, scene2, FLIP_T | FLIP_Z);
-    */
+    RenderPtr cubeRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({  }), false, false, false));
+    EntityPtr entity = world.createRenderModel("cube", cubeTransform, cubeRender, scene2, FLIP_T);
+    NoDepthPtr noDepth = NoDepthPtr(new NoDepth());
+    entity->addComponent(noDepth);
+    
+    
     /*** Cave stream ***/
     /*modelRender = RenderPtr(new Render(bRenderer(), "cave_stream", "cave_stream_instance", "camera", std::vector<std::string>({ "torchLight", "firstLight", "secondLight", "thirdLight" }), true, false, true, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA, 1.0f));
     
@@ -170,7 +172,6 @@ void RenderProject::initFunction()
     world.createRenderModel(modelTransform, modelRender);    */
     
     world.addSystem<StreamSystem>();
-    world.addSystem<RenderSystem>();
 
 	// Update render queue
 	updateRenderQueue("camera", 0.0f);
@@ -294,7 +295,7 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
 {
     
 	/*** Cave ***/
-    world.applySystems(deltaTime);
+    world.render(deltaTime);
 
 	GLint currentBlueState = bRenderer().getInput()->getKeyState(bRenderer::KEY_B);
 	if (currentBlueState != _lastBlueState)

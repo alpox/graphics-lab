@@ -35,13 +35,9 @@ protected:
         if(shader != nullptr)
             setUniforms(entity, shader, renderer, transform, deltaTime);
         
-        
         entity->renderer().getObjects()->setAmbientColor(renderer->ambientColor);
-        entity->renderer().getModelRenderer()->queueModelInstance(entity->modelName(), entity->instanceName(),
-                                                renderer->camera, transform->modelMatrix, renderer->lightNames,
-                                                renderer->doFrustrumCulling, renderer->cullIndividualGeometry,
-                                                renderer->isTransparent, renderer->blendSfactor,
-                                                renderer->blendDfactor, renderer->customDistance);
+        entity->renderer().getModelRenderer()->drawModel(entity->modelName(),
+                                                renderer->camera, transform->modelMatrix, renderer->lightNames);
         entity->renderer().getObjects()->setAmbientColor(bRenderer::DEFAULT_AMBIENT_COLOR());
     }
     

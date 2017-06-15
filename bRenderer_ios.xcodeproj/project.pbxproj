@@ -46,6 +46,8 @@
 		646D41371ED3408500C5904B /* cube.obj in Resources */ = {isa = PBXBuildFile; fileRef = 646D41351ED3408300C5904B /* cube.obj */; };
 		646D413A1ED342D100C5904B /* test3.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 646D41381ED342D100C5904B /* test3.mtl */; };
 		646D413B1ED342D100C5904B /* test3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 646D41391ED342D100C5904B /* test3.obj */; };
+		6480793A1EF2C280008B5D06 /* colorShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 648079391EF2C280008B5D06 /* colorShader.frag */; };
+		6480793C1EF2C290008B5D06 /* colorShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6480793B1EF2C290008B5D06 /* colorShader.vert */; };
 		64896DF51ED486560010CE00 /* test2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 64896DF31ED486560010CE00 /* test2.mtl */; };
 		64896DF61ED486560010CE00 /* test2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 64896DF41ED486560010CE00 /* test2.obj */; };
 		64AEBBB61ECDF1B50089C224 /* 3td_Stone_24_NRM.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AEBBB41ECDF1B50089C224 /* 3td_Stone_24_NRM.png */; };
@@ -193,7 +195,6 @@
 		6428299A1EC891A300DBD605 /* System.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		6428299B1EC891A300DBD605 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		642829A21EC8965600DBD605 /* Transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
-		642829A51EC8B17D00DBD605 /* RenderSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
 		642829B01EC8BF9600DBD605 /* L-Segment.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "L-Segment.mtl"; sourceTree = "<group>"; };
 		642829B11EC8BF9600DBD605 /* L-Segment.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "L-Segment.obj"; sourceTree = "<group>"; };
 		642829B61EC8C10800DBD605 /* junction.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = junction.mtl; sourceTree = "<group>"; };
@@ -231,6 +232,10 @@
 		646D41351ED3408300C5904B /* cube.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cube.obj; sourceTree = "<group>"; };
 		646D41381ED342D100C5904B /* test3.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test3.mtl; sourceTree = "<group>"; };
 		646D41391ED342D100C5904B /* test3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test3.obj; sourceTree = "<group>"; };
+		648079381EF2BD8B008B5D06 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		648079391EF2C280008B5D06 /* colorShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorShader.frag; sourceTree = "<group>"; };
+		6480793B1EF2C290008B5D06 /* colorShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = colorShader.vert; sourceTree = "<group>"; };
+		6480793D1EF2C31C008B5D06 /* NoDepth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoDepth.h; sourceTree = "<group>"; };
 		64896DF31ED486560010CE00 /* test2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.mtl; sourceTree = "<group>"; };
 		64896DF41ED486560010CE00 /* test2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.obj; sourceTree = "<group>"; };
 		64AEBBB41ECDF1B50089C224 /* 3td_Stone_24_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Stone_24_NRM.png; sourceTree = "<group>"; };
@@ -470,6 +475,7 @@
 				642829A21EC8965600DBD605 /* Transform.h */,
 				642829BA1EC8C44200DBD605 /* Render.h */,
 				6432ED451EC9A536001E2316 /* Stream.h */,
+				6480793D1EF2C31C008B5D06 /* NoDepth.h */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -477,7 +483,6 @@
 		642829A31EC898EB00DBD605 /* Systems */ = {
 			isa = PBXGroup;
 			children = (
-				642829A51EC8B17D00DBD605 /* RenderSystem.h */,
 				6432ED461EC9A581001E2316 /* StreamSystem.h */,
 			);
 			name = Systems;
@@ -494,6 +499,7 @@
 				6428298D1EC860E400DBD605 /* Entity.h */,
 				642829901EC871E100DBD605 /* IdManager.h */,
 				642829951EC8774800DBD605 /* System.h */,
+				648079381EF2BD8B008B5D06 /* constants.h */,
 			);
 			path = headers;
 			sourceTree = "<group>";
@@ -585,6 +591,8 @@
 				64896DF41ED486560010CE00 /* test2.obj */,
 				646D412C1ED2102F00C5904B /* scene1.frag */,
 				646D412D1ED2102F00C5904B /* scene1.vert */,
+				648079391EF2C280008B5D06 /* colorShader.frag */,
+				6480793B1EF2C290008B5D06 /* colorShader.vert */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -913,6 +921,7 @@
 				646D41361ED3408500C5904B /* cube.mtl in Resources */,
 				B47949A91BA6742B00B5E9DC /* cave_n.png in Resources */,
 				6432ED3C1EC99F1D001E2316 /* 3td_LayerRock_001.png in Resources */,
+				6480793C1EF2C290008B5D06 /* colorShader.vert in Resources */,
 				B47949AB1BA6742B00B5E9DC /* cave_stream.mtl in Resources */,
 				B47949B61BA6742B00B5E9DC /* flame.mtl in Resources */,
 				B47949AE1BA6742B00B5E9DC /* cave_stream_n.png in Resources */,
@@ -931,6 +940,7 @@
 				644F241C1ECCB1E5000CB84A /* test21.obj in Resources */,
 				642829B51EC8BF9600DBD605 /* L-Segment.obj in Resources */,
 				644F24181ECCA46D000CB84A /* sceneShader.frag in Resources */,
+				6480793A1EF2C280008B5D06 /* colorShader.frag in Resources */,
 				6432ED3E1EC99F1D001E2316 /* boulder01.obj in Resources */,
 				B47949B41BA6742B00B5E9DC /* crystal_s.png in Resources */,
 				6432ED3F1EC99F1D001E2316 /* Chamber02.mtl in Resources */,

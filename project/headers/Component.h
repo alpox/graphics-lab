@@ -13,15 +13,8 @@
 #include <string>
 #include <memory>
 
+#include "constants.h"
 #include "IdManager.h"
-
-typedef unsigned short COMPONENT_MASK;
-
-// Maybe we use a registry later
-const COMPONENT_MASK COMPONENT_NONE = 1;
-const COMPONENT_MASK COMPONENT_TRANSFORM = 1 << 1;
-const COMPONENT_MASK COMPONENT_RENDERER = 1 << 2;
-const COMPONENT_MASK COMPONENT_STREAM = 1 << 3;
 
 class Component {
 public:

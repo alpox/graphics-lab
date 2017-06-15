@@ -36,6 +36,8 @@ uniform vec3 ambient;
 uniform PointLight lights[4];
 uniform int numLights;
 
+uniform int numPass;
+
 uniform vec3 Ka;
 uniform vec3 Kd;
 uniform vec3 Ks;

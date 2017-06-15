@@ -11,6 +11,9 @@
 
 #include "Component.h"
 #include "bRenderer.h"
+#include "Render.h"
+#include "Transform.h"
+#include "NoDepth.h"
 
 class Entity {
 public:
@@ -58,7 +61,10 @@ public:
     
     template<typename T>
     std::shared_ptr<T> getComponent(COMPONENT_MASK maskType) const {
-        return std::dynamic_pointer_cast<T>(components.at(maskType));
+        auto found = components.find(maskType);
+        if(found == components.end())
+            return nullptr;
+        return std::dynamic_pointer_cast<T>(found->second);
     }
     
     bool hasComponents(COMPONENT_MASK type);
@@ -79,6 +85,10 @@ public:
     ShaderPtr shader() const {
         return _shader;
     }
+    
+    void render(const double &deltaTime, PASS pass) const;
+    
+    void setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &deltaTime, PASS pass) const;
 private:
     using ComponentMap = std::map<COMPONENT_MASK, ComponentPtr>;
     int _id;

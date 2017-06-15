@@ -30,6 +30,8 @@ uniform vec3 ambient;
 uniform PointLight lights[4];
 uniform int numLights;
 
+uniform int numPass;
+
 uniform vec4 lightPos;
 
 uniform vec3 Ka;
@@ -134,5 +136,8 @@ void main() {
     vec4 specularResult = vec4(specularLight * spec, 0.0);
     
     // Set the final color
-    gl_FragColor = ambientResult + diffuseResult + specularResult;
+    if(numPass != 0)
+        gl_FragColor = ambientResult + diffuseResult + specularResult;
+    else
+        gl_FragColor = vec4(0.0, 0.0, 0.0, 1); // Draw first pass as black
 }

@@ -19,7 +19,7 @@
 #include "Transform.h"
 #include "Render.h"
 #include "Stream.h"
-#include "RenderSystem.h"
+#include "NoDepth.h"
 #include "StreamSystem.h"
 
 class World {
@@ -46,6 +46,8 @@ public:
         return entity;
     }
     
+    void render(const double &deltaTime) const;
+    
     void removeEntity(int id);
     
     template<typename T>
@@ -57,7 +59,7 @@ public:
         return entities;
     }
     
-    void applySystems(const double &deltaTime);
+    void applySystems(const double &deltaTime) const;
 private:
     Renderer& renderer;
     
