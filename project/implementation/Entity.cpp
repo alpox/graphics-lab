@@ -29,7 +29,7 @@ void Entity::render(const double &deltaTime, PASS pass) const {
     if(noDepth != nullptr)
         glDisable(GL_DEPTH_TEST);
     
-    if((pass == SECOND_PASS && noDepth == nullptr) || (pass == FIRST_PASS && noDepth != nullptr)) {
+    if(!(pass == SECOND_PASS && noDepth != nullptr)) { // Don't draw objects without depth buffer in second pass
         _renderer.getObjects()->setAmbientColor(renderer->ambientColor);
         _renderer.getModelRenderer()->drawModel(_modelName, renderer->camera, transform->modelMatrix, renderer->lightNames);
         _renderer.getObjects()->setAmbientColor(bRenderer::DEFAULT_AMBIENT_COLOR());

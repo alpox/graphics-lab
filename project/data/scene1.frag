@@ -79,6 +79,7 @@ mediump mat3 tbn(vec3 tangent, vec3 normal) {
 }
 
 void main() {
+    
 	vec4 blueShiftWeight = vec4(1.0, 1.0, 6.0, 1.0);
     // Normalize position
     vec3 position = fragPosition.xyz;
@@ -92,10 +93,18 @@ void main() {
     
     // Get textures
     vec4 color = (blueShift == 1 ? blueShiftWeight : vec4(1.0)) * texture2D(DiffuseMap, fragTexCoord);
+    
+    
+    if(numPass == 1) {
+        gl_FragColor = vec4(0.0, 0.0, 0.0, color.w); // Draw first pass as black
+        return; // nothing more to do here
+    }
+    
     vec3 spec = texture2D(SpecularMap, fragTexCoord).xyz;
     vec3 normal = texture2D(NormalMap, fragTexCoord).xyz;
     normal = normal * 2.0 - vec3(1.0);
     normal = normalize(tbn * normal);
+    
     
     
     // Calculate diffuse and specular light
@@ -136,8 +145,5 @@ void main() {
     vec4 specularResult = vec4(specularLight * spec, 0.0);
     
     // Set the final color
-    if(numPass != 0)
-        gl_FragColor = ambientResult + diffuseResult + specularResult;
-    else
-        gl_FragColor = vec4(0.0, 0.0, 0.0, 1); // Draw first pass as black
+    gl_FragColor = ambientResult + diffuseResult + specularResult;
 }

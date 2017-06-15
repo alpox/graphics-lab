@@ -41,3 +41,10 @@ void Texture::bind(GLint texUnit)
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, _textureID);
 }
+
+void Texture::unbind(GLint texUnit)
+{
+    glActiveTexture(texUnit);
+    glDisable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, 0);
+}

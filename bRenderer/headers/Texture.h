@@ -48,6 +48,11 @@ public:
 	*	@param[in] texUnit Specifies which texture unit to bind it to
 	*/
     virtual void bind(GLint texUnit = GL_TEXTURE0);
+    
+    /**	@brief Unbinds the texture
+     *	@param[in] texUnit Specifies which texture unit to unbind
+     */
+    virtual void unbind(GLint texUnit = GL_TEXTURE0);
 
 	/**	@brief Delete the OpenGL texture
 	*/

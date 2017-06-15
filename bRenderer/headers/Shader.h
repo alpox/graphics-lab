@@ -75,6 +75,12 @@ public:
 	*	@param[in] arg 3 dimensional vector
 	*/
     virtual void setUniform(const std::string &name, const vmml::Vector3f &arg);
+    
+    /**	@brief Pass a 2 dimensional vector to the shader
+     *	@param[in] name Uniform name
+     *	@param[in] arg 2 dimensional vector
+     */
+    virtual void setUniform(const std::string &name, const vmml::Vector2f &arg);
 
     /**	@brief Pass a number to the shader
      *	@param[in] name Uniform name
