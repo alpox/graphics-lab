@@ -17,14 +17,20 @@ void Entity::render(const double &deltaTime, PASS pass) const {
     TransformPtr transform = getComponent<Transform>(COMPONENT_TRANSFORM);
     NoDepthPtr noDepth = getComponent<NoDepth>(COMPONENT_NODEPTH);
     
-    if(_shader != nullptr)
-        setUniforms(_shader, renderer, transform, deltaTime, pass);
+    CameraPtr camera = _renderer.getObjects()->getCamera(renderer->camera);
     
-    if(modelName() == "cube") {
-        transform->modelMatrix = vmml::create_translation(-_renderer.getObjects()->getCamera(renderer->camera)->getPosition() +
+    vmml::Vector3f cameraPosition = camera->getPosition();
+    if(modelName() == "sphere") {
+        transform->modelMatrix = vmml::create_translation(
                                                           vmml::Vector3f::BACKWARD * 20.f
                                                           ) * vmml::create_scaling(vmml::Vector3f(0.5f));
+        
+        
+        camera->setPosition({0.0,0.0,0.0});
     }
+    
+    if(_shader != nullptr)
+        setUniforms(_shader, renderer, transform, deltaTime, pass);
     
     if(noDepth != nullptr)
         glDisable(GL_DEPTH_TEST);
@@ -37,6 +43,10 @@ void Entity::render(const double &deltaTime, PASS pass) const {
     
     if(noDepth != nullptr)
         glEnable(GL_DEPTH_TEST);
+    
+    if(modelName() == "sphere") {
+        camera->setPosition(cameraPosition);
+    }
 }
 
 void Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &deltaTime, PASS pass) const {
@@ -67,6 +77,7 @@ void Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transf
     // Set all model/view/projection matrizes
     shader->setUniform("model", transform->modelMatrix);
     shader->setUniform("view", viewMatrix);
+    
     shader->setUniform("projection", projectionMatrix);
     
     shader->setUniform("eyePosition", -objectManager->getCamera(render->camera)->getPosition());

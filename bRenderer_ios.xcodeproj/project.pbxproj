@@ -52,6 +52,8 @@
 		648079411EF2DBD4008B5D06 /* godrays.vert in Resources */ = {isa = PBXBuildFile; fileRef = 648079401EF2DBD4008B5D06 /* godrays.vert */; };
 		64896DF51ED486560010CE00 /* test2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 64896DF31ED486560010CE00 /* test2.mtl */; };
 		64896DF61ED486560010CE00 /* test2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 64896DF41ED486560010CE00 /* test2.obj */; };
+		64A4D5411EF437F800AF8FF4 /* sphere.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 64A4D53F1EF437F800AF8FF4 /* sphere.mtl */; };
+		64A4D5421EF437F800AF8FF4 /* sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 64A4D5401EF437F800AF8FF4 /* sphere.obj */; };
 		64AEBBB61ECDF1B50089C224 /* 3td_Stone_24_NRM.png in Resources */ = {isa = PBXBuildFile; fileRef = 64AEBBB41ECDF1B50089C224 /* 3td_Stone_24_NRM.png */; };
 		64AEBBB71ECDF1B50089C224 /* 3td_Stone_24.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 64AEBBB51ECDF1B50089C224 /* 3td_Stone_24.jpg */; };
 		64B8E5B31ED6089200396BBB /* caveShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 64B8E5AF1ED6089200396BBB /* caveShader.frag */; };
@@ -242,6 +244,8 @@
 		648079401EF2DBD4008B5D06 /* godrays.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = godrays.vert; sourceTree = "<group>"; };
 		64896DF31ED486560010CE00 /* test2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.mtl; sourceTree = "<group>"; };
 		64896DF41ED486560010CE00 /* test2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.obj; sourceTree = "<group>"; };
+		64A4D53F1EF437F800AF8FF4 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
+		64A4D5401EF437F800AF8FF4 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
 		64AEBBB41ECDF1B50089C224 /* 3td_Stone_24_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Stone_24_NRM.png; sourceTree = "<group>"; };
 		64AEBBB51ECDF1B50089C224 /* 3td_Stone_24.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3td_Stone_24.jpg; sourceTree = "<group>"; };
 		64B8E5AF1ED6089200396BBB /* caveShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = caveShader.frag; sourceTree = "<group>"; };
@@ -524,6 +528,8 @@
 		B47949841BA6742B00B5E9DC /* data */ = {
 			isa = PBXGroup;
 			children = (
+				64A4D53F1EF437F800AF8FF4 /* sphere.mtl */,
+				64A4D5401EF437F800AF8FF4 /* sphere.obj */,
 				64B8E5AF1ED6089200396BBB /* caveShader.frag */,
 				64B8E5B01ED6089200396BBB /* caveShader.vert */,
 				64B8E5B11ED6089200396BBB /* cel_shader.frag */,
@@ -921,6 +927,7 @@
 				B4794A311BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949A81BA6742B00B5E9DC /* cave_d.png in Resources */,
 				B47949B01BA6742B00B5E9DC /* crystal.mtl in Resources */,
+				64A4D5421EF437F800AF8FF4 /* sphere.obj in Resources */,
 				6432ED441EC99F1D001E2316 /* Y_Tube.obj in Resources */,
 				646D412F1ED2103100C5904B /* scene1.vert in Resources */,
 				64896DF51ED486560010CE00 /* test2.mtl in Resources */,
@@ -961,6 +968,7 @@
 				644F241A1ECCA4B8000CB84A /* sceneShader.vert in Resources */,
 				646D413B1ED342D100C5904B /* test3.obj in Resources */,
 				646D41331ED22B1900C5904B /* specular.png in Resources */,
+				64A4D5411EF437F800AF8FF4 /* sphere.mtl in Resources */,
 				646D41231ED076B600C5904B /* scene.vert in Resources */,
 				B47949AF1BA6742B00B5E9DC /* config.json in Resources */,
 				6432ED401EC99F1D001E2316 /* Chamber02.obj in Resources */,

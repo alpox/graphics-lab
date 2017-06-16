@@ -110,7 +110,7 @@ void RenderProject::initFunction()
     vmml::Matrix4f modelMatrix = vmml::Matrix4f::IDENTITY;
     TransformPtr cubeTransform = TransformPtr(new Transform(modelMatrix));
     RenderPtr cubeRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({  }), false, false, false));
-    EntityPtr entity = world.createRenderModel("cube", cubeTransform, cubeRender, scene2, FLIP_T);
+    EntityPtr entity = world.createRenderModel("sphere", cubeTransform, cubeRender, scene2, FLIP_T);
     NoDepthPtr noDepth = NoDepthPtr(new NoDepth());
     entity->addComponent(noDepth);
 
@@ -310,58 +310,6 @@ void RenderProject::updateRenderQueue(const std::string &camera, const double &d
 			}
 		}
 	}
-	
-
-	/////*** Torch ***/
-	//// Position the torch relative to the camera
-	//modelMatrix = bRenderer().getObjects()->getCamera(camera)->getInverseViewMatrix();		// position and orient to match camera
-	//modelMatrix *= vmml::create_translation(vmml::Vector3f(0.75f, -1.1f, 0.8f)) * vmml::create_scaling(vmml::Vector3f(1.2f)) * vmml::create_rotation(1.64f, vmml::Vector3f::UNIT_Y); // now position it relative to the camera
-	//// submit to render queue
-	//bRenderer().getModelRenderer()->queueModelInstance("torch", "torch_instance", camera, modelMatrix, std::vector<std::string>({ "torchLight" }));
-
-	///*** Flame **/
-	//// pass additional properties to the shader
-	//bRenderer().getObjects()->getProperties("flameProperties")->setScalar("offset", _randomOffset);		// pass offset for wave effect
-	//// create three flames
-	//for (GLfloat z = 0.0f; z < 3.0f; z++)
-	//{
-	//	// translate
-	//	vmml::Matrix4f translation = vmml::create_translation(vmml::Vector3f(0.65f / bRenderer().getView()->getAspectRatio(), 0.6f + (0.08f*z), (-z / 100.0f - 0.50f)));
-	//	// rotate
-	//	GLfloat rot = 0.0f;
-	//	if (fmod(z, 2.0f) != 0.0f)
-	//		rot = M_PI_F;
-	//		
-	//	vmml::Matrix4f rotation = vmml::create_rotation(rot, vmml::Vector3f::UNIT_Z);
-	//	// scale
-	//	GLfloat ParticleScale = 1.225f - (0.23f*z);
-	//	vmml::Matrix4f scaling = vmml::create_scaling(vmml::Vector3f(ParticleScale / bRenderer().getView()->getAspectRatio(), ParticleScale, ParticleScale));
-	//	// model matrix
-	//	modelMatrix = translation * scaling * rotation;
-	//	// submit to render queue
-	//	bRenderer().getModelRenderer()->queueModelInstance(bRenderer().getObjects()->getModel("flame"), ("flame_instance" + std::to_string(z)), modelMatrix, _viewMatrixHUD, vmml::Matrix4f::IDENTITY, std::vector<std::string>({}), false, false, true, GL_SRC_ALPHA, GL_ONE, (-1.0f - 0.01f*z));  // negative distance because always in foreground
-	//}
-
-	///*** Sparks ***/
-	//for (GLfloat z = 1.0f; z < 2.0f; z++)
-	//{
-	//	// translate
-	//	vmml::Matrix4f translation = vmml::create_translation(vmml::Vector3f(0.65f / bRenderer().getView()->getAspectRatio(), 0.65f, (-z / 100.0f - 0.58f)));
-	//	// rotate
-	//	GLfloat rot = 1.0f;
-	//	if (_running)
-	//		rot = randomNumber(1.0f, 1.1f)*_randomOffset*z;
-	//	vmml::Matrix4f rotation = vmml::create_rotation(rot, vmml::Vector3f::UNIT_Z);
-	//	// scale
-	//	GLfloat ParticleScale = 0.55f - (0.25f*z);
-	//	vmml::Matrix4f scaling = vmml::create_scaling(vmml::Vector3f(ParticleScale / bRenderer().getView()->getAspectRatio(), 4.0f*ParticleScale, ParticleScale));
-	//	// model matrix
-	//	modelMatrix = translation * scaling * rotation;
-
-	//	// submit to render queue
-	//	bRenderer().getModelRenderer()->queueModelInstance(bRenderer().getObjects()->getModel("sparks"), ("sparks_instance" + std::to_string(z)), modelMatrix, _viewMatrixHUD, vmml::Matrix4f::IDENTITY, std::vector<std::string>({}), false, false, true, GL_SRC_ALPHA, GL_ONE, (-2.0f - 0.01f*z)); // negative distance because always in foreground
-	//}
-
 }
 
 /* Camera movement */

@@ -54,15 +54,5 @@ varying vec3 fragNormal;
 varying vec4 fragPosition;
 
 void main() {
-    // Set texture coords
-    fragTexCoord = TexCoord.st;
-    
-    // Set the normal and the position for usage in the
-    // fragment shader in world coordinates
-    fragTangent = normalize(mat3(model) * Tangent);
-    fragBitangent = normalize(mat3(model) * Bitangent);
-    fragNormal = normalize(normalMatrix * Normal);
-    fragPosition = model * vec4(Position.xyz, 1.0);
-    
-    gl_Position = projection * view * fragPosition;
+    gl_Position = projection * view * model * Position;
 }
