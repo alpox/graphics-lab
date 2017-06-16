@@ -104,18 +104,8 @@ void RenderProject::initFunction()
     //ShaderPtr sceneShader = bRenderer().getObjects()->loadShaderFile("sceneShader", 4, true, true, true, true, false);
     //ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene", 0);
     //world.createRenderModel("test3", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
-    
-    
-    ShaderPtr scene2 = bRenderer().getObjects()->loadShaderFile("colorShader", 0, false, false, false, false, false);
-    vmml::Matrix4f modelMatrix = vmml::Matrix4f::IDENTITY;
-    TransformPtr cubeTransform = TransformPtr(new Transform(modelMatrix));
-    RenderPtr cubeRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({  }), false, false, false));
-    EntityPtr entity = world.createRenderModel("sphere", cubeTransform, cubeRender, scene2, FLIP_T);
-    NoDepthPtr noDepth = NoDepthPtr(new NoDepth());
-    entity->addComponent(noDepth);
-
-    
-    modelMatrix = vmml::create_scaling(vmml::Vector3f(3.f));
+   
+    vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(3.f));
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
     RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
     ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);

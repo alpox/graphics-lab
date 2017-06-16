@@ -77,7 +77,6 @@ void Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transf
     // Set all model/view/projection matrizes
     shader->setUniform("model", transform->modelMatrix);
     shader->setUniform("view", viewMatrix);
-    
     shader->setUniform("projection", projectionMatrix);
     
     shader->setUniform("eyePosition", -objectManager->getCamera(render->camera)->getPosition());

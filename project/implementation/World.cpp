@@ -21,6 +21,39 @@ void World::applySystems(const double &deltaTime) const {
     });
 }
 
+void renderSun(Renderer& renderer) {
+    
+    ShaderPtr sunShader = renderer.getObjects()->loadShaderFile("colorShader", 0, false, false, false, false, false);
+    CameraPtr camera = renderer.getObjects()->getCamera("camera");
+    
+    // Load model if necessary
+    if(renderer.getObjects()->getModel("sphere") == nullptr)
+        renderer.getObjects()->loadObjModel_o("sphere.obj", sunShader);
+    
+    // Set camera position to 0
+    vmml::Vector3f cameraPosition = camera->getPosition();
+    camera->setPosition({0.0,0.0,0.0});
+    
+    // Orient model
+    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f::BACKWARD * 20.f) *
+        vmml::create_scaling(vmml::Vector3f(0.5f));
+    
+    // Set all model/view/projection matrizes
+    sunShader->setUniform("model", modelMatrix);
+    sunShader->setUniform("view", camera->getViewMatrix());
+    sunShader->setUniform("projection", camera->getProjectionMatrix());
+    
+    glDisable(GL_DEPTH_TEST);
+    
+    renderer.getModelRenderer()->drawModel("sphere", "camera", modelMatrix, std::vector<std::string>({}));
+    
+    glEnable(GL_DEPTH_TEST);
+    
+    
+    // Reset camera position
+    camera->setPosition(cameraPosition);
+}
+
 void World::render(const double &deltaTime) const {
     // Apply all systems before rendering
     applySystems(deltaTime);
@@ -41,6 +74,7 @@ void World::render(const double &deltaTime) const {
     framebuffer->bindTexture(fboTexture, true);
     
     // First pass
+    renderSun(renderer);
     std::for_each(entities.begin(), entities.end(), [&deltaTime](const auto& entity) {
         entity->render(deltaTime, FIRST_PASS);
     });
