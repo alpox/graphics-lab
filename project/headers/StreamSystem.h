@@ -11,12 +11,12 @@
 
 class StreamSystem: public virtual System {
 public:
-    StreamSystem() {
+    StreamSystem(World& world): System(world) {
         requirements_mask = (COMPONENT_RENDERER | COMPONENT_STREAM);
     }
     
 protected:
-    void apply(EntityPtr entity, const double &deltaTime) const {
+    void apply(EntityPtr entity, const double &deltaTime) {
         auto renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
         auto stream = entity->getComponent<Stream>(COMPONENT_STREAM);
         

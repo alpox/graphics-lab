@@ -24,6 +24,7 @@ uniform mat4 inverseProjection;
 uniform vec3 eyePosition;
 
 uniform int blueShift;
+uniform int celShader;
 
 uniform vec3 ambient;
 
@@ -76,6 +77,14 @@ mediump mat3 tbn(vec3 tangent, vec3 normal) {
     }
     
     return mat3(t, b, normal);
+}
+
+vec4 reduceColors(vec4 color, float numColors) {
+    color.r = floor(color.r * numColors + 0.5) / numColors;
+    color.g = floor(color.g * numColors + 0.5) / numColors;
+    color.b = floor(color.b * numColors + 0.5) / numColors;
+    
+    return color;
 }
 
 void main() {
@@ -140,10 +149,31 @@ void main() {
         }
     }
     
-    vec4 ambientResult = vec4(Ka * ambient, 1.0) * color;
-    vec4 diffuseResult = vec4(diffuseLight, 1.0) * color;
-    vec4 specularResult = vec4(specularLight * spec, 0.0);
-    
-    // Set the final color
-    gl_FragColor = ambientResult + diffuseResult + specularResult;
+    if(celShader == 0) {
+        vec4 ambientResult = vec4(Ka * ambient, 1.0) * color;
+        vec4 diffuseResult = vec4(diffuseLight, 1.0) * color;
+        vec4 specularResult = vec4(specularLight * spec, 0.0);
+        
+        // Set the final color
+        gl_FragColor = ambientResult + diffuseResult + specularResult;
+    }
+    else {
+        float numColors = 6.0;
+        
+        color = reduceColors(color, numColors);
+        
+         vec3 viewDirection = normalize(eyePosition - position);
+        
+        
+        vec4 ambientResult = vec4(Ka * ambient, 1.0) * color;
+        vec4 diffuseResult = reduceColors(vec4(diffuseLight, 1.0), numColors) * color;
+        vec4 specularResult = reduceColors(vec4(specularLight * spec, 0.0), 4.0);
+        
+        vec4 lightColor = ambientResult + diffuseResult + specularResult;
+        
+        if (dot(viewDirection, normal) < 0.3)
+            lightColor = vec4(vec3(0.0), lightColor.w);
+        
+        gl_FragColor = lightColor;
+    }
 }

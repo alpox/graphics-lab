@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "519324743.657125"
+            timestampString = "519573493.555847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "RenderProject::updateRenderQueue(const std::string &amp;camera, const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,13 +74,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "516809419.16095"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
             landmarkName = "World::applySystems(const double &amp;deltaTime)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "World::applySystems(double const&amp;) const"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/project/implementation/World.cpp"
+                  timestampString = "519572610.287655"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "160">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "auto World::applySystems(double const&amp;) const::$_1::operator()&lt;std::__1::unique_ptr&lt;System, std::__1::default_delete&lt;System&gt; &gt; &gt;(std::__1::unique_ptr&lt;System, std::__1::default_delete&lt;System&gt; &gt; const&amp;) const"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/project/implementation/World.cpp"
+                  timestampString = "519572610.291812"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -455,11 +487,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "519226438.522451"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "addComponent(ComponentPtr component)"
             landmarkType = "7">
          </BreakpointContent>
@@ -487,11 +519,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "519226769.20913"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "getComponent(COMPONENT_MASK maskType)"
             landmarkType = "7">
             <Locations>
@@ -599,11 +631,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "519226438.522451"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "addComponent(ComponentPtr component)"
             landmarkType = "7">
          </BreakpointContent>
@@ -620,22 +652,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "project/headers/StreamSystem.h"
-            timestampString = "516532955.233043"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
             landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
@@ -663,12 +679,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "519226438.522451"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "Entity(int id, Renderer&amp; renderer, std::string&amp; modelName, GLuint shaderMaxLights = bRenderer::DEFAULT_SHADER_MAX_LIGHTS(), OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "Entity(int id, EffectsBag&amp; effects, Renderer&amp; renderer, std::string&amp; modelName, GLuint shaderMaxLights = bRenderer::DEFAULT_SHADER_MAX_LIGHTS(), OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -679,7 +695,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/World.h"
-            timestampString = "519226438.522451"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -695,12 +711,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "519226438.522451"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "Entity(int id, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "Entity(int id, EffectsBag&amp; effects, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -711,28 +727,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "519226438.522451"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "Entity(int id, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "project/headers/Entity.h"
-            timestampString = "519226438.522451"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
             endingLineNumber = "36"
-            landmarkName = "Entity(int id, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            landmarkName = "Entity(int id, EffectsBag&amp; effects, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/Entity.h"
+            timestampString = "519581893.05655"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "Entity(int id, EffectsBag&amp; effects, Renderer&amp; renderer, std::string&amp; modelName, ShaderPtr&amp; shader, OPTIONS options = NO_OPTION, PropertiesPtr properties = nullptr)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1527,13 +1543,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/Entity.h"
-            timestampString = "519226769.20913"
+            timestampString = "519581893.05655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "class Entity"
-            landmarkType = "3">
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "model()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1543,11 +1559,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/Entity.cpp"
-            timestampString = "519323418.291913"
+            timestampString = "519580172.634547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "Entity::render(const double &amp;deltaTime, PASS pass)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1559,12 +1575,124 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/Entity.cpp"
-            timestampString = "519323418.291913"
+            timestampString = "519580172.634547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "Entity::render(const double &amp;deltaTime, PASS pass)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/World.cpp"
+            timestampString = "519581893.05655"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "World::render(const double &amp;deltaTime)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/World.cpp"
+            timestampString = "519581893.05655"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "World::render(const double &amp;deltaTime)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/World.cpp"
+            timestampString = "519581893.05655"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "World::render(const double &amp;deltaTime)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/World.h"
+            timestampString = "519581893.05655"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "addSystem()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/CollisionSystem.h"
+            timestampString = "519580172.634547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/CollisionSystem.h"
+            timestampString = "519580172.634547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
             endingLineNumber = "39"
-            landmarkName = "Entity::render(const double &amp;deltaTime, PASS pass)"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/World.cpp"
+            timestampString = "519572611.986438"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "World::removeEntity(int id)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1575,12 +1703,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519324743.657125"
+            timestampString = "519572647.078306"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "World::render(const double &amp;deltaTime)"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "World::removeEntity(int id)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1591,12 +1719,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519324779.823983"
+            timestampString = "519572719.15861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "World::render(const double &amp;deltaTime)"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "World::removeEntity(int id)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "World::removeEntity(int)"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/project/implementation/World.cpp"
+                  timestampString = "519573174.350435"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "auto World::removeEntity(int)::$_0::operator()&lt;std::__1::shared_ptr&lt;Entity&gt; &gt;(std::__1::shared_ptr&lt;Entity&gt; const&amp;) const"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/project/implementation/World.cpp"
+                  timestampString = "519573174.352861"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/RenderProject.cpp"
+            timestampString = "519573493.555847"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "RenderProject::initFunction()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1606,13 +1782,253 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "project/implementation/World.cpp"
-            timestampString = "519324779.823983"
+            filePath = "project/headers/CollisionSystem.h"
+            timestampString = "519580172.634547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "World::render(const double &amp;deltaTime)"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "isIn(const vmml::AABB&lt; T &gt; &amp;aabb, const vmml::Vector&lt; 4, T &gt;&amp; sphere )"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/CollisionSystem.h"
+            timestampString = "519580172.634547"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "isIn(const vmml::AABB&lt; T &gt; &amp;aabb, const vmml::Vector&lt; 4, T &gt;&amp; sphere )"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/Entity.cpp"
+            timestampString = "519582002.9259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime, PASS pass)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/Entity.cpp"
+            timestampString = "519582002.9259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime, PASS pass)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/Entity.cpp"
+            timestampString = "519582002.9259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime, PASS pass)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Entity::setUniforms(std::__1::shared_ptr&lt;Shader&gt;, std::__1::shared_ptr&lt;Render&gt;, std::__1::shared_ptr&lt;Transform&gt;, double const&amp;, unsigned short) const"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/project/implementation/Entity.cpp"
+                  timestampString = "519580790.64568"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "104"
+                  endingLineNumber = "104"
+                  offsetFromSymbolStart = "4904">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Entity::setUniforms(std::__1::shared_ptr&lt;Shader&gt;, std::__1::shared_ptr&lt;Render&gt;, std::__1::shared_ptr&lt;Transform&gt;, double const&amp;, unsigned short) const::$_0::operator()(std::__1::pair&lt;double, unsigned short&gt;&amp;) const"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/project/implementation/Entity.cpp"
+                  timestampString = "519580790.648022"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/EffectsBag.h"
+            timestampString = "519581893.05655"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "addEffect(EFFECT effect)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/CollisionSystem.h"
+            timestampString = "519581845.77589"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/EffectsBag.h"
+            timestampString = "519581920.241666"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "testEffects(const double &amp;deltaTime)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/EffectsBag.h"
+            timestampString = "519581921.786914"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "testEffects(const double &amp;deltaTime)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/EffectsBag.h"
+            timestampString = "519581925.474895"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "testEffects(const double &amp;deltaTime)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EffectsBag::testEffects(double const&amp;)"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/project/headers/EffectsBag.h"
+                  timestampString = "519581925.699505"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EffectsBag::testEffects(double const&amp;)::&apos;lambda&apos;(std::__1::pair&lt;double, unsigned short&gt;&amp;)::operator()(std::__1::pair&lt;double, unsigned short&gt;&amp;) const"
+                  moduleName = "bRenderer_ios"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Elias/CloudStation/UZH/Semester%204/Computer%20Graphics%20Lab/project/project/headers/EffectsBag.h"
+                  timestampString = "519581925.702703"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/headers/EffectsBag.h"
+            timestampString = "519581937.223342"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "testEffects(const double &amp;deltaTime)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/Entity.cpp"
+            timestampString = "519582002.9259"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &amp;deltaTime, PASS pass)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

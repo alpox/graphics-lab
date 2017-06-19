@@ -9,7 +9,7 @@
 #include "System.h"
 
 
-void System::apply(std::vector<EntityPtr> entities, const double &deltaTime) const {
+void System::apply(std::vector<EntityPtr> entities, const double &deltaTime) {
     
     // Apply the system to all entities
     std::for_each(entities.begin(), entities.end(), [&](EntityPtr entity) {

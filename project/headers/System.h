@@ -14,13 +14,18 @@
 
 #include "Entity.h"
 
+class World;
 class System {
 public:
-    void apply(std::vector<EntityPtr> entities, const double &deltaTime) const;
+    System(World& world): world(world) {}
+    
+    void apply(std::vector<EntityPtr> entities, const double &deltaTime);
 protected:
-    virtual void apply(EntityPtr entity, const double &deltaTime) const = 0;
+    virtual void apply(EntityPtr entity, const double &deltaTime) = 0;
     
     COMPONENT_MASK requirements_mask;
+    
+    World& world;
 };
 
 #endif /* System_hpp */

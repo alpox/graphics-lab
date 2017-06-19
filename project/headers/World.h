@@ -20,7 +20,7 @@
 #include "Render.h"
 #include "Stream.h"
 #include "NoDepth.h"
-#include "StreamSystem.h"
+#include "EffectsBag.h"
 
 class World {
 public:
@@ -38,7 +38,7 @@ public:
     
     template<typename ...Args>
     EntityPtr createRenderModel(std::string modelName, TransformPtr transform, RenderPtr render, Args&&... args) {
-        EntityPtr entity = createEntity(renderer, modelName, args...);
+        EntityPtr entity = createEntity(effectsBag, renderer, modelName, args...);
         
         entity->addComponent(transform);
         entity->addComponent(render);
@@ -46,27 +46,31 @@ public:
         return entity;
     }
     
-    void render(const double &deltaTime) const;
+    void render(const double &deltaTime);
     
     void removeEntity(int id);
     
     template<typename T>
     void addSystem() {
-        systems.emplace_back(new T());
+        systems.emplace_back(new T(*this));
     }
     
     EntityArray& getEntities() {
         return entities;
     }
     
-    void applySystems(const double &deltaTime) const;
+    void applySystems(const double &deltaTime);
 private:
     Renderer& renderer;
+    EffectsBag effectsBag;
     
     EntityArray entities;
     SystemArray systems;
     
     IdManager idManager;
 };
+
+#include "StreamSystem.h"
+#include "CollisionSystem.h"
 
 #endif /* World_hpp */

@@ -19,6 +19,8 @@ void Entity::render(const double &deltaTime, PASS pass) const {
     
     CameraPtr camera = _renderer.getObjects()->getCamera(renderer->camera);
     
+    renderer->totalTime += deltaTime;
+    
     vmml::Vector3f cameraPosition = camera->getPosition();
     if(modelName() == "sphere") {
         transform->modelMatrix = vmml::create_translation(
@@ -98,4 +100,18 @@ void Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transf
     shader->setUniform("numLights", (GLint)render->lightNames.size());
     
     shader->setUniform("numPass", (GLint)pass);
+    
+    EffectList effects = _effects.getEffects();
+    
+    shader->setUniform("blueShift", 0);
+    shader->setUniform("celShader", 0);
+    
+    std::for_each(effects.begin(), effects.end(), [&shader,&deltaTime](std::pair<double, EFFECT> &effect) {
+        switch(effect.second) {
+            case EFFECT_BLUEVISION:
+                shader->setUniform("blueShift", 1);
+            case EFFECT_CEL:
+                shader->setUniform("celShader", 1);
+        }
+    });
 }

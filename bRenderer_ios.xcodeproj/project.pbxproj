@@ -227,6 +227,7 @@
 		644F24191ECCA4B8000CB84A /* sceneShader.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = sceneShader.vert; sourceTree = "<group>"; };
 		644F241B1ECCB1E5000CB84A /* test21.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test21.obj; sourceTree = "<group>"; };
 		644F241D1ECCB1EE000CB84A /* test21.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test21.mtl; sourceTree = "<group>"; };
+		64548AD11EF82DAE0064FF4C /* EffectsBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EffectsBag.h; sourceTree = "<group>"; };
 		646D41201ED076A800C5904B /* scene.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene.frag; sourceTree = "<group>"; };
 		646D41221ED076B600C5904B /* scene.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene.vert; sourceTree = "<group>"; };
 		646D412C1ED2102F00C5904B /* scene1.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene1.frag; sourceTree = "<group>"; };
@@ -246,6 +247,8 @@
 		64896DF41ED486560010CE00 /* test2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.obj; sourceTree = "<group>"; };
 		64A4D53F1EF437F800AF8FF4 /* sphere.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.mtl; sourceTree = "<group>"; };
 		64A4D5401EF437F800AF8FF4 /* sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphere.obj; sourceTree = "<group>"; };
+		64A5D1B81EF7FDE80002F7C7 /* Collider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Collider.h; sourceTree = "<group>"; };
+		64A5D1B91EF7FE510002F7C7 /* CollisionSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollisionSystem.h; sourceTree = "<group>"; };
 		64AEBBB41ECDF1B50089C224 /* 3td_Stone_24_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Stone_24_NRM.png; sourceTree = "<group>"; };
 		64AEBBB51ECDF1B50089C224 /* 3td_Stone_24.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3td_Stone_24.jpg; sourceTree = "<group>"; };
 		64B8E5AF1ED6089200396BBB /* caveShader.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = caveShader.frag; sourceTree = "<group>"; };
@@ -484,6 +487,7 @@
 				642829BA1EC8C44200DBD605 /* Render.h */,
 				6432ED451EC9A536001E2316 /* Stream.h */,
 				6480793D1EF2C31C008B5D06 /* NoDepth.h */,
+				64A5D1B81EF7FDE80002F7C7 /* Collider.h */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -492,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				6432ED461EC9A581001E2316 /* StreamSystem.h */,
+				64A5D1B91EF7FE510002F7C7 /* CollisionSystem.h */,
 			);
 			name = Systems;
 			sourceTree = "<group>";
@@ -508,6 +513,7 @@
 				642829901EC871E100DBD605 /* IdManager.h */,
 				642829951EC8774800DBD605 /* System.h */,
 				648079381EF2BD8B008B5D06 /* constants.h */,
+				64548AD11EF82DAE0064FF4C /* EffectsBag.h */,
 			);
 			path = headers;
 			sourceTree = "<group>";

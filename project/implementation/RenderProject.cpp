@@ -109,7 +109,14 @@ void RenderProject::initFunction()
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
     RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
     ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
-    world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+    EntityPtr entity = world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+    
+    
+    ColliderPtr collider = ColliderPtr(new Collider(EFFECT_CEL));
+    entity = world.createRenderModel("cube", TransformPtr(new Transform(vmml::create_translation(vmml::Vector3f(0.f, 30.f, 0.f)))), modelRender, scene);
+    entity->addComponent(collider);
+    
+    
     
     
     /*** Cave stream ***/
@@ -162,6 +169,7 @@ void RenderProject::initFunction()
     world.createRenderModel(modelTransform, modelRender);    */
     
     world.addSystem<StreamSystem>();
+    world.addSystem<CollisionSystem>();
 
 	// Update render queue
 	updateRenderQueue("camera", 0.0f);

@@ -9,13 +9,15 @@
 #include "World.h"
 
 void World::removeEntity(int id) {
-    std::remove_if(entities.begin(), entities.end(), [id](const auto& entity) {
+    entities.erase(std::remove_if(entities.begin(), entities.end(), [id](const auto& entity) {
         return entity->id() == id;
-    });
+    }));
     idManager.removeId(id); // Make id accessible again
 }
 
-void World::applySystems(const double &deltaTime) const {
+void World::applySystems(const double &deltaTime) {
+    effectsBag.testEffects(deltaTime);
+    
     std::for_each(systems.begin(), systems.end(), [&](const auto& system) {
         system->apply(entities, deltaTime);
     });
@@ -54,7 +56,7 @@ void renderSun(Renderer& renderer) {
     camera->setPosition(cameraPosition);
 }
 
-void World::render(const double &deltaTime) const {
+void World::render(const double &deltaTime) {
     // Apply all systems before rendering
     applySystems(deltaTime);
     

@@ -49,6 +49,7 @@ public:
     // Model properties
     PropertiesPtr properties;
     ShaderPtr shader;
+    double totalTime;
 };
 
 typedef std::shared_ptr<Render> RenderPtr;
