@@ -126,7 +126,7 @@ void World::render(const double &deltaTime) {
     framebuffer->bindTexture(fboTexture, true);
     
     // First pass
-    renderSun(renderer);
+    //renderSun(renderer);
     std::for_each(entities.begin(), entities.end(), [&deltaTime](const auto& entity) {
         entity->render(deltaTime, FIRST_PASS);
     });
