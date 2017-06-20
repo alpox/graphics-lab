@@ -111,11 +111,11 @@ void RenderProject::initFunction()
     ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
     EntityPtr entity = world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
     
-    
-    ColliderPtr collider = ColliderPtr(new Collider(EFFECT_CEL));
+    /*
+    ColliderPtr collider = ColliderPtr(new Collider(EFFECT_BLUEVISION));
     entity = world.createRenderModel("cube", TransformPtr(new Transform(vmml::create_translation(vmml::Vector3f(0.f, 30.f, 0.f)))), modelRender, scene);
     entity->addComponent(collider);
-    
+    */
     
     
     
