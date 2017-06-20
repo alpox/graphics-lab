@@ -37,8 +37,12 @@ void renderSun(Renderer& renderer) {
     camera->setPosition({0.0,0.0,0.0});
     
     // Orient model
-    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f::BACKWARD * 20.f) *
-        vmml::create_scaling(vmml::Vector3f(0.5f));
+    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::normalize(vmml::Vector3f(0.0, 10.f, -6.f)) * 1000.f) *
+        vmml::create_scaling(vmml::Vector3f(60.f));
+    
+    /*vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f::BACKWARD * 1000.f) *
+        vmml::create_scaling(vmml::Vector3f(30.f));*/
+
     
     // Set all model/view/projection matrizes
     sunShader->setUniform("model", modelMatrix);
@@ -87,7 +91,7 @@ void renderSkyCube(Renderer &renderer) {
     camera->setPosition({0.0,0.0,0.0});
     
     // Orient model
-    vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(3.f));
+    vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(1000.f));
     
     // Set all model/view/projection matrizes
     skyShader->setUniform("skyCube", skyBox);
@@ -109,6 +113,8 @@ void renderSkyCube(Renderer &renderer) {
 void World::render(const double &deltaTime) {
     // Apply all systems before rendering
     applySystems(deltaTime);
+    
+    renderSkyCube(renderer);
     
     FramebufferPtr framebuffer;
     if((framebuffer = renderer.getObjects()->getFramebuffer("firstPass")) == nullptr)
@@ -136,7 +142,6 @@ void World::render(const double &deltaTime) {
     // Second pass
     glClear(GL_DEPTH_BUFFER_BIT);
     
-    renderSkyCube(renderer);
     std::for_each(entities.begin(), entities.end(), [&deltaTime](const auto& entity) {
         entity->render(deltaTime, SECOND_PASS);
     });
@@ -155,15 +160,15 @@ void World::render(const double &deltaTime) {
     godrayShader->setUniform("firstPass", fboTexture);
     godrayShader->setUniform("exposure", (GLfloat)1.0);
     godrayShader->setUniform("decay", (GLfloat)1.0);
-    godrayShader->setUniform("density", (GLfloat)1.0);
-    godrayShader->setUniform("weight", (GLfloat)0.01);
+    godrayShader->setUniform("density", (GLfloat)1.5);
+    godrayShader->setUniform("weight", (GLfloat)0.008);
     
     CameraPtr camera = renderer.getObjects()->getCamera("camera");
     vmml::Matrix4f view = camera->getViewMatrix();
     vmml::Matrix4f projection = camera->getProjectionMatrix();
     
     // Transform sun position to screen position
-    vmml::Vector4f sunPosition4f = vmml::Vector4f(-camera->getPosition() + vmml::Vector3f::BACKWARD * 20.f);
+    vmml::Vector4f sunPosition4f = vmml::Vector4f(-camera->getPosition() + (vmml::normalize(vmml::Vector3f(0.0, 10.f, -6.f)) * 1000.f));
     
     sunPosition4f = projection * view * sunPosition4f;
     vmml::Vector2f sunPositionCube;
