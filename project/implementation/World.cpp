@@ -75,9 +75,7 @@ void renderSkyCube(Renderer &renderer) {
         TextureData skyBack("WhiteCloudBack.jpg");
         TextureData skyDown("WhiteCloudDown.jpg");
         
-        std::vector<TextureData> cubeMapVector{ skyLeft, skyRight, skyDown, skyUp, skyFront, skyBack};
-        
-        skyBox = objectManager->createCubeMap("skyCube", cubeMapVector);
+        skyBox = objectManager->createCubeMap("skyCube", { skyLeft, skyRight, skyUp, skyDown, skyFront, skyBack});
     }
     
     if(renderer.getObjects()->getModel("cube") == nullptr)

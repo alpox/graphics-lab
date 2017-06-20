@@ -37,12 +37,12 @@
 		644F241A1ECCA4B8000CB84A /* sceneShader.vert in Resources */ = {isa = PBXBuildFile; fileRef = 644F24191ECCA4B8000CB84A /* sceneShader.vert */; };
 		644F241C1ECCB1E5000CB84A /* test21.obj in Resources */ = {isa = PBXBuildFile; fileRef = 644F241B1ECCB1E5000CB84A /* test21.obj */; };
 		644F241E1ECCB1EE000CB84A /* test21.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 644F241D1ECCB1EE000CB84A /* test21.mtl */; };
-		6460F1071EF9585C00A26FA6 /* WhiteCloudBack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1011EF9585C00A26FA6 /* WhiteCloudBack.jpg */; };
 		6460F1081EF9585C00A26FA6 /* WhiteCloudDown.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1021EF9585C00A26FA6 /* WhiteCloudDown.jpg */; };
-		6460F1091EF9585C00A26FA6 /* WhiteCloudFront.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1031EF9585C00A26FA6 /* WhiteCloudFront.jpg */; };
-		6460F10A1EF9585C00A26FA6 /* WhiteCloudLeft.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1041EF9585C00A26FA6 /* WhiteCloudLeft.jpg */; };
-		6460F10B1EF9585C00A26FA6 /* WhiteCloudRight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1051EF9585C00A26FA6 /* WhiteCloudRight.jpg */; };
 		6460F10C1EF9585C00A26FA6 /* WhiteCloudUp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1061EF9585C00A26FA6 /* WhiteCloudUp.jpg */; };
+		6460F11D1EF978C400A26FA6 /* WhiteCloudBack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1191EF978C400A26FA6 /* WhiteCloudBack.jpg */; };
+		6460F11E1EF978C400A26FA6 /* WhiteCloudFront.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F11A1EF978C400A26FA6 /* WhiteCloudFront.jpg */; };
+		6460F11F1EF978C400A26FA6 /* WhiteCloudLeft.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F11B1EF978C400A26FA6 /* WhiteCloudLeft.jpg */; };
+		6460F1201EF978C400A26FA6 /* WhiteCloudRight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F11C1EF978C400A26FA6 /* WhiteCloudRight.jpg */; };
 		646D41211ED076A800C5904B /* scene.frag in Resources */ = {isa = PBXBuildFile; fileRef = 646D41201ED076A800C5904B /* scene.frag */; };
 		646D41231ED076B600C5904B /* scene.vert in Resources */ = {isa = PBXBuildFile; fileRef = 646D41221ED076B600C5904B /* scene.vert */; };
 		646D412E1ED2103100C5904B /* scene1.frag in Resources */ = {isa = PBXBuildFile; fileRef = 646D412C1ED2102F00C5904B /* scene1.frag */; };
@@ -236,12 +236,12 @@
 		644F241B1ECCB1E5000CB84A /* test21.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test21.obj; sourceTree = "<group>"; };
 		644F241D1ECCB1EE000CB84A /* test21.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test21.mtl; sourceTree = "<group>"; };
 		64548AD11EF82DAE0064FF4C /* EffectsBag.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EffectsBag.h; sourceTree = "<group>"; };
-		6460F1011EF9585C00A26FA6 /* WhiteCloudBack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudBack.jpg; sourceTree = "<group>"; };
 		6460F1021EF9585C00A26FA6 /* WhiteCloudDown.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudDown.jpg; sourceTree = "<group>"; };
-		6460F1031EF9585C00A26FA6 /* WhiteCloudFront.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudFront.jpg; sourceTree = "<group>"; };
-		6460F1041EF9585C00A26FA6 /* WhiteCloudLeft.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudLeft.jpg; sourceTree = "<group>"; };
-		6460F1051EF9585C00A26FA6 /* WhiteCloudRight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudRight.jpg; sourceTree = "<group>"; };
 		6460F1061EF9585C00A26FA6 /* WhiteCloudUp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudUp.jpg; sourceTree = "<group>"; };
+		6460F1191EF978C400A26FA6 /* WhiteCloudBack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudBack.jpg; sourceTree = "<group>"; };
+		6460F11A1EF978C400A26FA6 /* WhiteCloudFront.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudFront.jpg; sourceTree = "<group>"; };
+		6460F11B1EF978C400A26FA6 /* WhiteCloudLeft.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudLeft.jpg; sourceTree = "<group>"; };
+		6460F11C1EF978C400A26FA6 /* WhiteCloudRight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudRight.jpg; sourceTree = "<group>"; };
 		646D41201ED076A800C5904B /* scene.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene.frag; sourceTree = "<group>"; };
 		646D41221ED076B600C5904B /* scene.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene.vert; sourceTree = "<group>"; };
 		646D412C1ED2102F00C5904B /* scene1.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene1.frag; sourceTree = "<group>"; };
@@ -629,12 +629,12 @@
 				648079401EF2DBD4008B5D06 /* godrays.vert */,
 				6479DBBC1EF9574E005D203C /* skyBox.frag */,
 				6479DBBD1EF9574E005D203C /* skyBox.vert */,
-				6460F1011EF9585C00A26FA6 /* WhiteCloudBack.jpg */,
 				6460F1021EF9585C00A26FA6 /* WhiteCloudDown.jpg */,
-				6460F1031EF9585C00A26FA6 /* WhiteCloudFront.jpg */,
-				6460F1041EF9585C00A26FA6 /* WhiteCloudLeft.jpg */,
-				6460F1051EF9585C00A26FA6 /* WhiteCloudRight.jpg */,
 				6460F1061EF9585C00A26FA6 /* WhiteCloudUp.jpg */,
+				6460F1191EF978C400A26FA6 /* WhiteCloudBack.jpg */,
+				6460F11A1EF978C400A26FA6 /* WhiteCloudFront.jpg */,
+				6460F11B1EF978C400A26FA6 /* WhiteCloudLeft.jpg */,
+				6460F11C1EF978C400A26FA6 /* WhiteCloudRight.jpg */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -953,11 +953,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6460F10B1EF9585C00A26FA6 /* WhiteCloudRight.jpg in Resources */,
+				6460F11D1EF978C400A26FA6 /* WhiteCloudBack.jpg in Resources */,
 				6432ED3D1EC99F1D001E2316 /* boulder01.mtl in Resources */,
 				B4794A311BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949A81BA6742B00B5E9DC /* cave_d.png in Resources */,
-				6460F10A1EF9585C00A26FA6 /* WhiteCloudLeft.jpg in Resources */,
 				B47949B01BA6742B00B5E9DC /* crystal.mtl in Resources */,
 				64A4D5421EF437F800AF8FF4 /* sphere.obj in Resources */,
 				6432ED441EC99F1D001E2316 /* Y_Tube.obj in Resources */,
@@ -967,17 +966,18 @@
 				B47949A91BA6742B00B5E9DC /* cave_n.png in Resources */,
 				6432ED3C1EC99F1D001E2316 /* 3td_LayerRock_001.png in Resources */,
 				6480793C1EF2C290008B5D06 /* colorShader.vert in Resources */,
+				6460F1201EF978C400A26FA6 /* WhiteCloudRight.jpg in Resources */,
 				B47949AB1BA6742B00B5E9DC /* cave_stream.mtl in Resources */,
 				B47949B61BA6742B00B5E9DC /* flame.mtl in Resources */,
 				B47949AE1BA6742B00B5E9DC /* cave_stream_n.png in Resources */,
 				644F24131ECC8EA7000CB84A /* 3td_Vino_04_SPEC.png in Resources */,
 				B47949B51BA6742B00B5E9DC /* flame.frag in Resources */,
 				646D41211ED076A800C5904B /* scene.frag in Resources */,
+				6460F11E1EF978C400A26FA6 /* WhiteCloudFront.jpg in Resources */,
 				B47949AC1BA6742B00B5E9DC /* cave_stream.obj in Resources */,
 				642829B91EC8C10800DBD605 /* junction.obj in Resources */,
 				6432ED591EC9F8DF001E2316 /* stalagmite.mtl in Resources */,
 				6432ED571EC9F8DF001E2316 /* 3td_Stalag_01_NRM.png in Resources */,
-				6460F1071EF9585C00A26FA6 /* WhiteCloudBack.jpg in Resources */,
 				642829B81EC8C10800DBD605 /* junction.mtl in Resources */,
 				B47949A61BA6742B00B5E9DC /* cave.mtl in Resources */,
 				644F24121ECC8EA7000CB84A /* 3td_Vino_04_NRM.png in Resources */,
@@ -1027,10 +1027,10 @@
 				642829B41EC8BF9600DBD605 /* L-Segment.mtl in Resources */,
 				6432ED421EC99F1D001E2316 /* L_Curve.obj in Resources */,
 				64B8E5B41ED6089200396BBB /* caveShader.vert in Resources */,
-				6460F1091EF9585C00A26FA6 /* WhiteCloudFront.jpg in Resources */,
 				6432ED581EC9F8DF001E2316 /* 3td_StalagTex_01.jpg in Resources */,
 				6479DBBE1EF9574E005D203C /* skyBox.frag in Resources */,
 				6432ED411EC99F1D001E2316 /* L_Curve.mtl in Resources */,
+				6460F11F1EF978C400A26FA6 /* WhiteCloudLeft.jpg in Resources */,
 				64AEBBB71ECDF1B50089C224 /* 3td_Stone_24.jpg in Resources */,
 				B47949A41BA6742B00B5E9DC /* blurShader.frag in Resources */,
 				B47949BB1BA6742B00B5E9DC /* sparks.png in Resources */,

@@ -1591,11 +1591,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519657880.774491"
+            timestampString = "519665634.017965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "World::render(const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1607,11 +1607,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519657880.774491"
+            timestampString = "519665634.017965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "World::render(const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2023,11 +2023,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519658894.594324"
+            timestampString = "519665634.017965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "renderSkyCube(Renderer &amp;renderer)"
             landmarkType = "9">
          </BreakpointContent>
@@ -2039,11 +2039,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519658906.550319"
+            timestampString = "519665634.017965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "renderSkyCube(Renderer &amp;renderer)"
             landmarkType = "9">
          </BreakpointContent>
@@ -2055,13 +2055,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519658980.274758"
+            timestampString = "519665634.017965"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "renderSkyCube(Renderer &amp;renderer)"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "bRenderer/implementation/OBJLoader.cpp"
+            timestampString = "519662682.334432"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "525"
+            endingLineNumber = "525"
+            landmarkName = "OBJLoader::createFaceNormals()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
