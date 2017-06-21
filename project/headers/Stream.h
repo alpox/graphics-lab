@@ -13,10 +13,10 @@
 
 class Stream: public Component {
 public:
-    Stream(float& offset): offset(offset) {
+    Stream(double offset = 0.0): offset(offset) {
         type = COMPONENT_STREAM;
     }
-    float& offset;
+    double offset;
 };
 
 typedef std::shared_ptr<Stream> StreamPtr;

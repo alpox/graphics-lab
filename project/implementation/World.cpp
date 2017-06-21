@@ -105,7 +105,7 @@ DepthMapPtr World::renderSunShadowMap(const double &deltaTime) {
         fboTexture = renderer.getObjects()->createDepthMap("shadowMap",
                                                            renderer.getView()->getViewportWidth(), renderer.getView()->getViewportHeight());
     
-    framebuffer->bindDepthMap(fboTexture, true);
+    //framebuffer->bindDepthMap(fboTexture, true);
     glClear(GL_DEPTH_BUFFER_BIT);
     
     for(EntityArray::iterator it = entities.begin(); it != entities.end(); it++) {
@@ -114,7 +114,7 @@ DepthMapPtr World::renderSunShadowMap(const double &deltaTime) {
         entity->render(deltaTime, LIGHT_PASS, getSunViewMatrix(), getSunProjectionMatrix(), getSunPosition());
     }
     
-    framebuffer->unbind(defaultFBO); // Restore default fbo
+    //framebuffer->unbind(defaultFBO); // Restore default fbo
     
     return fboTexture;
 }
@@ -167,6 +167,8 @@ void World::renderSkyCube() {
     ShaderPtr skyShader = objectManager->loadShaderFile("skyBox", 0, false, false, false, false, false);
     
     // Load cubemap texture
+	//cloudy sky
+	/*
     if((skyBox = objectManager->getCubeMap("skyCube")) == nullptr) {
         TextureData skyLeft("WhiteCloudLeft.jpg");
         TextureData skyRight("WhiteCloudRight.jpg");
@@ -177,6 +179,18 @@ void World::renderSkyCube() {
         
         skyBox = objectManager->createCubeMap("skyCube", { skyLeft, skyRight, skyUp, skyDown, skyFront, skyBack});
     }
+	*/
+	//desert
+	if ((skyBox = objectManager->getCubeMap("skyCube")) == nullptr) {
+		TextureData skyLeft("sahara_rt.jpg");
+		TextureData skyRight("sahara_lf.jpg");
+		TextureData skyUp("sahara_up.jpg");
+		TextureData skyFront("sahara_ft.jpg");
+		TextureData skyBack("sahara_bk.jpg");
+		TextureData skyDown("sahara_dn.jpg");
+
+		skyBox = objectManager->createCubeMap("skyCube", { skyLeft, skyRight, skyUp, skyDown, skyFront, skyBack });
+	}
     
     if(renderer.getObjects()->getModel("cube") == nullptr)
         renderer.getObjects()->loadObjModel_o("cube.obj", skyShader, FLIP_T);

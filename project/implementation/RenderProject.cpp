@@ -110,7 +110,14 @@ void RenderProject::initFunction()
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
     RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
     ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
-    world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+
+    EntityPtr entity = world.createRenderModel("caveAndBase", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+
+	ShaderPtr fall = bRenderer().getObjects()->loadShaderFile("fallShader", 0, false, false, false, false, false);
+	entity = world.createRenderModel("Fall", modelTransform, modelRender, fall, FLIP_T | FLIP_Z);
+
+	StreamPtr stream = StreamPtr(new Stream());
+	entity->addComponent(stream);
     
     /*
     ColliderPtr collider = ColliderPtr(new Collider(EFFECT_BLUEVISION));
@@ -248,7 +255,8 @@ void RenderProject::loopFunction(const double &deltaTime, const double &elapsedT
      */
     
     bRenderer().getObjects()->getLight("torchLight")->setPosition(-bRenderer().getObjects()->getCamera("camera")->getPosition());
-    
+
+
     /*
 	//// Torch Light ////
 	if (_running){

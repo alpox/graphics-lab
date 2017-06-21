@@ -213,7 +213,7 @@ void main() {
             float sampleDepth = texture2D(ShadowMap, sampleInterval.xy).z;
             
             if(sampleInterval.z < sampleDepth) {
-                samplingResult += 0.05;
+                //samplingResult += 0.1;
             }
         }
         
