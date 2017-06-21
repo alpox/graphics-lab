@@ -1,0 +1,28 @@
+# Blender MTL File: 'caveFalls2.0.blend'
+# Material Count: 2
+
+newmtl RockBase02
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 9.000000 9.000000 9.000000
+Ke 0.000000 0.000000 0.000000
+Ni -1.000000
+d 1.000000
+illum 2
+map_Kd 3TD_RockBase_01.jpg
+map_Bump RockNormal.png
+map_Ks specular.png
+
+newmtl Ston024
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 8.999999 8.999999 8.999999
+Ke 0.000000 0.000000 0.000000
+Ni -1.000000
+d 1.000000
+illum 2
+map_Kd 3td_Stone_24.jpg
+map_Bump 3td_Stone_24_NRM.png
+map_Ks 3td_Stone_24_NRM_SPEC.png

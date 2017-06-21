@@ -236,9 +236,13 @@
     <None Include="..\data\cave_stream.vert" />
     <None Include="..\data\config.json" />
     <None Include="..\data\crystal.mtl" />
+    <None Include="..\data\fallShader.frag" />
+    <None Include="..\data\fallShader.vert" />
     <None Include="..\data\flame.frag" />
     <None Include="..\data\flame.mtl" />
     <None Include="..\data\flame.vert" />
+    <None Include="..\data\scene1.frag" />
+    <None Include="..\data\scene1.vert" />
     <None Include="..\data\torch.mtl" />
   </ItemGroup>
   <ItemGroup>

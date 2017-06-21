@@ -12,15 +12,30 @@
 class StreamSystem: public virtual System {
 public:
     StreamSystem(World& world): System(world) {
-        requirements_mask = (COMPONENT_RENDERER | COMPONENT_STREAM);
+        requirements_mask = (COMPONENT_STREAM);
     }
     
 protected:
-    void apply(EntityPtr entity, const double &deltaTime) {
-        auto renderer = entity->getComponent<Render>(COMPONENT_RENDERER);
-        auto stream = entity->getComponent<Stream>(COMPONENT_STREAM);
-        
-        entity->renderer().getObjects()->getProperties("streamProperties")->setScalar("offset", stream->offset);
+	void apply(EntityPtr entity, const double &deltaTime) {
+		auto stream = entity->getComponent<Stream>(COMPONENT_STREAM);
+
+		if (deltaTime > 0.0f) {
+			stream->offset += 5 * deltaTime;
+			std::cout << stream->offset;
+		}
+
+		if (entity->modelName() == "Fall") {
+			ShaderPtr fallShader = entity->renderer().getObjects()->getShader("fallShader");
+			TexturePtr texture1 = entity->renderer().getObjects()->loadTexture("main_falls_01.png");
+			TexturePtr texture2 = entity->renderer().getObjects()->loadTexture("main_falls_02.png");
+			TexturePtr texture3 = entity->renderer().getObjects()->loadTexture("main_falls_03.png");
+			fallShader->setUniform("offset", (GLfloat)stream->offset);
+			fallShader->setUniform("fall1", texture1);
+			fallShader->setUniform("fall2", texture2);
+			fallShader->setUniform("fall3", texture3);
+			
+		}
+
     }
 };
 

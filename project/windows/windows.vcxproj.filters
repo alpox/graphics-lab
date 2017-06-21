@@ -547,6 +547,18 @@
     <None Include="..\data\config.json">
       <Filter>project\data</Filter>
     </None>
+    <None Include="..\data\scene1.frag">
+      <Filter>project\data</Filter>
+    </None>
+    <None Include="..\data\scene1.vert">
+      <Filter>project\data</Filter>
+    </None>
+    <None Include="..\data\fallShader.frag">
+      <Filter>project\data</Filter>
+    </None>
+    <None Include="..\data\fallShader.vert">
+      <Filter>project\data</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\data\flame.png">

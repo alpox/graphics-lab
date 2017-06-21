@@ -67,6 +67,8 @@ void renderSkyCube(Renderer &renderer) {
     ShaderPtr skyShader = objectManager->loadShaderFile("skyBox", 0, false, false, false, false, false);
     
     // Load cubemap texture
+	//cloudy sky
+	/*
     if((skyBox = objectManager->getCubeMap("skyCube")) == nullptr) {
         TextureData skyLeft("WhiteCloudLeft.jpg");
         TextureData skyRight("WhiteCloudRight.jpg");
@@ -77,6 +79,18 @@ void renderSkyCube(Renderer &renderer) {
         
         skyBox = objectManager->createCubeMap("skyCube", { skyLeft, skyRight, skyUp, skyDown, skyFront, skyBack});
     }
+	*/
+	//desert
+	if ((skyBox = objectManager->getCubeMap("skyCube")) == nullptr) {
+		TextureData skyLeft("sahara_rt.jpg");
+		TextureData skyRight("sahara_lf.jpg");
+		TextureData skyUp("sahara_up.jpg");
+		TextureData skyFront("sahara_ft.jpg");
+		TextureData skyBack("sahara_bk.jpg");
+		TextureData skyDown("sahara_dn.jpg");
+
+		skyBox = objectManager->createCubeMap("skyCube", { skyLeft, skyRight, skyUp, skyDown, skyFront, skyBack });
+	}
     
     if(renderer.getObjects()->getModel("cube") == nullptr)
         renderer.getObjects()->loadObjModel_o("cube.obj", skyShader, FLIP_T);
