@@ -7,6 +7,7 @@
 //
 
 #include "World.h"
+#include <vmmlib/frustum.hpp>
 
 void World::removeEntity(int id) {
     entities.erase(std::remove_if(entities.begin(), entities.end(), [id](const auto& entity) {
@@ -110,6 +111,30 @@ void renderSkyCube(Renderer &renderer) {
     camera->setPosition(cameraPosition);
 }
 
+void renderSunShadowMap(Renderer &renderer) {
+    FramebufferPtr framebuffer;
+    if((framebuffer = renderer.getObjects()->getFramebuffer("shadowMapBuffer")) == nullptr)
+        framebuffer = renderer.getObjects()->createFramebuffer("shadowMapBuffer");
+    
+    // Store default fbo to reuse it later
+    GLint defaultFBO = Framebuffer::getCurrentFramebuffer();
+    
+    // create texture to bind to the fbo
+    TexturePtr fboTexture;
+    if((fboTexture = renderer.getObjects()->getDepthMap("shadowMap")) == nullptr)
+        fboTexture = renderer.getObjects()->createDepthMap("shadowMap",
+                                                          renderer.getView()->getWidth(), renderer.getView()->getHeight());
+    glClear(GL_DEPTH_BUFFER_BIT);
+    framebuffer->bindTexture(fboTexture, true);
+
+    // Do work
+    // Frustum( const T left, const T right, const T bottom, const T top, const T near_plane, const T far_plane );
+    
+    
+    
+    framebuffer->unbind(defaultFBO); // Restore default fbo
+}
+
 void World::render(const double &deltaTime) {
     // Apply all systems before rendering
     applySystems(deltaTime);
@@ -160,8 +185,8 @@ void World::render(const double &deltaTime) {
     godrayShader->setUniform("firstPass", fboTexture);
     godrayShader->setUniform("exposure", (GLfloat)1.0);
     godrayShader->setUniform("decay", (GLfloat)1.0);
-    godrayShader->setUniform("density", (GLfloat)1.5);
-    godrayShader->setUniform("weight", (GLfloat)0.008);
+    godrayShader->setUniform("density", (GLfloat)1.1);
+    godrayShader->setUniform("weight", (GLfloat)0.007);
     
     CameraPtr camera = renderer.getObjects()->getCamera("camera");
     vmml::Matrix4f view = camera->getViewMatrix();
