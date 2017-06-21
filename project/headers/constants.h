@@ -24,6 +24,8 @@ typedef unsigned short PASS;
 const PASS FIRST_PASS = 1;
 const PASS SECOND_PASS = 2;
 const PASS THIRD_PASS = 3;
+const PASS SHADOW_PASS = 4;
+const PASS LIGHT_PASS = 5;
 
 typedef unsigned short EFFECT;
 

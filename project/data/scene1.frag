@@ -11,6 +11,9 @@ struct PointLight {
     float radius;
 };
 
+uniform mat4 sunSpaceView;
+uniform mat4 sunSpaceProjection;
+
 uniform mat4 model;
 uniform mat4 view;
 uniform mat4 projection;
@@ -44,11 +47,15 @@ uniform sampler2D DiffuseMap;
 uniform sampler2D NormalMap;
 uniform sampler2D SpecularMap;
 
+uniform sampler2D ShadowMap;
+
 varying vec2 fragTexCoord;
 varying vec3 fragTangent;
 varying vec3 fragBitangent;
 varying vec3 fragNormal;
 varying vec4 fragPosition;
+
+varying vec4 fragSunSpacePosition;
 
 float lambertWeight(vec3 n, vec3 d) {
     return clamp(dot(n, d), 0.0, 1.0);
@@ -87,6 +94,16 @@ vec4 reduceColors(vec4 color, float numColors) {
     return color;
 }
 
+highp float rand(vec2 co)
+{
+    highp float a = 12.9898;
+    highp float b = 78.233;
+    highp float c = 43758.5453;
+    highp float dt= dot(co.xy ,vec2(a,b));
+    highp float sn= mod(dt,3.14);
+    return fract(sin(sn) * c);
+}
+
 void main() {
     
 	vec4 blueShiftWeight = vec4(1.0, 1.0, 6.0, 1.0);
@@ -107,6 +124,10 @@ void main() {
     if(numPass == 1) {
         gl_FragColor = vec4(0.0, 0.0, 0.0, color.w); // Draw first pass as black
         return; // nothing more to do here
+    } else if(numPass == 5) {
+        vec4 positionLightSpace = projection * view * fragPosition;
+        gl_FragColor = vec4(positionLightSpace.z, positionLightSpace.z, positionLightSpace.z, 1.0); // Draw z value for depth pass
+        return;
     }
     
     vec3 spec = texture2D(SpecularMap, fragTexCoord).xyz;
@@ -154,8 +175,50 @@ void main() {
         vec4 diffuseResult = vec4(diffuseLight, 1.0) * color;
         vec4 specularResult = vec4(specularLight * spec, 0.0);
         
+        float visibility = 1.0;
+        float bias = 0.005;
+        
+        vec3 sunSpacePosition = fragSunSpacePosition.xyz / fragSunSpacePosition.w;
+        sunSpacePosition = sunSpacePosition * 0.5 + 0.5;
+        
+        if(fragSunSpacePosition.z + bias > texture2D(ShadowMap, sunSpacePosition.xy).r ||
+           (sunSpaceView * model * vec4(fragNormal, 1.0)).z < 0.55) {
+            visibility = 0.5;
+        }
+        
+        vec4 pixelSunSpace = sunSpaceProjection * sunSpaceView * fragPosition;
+        vec3 pixelPosTexture = pixelSunSpace.xyz / pixelSunSpace.w * 0.5 + 0.5;
+        
+        vec4 eyeSunSpace = sunSpaceProjection * sunSpaceView * vec4(eyePosition, 1.0);
+        vec3 eyePosTexture = eyeSunSpace.xyz / eyeSunSpace.w * 0.5 + 0.5;
+        
+        vec3 pixelDirection = pixelPosTexture - eyePosTexture;
+        
+        float samplingResult = 1.0;
+        
+        vec3 sampleInterval = eyePosTexture;
+        
+        float rest = 1.0;
+        
+        for(float i = 0.0; i < 100.0; i++) { // take 100 samples along the way. (More?)
+            float take = (1.0 / 100.0) * rand(fragPosition.xy);
+            
+            rest -= take;
+            
+            if(rest < 0.05)
+                break;
+            
+            sampleInterval += pixelDirection * take;
+            
+            float sampleDepth = texture2D(ShadowMap, sampleInterval.xy).z;
+            
+            if(sampleInterval.z < sampleDepth) {
+                samplingResult += 0.05;
+            }
+        }
+        
         // Set the final color
-        gl_FragColor = ambientResult + diffuseResult + specularResult;
+        gl_FragColor = ambientResult + (diffuseResult + specularResult) * visibility * samplingResult;
     }
     else {
         float numColors = 6.0;

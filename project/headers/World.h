@@ -48,7 +48,18 @@ public:
     
     void render(const double &deltaTime);
     
+    DepthMapPtr renderSunShadowMap(const double &deltaTime);
+    
+    void renderSun();
+    
+    void renderSkyCube();
+    
     void removeEntity(int id);
+    
+    vmml::AABBf getFullBoundingBox();
+    
+    vmml::Matrix4f getSunViewMatrix();
+    vmml::Matrix4f getSunProjectionMatrix();
     
     template<typename T>
     void addSystem() {
@@ -68,6 +79,8 @@ private:
     SystemArray systems;
     
     IdManager idManager;
+    
+    vmml::AABBf _fullBoundingBox;
 };
 
 #include "StreamSystem.h"

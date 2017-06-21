@@ -77,7 +77,7 @@ void RenderProject::initFunction()
 	//bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(148.0f, -3.0f, 15.0f), vmml::Vector3f(0.3f, 1.0f, 0.3f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(0.0f, 50.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(218.0f, -3.0f, 0.0f), vmml::Vector3f(0.8f, 0.2f, 0.2f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.15f, 0.15f, 0.15f), 1.5f, 0.0f, 600.f);
+    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.15f, 0.15f, 0.15f), 1.5f, 0.0f, 1000.f);
 
 
 	// postprocessing
@@ -106,10 +106,11 @@ void RenderProject::initFunction()
     //world.createRenderModel("test3", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
    
     vmml::Matrix4f modelMatrix = vmml::create_scaling(vmml::Vector3f(3.f));
+    
     TransformPtr modelTransform = TransformPtr(new Transform(modelMatrix));
     RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
     ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
-    EntityPtr entity = world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+    world.createRenderModel("test2", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
     
     /*
     ColliderPtr collider = ColliderPtr(new Collider(EFFECT_BLUEVISION));

@@ -11,6 +11,9 @@ struct PointLight {
     float radius;
 };
 
+uniform mat4 sunSpaceView;
+uniform mat4 sunSpaceProjection;
+
 attribute vec4 Position;
 attribute vec3 Normal;
 attribute vec3 Tangent;
@@ -53,6 +56,8 @@ varying vec3 fragBitangent;
 varying vec3 fragNormal;
 varying vec4 fragPosition;
 
+varying vec4 fragSunSpacePosition;
+
 void main() {
     // Set texture coords
     fragTexCoord = TexCoord.st;
@@ -63,6 +68,8 @@ void main() {
 	fragBitangent = normalize(mat3(model) * Bitangent);
     fragNormal = normalize(normalMatrix * Normal);
     fragPosition = model * vec4(Position.xyz, 1.0);
+    
+    fragSunSpacePosition = sunSpaceProjection * sunSpaceView * fragPosition;
     
     gl_Position = projection * view * fragPosition;
 }

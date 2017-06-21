@@ -14,48 +14,45 @@ bool Entity::hasComponents(COMPONENT_MASK type) {
 
 void Entity::render(const double &deltaTime, PASS pass) const {
     RenderPtr renderer = getComponent<Render>(COMPONENT_RENDERER);
+    CameraPtr camera = _renderer.getObjects()->getCamera(renderer->camera);
+    
+    vmml::Matrix4f viewMatrix = camera->getViewMatrix();
+    vmml::Matrix4f projectionMatrix = camera->getProjectionMatrix();
+    
+    vmml::Vector3f eyePosition = -camera->getPosition();
+    
+    render(deltaTime, pass, viewMatrix, projectionMatrix, eyePosition);
+}
+
+void Entity::render(const double &deltaTime, PASS pass, vmml::Matrix4f viewMatrix, vmml::Matrix4f projectionMatrix, vmml::Vector3f eyePosition) const {
+    RenderPtr renderer = getComponent<Render>(COMPONENT_RENDERER);
     TransformPtr transform = getComponent<Transform>(COMPONENT_TRANSFORM);
     NoDepthPtr noDepth = getComponent<NoDepth>(COMPONENT_NODEPTH);
     
     CameraPtr camera = _renderer.getObjects()->getCamera(renderer->camera);
+    ModelPtr model = _renderer.getObjects()->getModel(_modelName);
     
     renderer->totalTime += deltaTime;
     
-    vmml::Vector3f cameraPosition = camera->getPosition();
-    if(modelName() == "sphere") {
-        transform->modelMatrix = vmml::create_translation(
-                                                          vmml::Vector3f::BACKWARD * 20.f
-                                                          ) * vmml::create_scaling(vmml::Vector3f(0.5f));
-        
-        
-        camera->setPosition({0.0,0.0,0.0});
-    }
-    
     if(_shader != nullptr)
-        setUniforms(_shader, renderer, transform, deltaTime, pass);
+        setUniforms(_shader, renderer, transform, deltaTime, pass, viewMatrix, projectionMatrix, eyePosition);
     
     if(noDepth != nullptr)
         glDisable(GL_DEPTH_TEST);
     
     if(!(pass == SECOND_PASS && noDepth != nullptr)) { // Don't draw objects without depth buffer in second pass
         _renderer.getObjects()->setAmbientColor(renderer->ambientColor);
-        _renderer.getModelRenderer()->drawModel(_modelName, renderer->camera, transform->modelMatrix, renderer->lightNames);
+        _renderer.getModelRenderer()->drawModel(model, transform->modelMatrix, viewMatrix, projectionMatrix, renderer->lightNames, false);
         _renderer.getObjects()->setAmbientColor(bRenderer::DEFAULT_AMBIENT_COLOR());
     }
     
     if(noDepth != nullptr)
         glEnable(GL_DEPTH_TEST);
-    
-    if(modelName() == "sphere") {
-        camera->setPosition(cameraPosition);
-    }
 }
 
-void Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &deltaTime, PASS pass) const {
+void Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &deltaTime, PASS pass,
+                         vmml::Matrix4f viewMatrix, vmml::Matrix4f projectionMatrix, vmml::Vector3f eyePosition) const {
     ObjectManagerPtr objectManager = renderer().getObjects();
-    
-    vmml::Matrix4f viewMatrix = objectManager->getCamera(render->camera)->getViewMatrix();
-    vmml::Matrix4f projectionMatrix = objectManager->getCamera(render->camera)->getProjectionMatrix();
     
     vmml::Matrix3f normalMatrix;
     vmml::compute_inverse(vmml::transpose(vmml::Matrix3f(transform->modelMatrix)), normalMatrix);
@@ -81,7 +78,7 @@ void Entity::setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transf
     shader->setUniform("view", viewMatrix);
     shader->setUniform("projection", projectionMatrix);
     
-    shader->setUniform("eyePosition", -objectManager->getCamera(render->camera)->getPosition());
+    shader->setUniform("eyePosition", eyePosition);
     
     shader->setUniform("ambient", render->ambientColor);
     

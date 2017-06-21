@@ -93,7 +93,10 @@ public:
     
     void render(const double &deltaTime, PASS pass) const;
     
-    void setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &deltaTime, PASS pass) const;
+    void render(const double &deltaTime, PASS pass, vmml::Matrix4f viewMatrix, vmml::Matrix4f projectionMatrix, vmml::Vector3f eyePosition) const;
+    
+    void setUniforms(ShaderPtr shader, RenderPtr render, TransformPtr transform, const double &deltaTime, PASS pass,
+                     vmml::Matrix4f viewMatrix, vmml::Matrix4f projectionMatrix, vmml::Vector3f eyePosition) const;
     
     EffectsBag& effects() {
         return _effects;

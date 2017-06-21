@@ -9,22 +9,117 @@
 #include "World.h"
 #include <vmmlib/frustum.hpp>
 
-void World::removeEntity(int id) {
-    entities.erase(std::remove_if(entities.begin(), entities.end(), [id](const auto& entity) {
-        return entity->id() == id;
-    }));
-    idManager.removeId(id); // Make id accessible again
-}
 
-void World::applySystems(const double &deltaTime) {
-    effectsBag.testEffects(deltaTime);
+vmml::AABBf transformBoundingBox(vmml::AABBf boundingBox, vmml::Matrix4f m) {
+    vmml::Matrix3f dimensions(m);
     
-    std::for_each(systems.begin(), systems.end(), [&](const auto& system) {
-        system->apply(entities, deltaTime);
-    });
+    vmml::Vector3f xa = dimensions.get_row(0) * boundingBox.getMin().x();
+    vmml::Vector3f xb = dimensions.get_row(0) * boundingBox.getMax().x();
+    
+    vmml::Vector3f ya = dimensions.get_row(1) * boundingBox.getMin().y();
+    vmml::Vector3f yb = dimensions.get_row(1) * boundingBox.getMax().y();
+    
+    vmml::Vector3f za = dimensions.get_row(2) * boundingBox.getMin().z();
+    vmml::Vector3f zb = dimensions.get_row(2) * boundingBox.getMax().z();
+    
+    vmml::Vector3f translation(m.get_column(3));
+    
+    return vmml::AABBf(
+                       min(xa, xb) + min(ya, yb) + min(za, zb) + translation,
+                       max(xa, xb) + max(ya, yb) + max(za, zb) + translation
+                       );
 }
 
-void renderSun(Renderer& renderer) {
+vmml::Vector3f min(vmml::Vector3f vec1, vmml::Vector3f vec2) {
+    return vmml::Vector3f(
+                          std::min(vec1.x(), vec2.x()),
+                          std::min(vec1.y(), vec2.y()),
+                          std::min(vec1.z(), vec2.z())
+                          );
+}
+
+vmml::Vector3f max(vmml::Vector3f vec1, vmml::Vector3f vec2) {
+    return vmml::Vector3f(
+                          std::max(vec1.x(), vec2.x()),
+                          std::max(vec1.y(), vec2.y()),
+                          std::max(vec1.z(), vec2.z())
+                          );
+}
+
+vmml::Vector3f getSunPosition() {
+    return vmml::normalize(vmml::Vector3f(0.f, 0.f, 1.f)) * 1000.f;
+}
+
+vmml::AABBf World::getFullBoundingBox() {
+    vmml::AABBf &boundingBox = _fullBoundingBox;
+    if(boundingBox != vmml::AABBf()) return boundingBox;
+    
+    for(EntityArray::iterator it = entities.begin(); it != entities.end(); it++) {
+        EntityPtr entity = *it;
+        ModelPtr model = entity->model();
+        vmml::AABBf aabb = model->getBoundingBoxObjectSpace();
+        
+        auto entityTransform = entity->getComponent<Transform>(COMPONENT_TRANSFORM);
+        
+        if(entityTransform == nullptr) continue;
+        
+        boundingBox.merge(transformBoundingBox(aabb, entityTransform->modelMatrix));
+    }
+    
+    return boundingBox;
+}
+
+vmml::Matrix4f World::getSunViewMatrix() {
+    CameraPtr camera = renderer.getObjects()->getCamera("camera");
+    vmml::Vector3f sunPosition = getSunPosition() / 1000.f;
+    return camera->lookAt(sunPosition, vmml::Vector3f(0.0, 0.0, 0.0), vmml::Vector3f::UP);
+}
+
+vmml::Matrix4f World::getSunProjectionMatrix() {
+    vmml::Matrix4f sunViewMatrix = getSunViewMatrix();
+    vmml::AABBf fullBoundingBox = getFullBoundingBox();
+    
+    vmml::AABBf boundingBoxLightDirection = transformBoundingBox(fullBoundingBox, sunViewMatrix);
+    
+    vmml::Frustumf orthoFrustum(boundingBoxLightDirection.getMin().x(), // left
+                                boundingBoxLightDirection.getMax().x(), // right
+                                boundingBoxLightDirection.getMin().y(), // bottom
+                                boundingBoxLightDirection.getMax().y(), // top
+                                boundingBoxLightDirection.getMin().z(), // near
+                                boundingBoxLightDirection.getMax().z()); // far
+    
+    return orthoFrustum.compute_ortho_matrix();
+}
+
+DepthMapPtr World::renderSunShadowMap(const double &deltaTime) {
+    FramebufferPtr framebuffer;
+    if((framebuffer = renderer.getObjects()->getFramebuffer("shadowMapBuffer")) == nullptr)
+        framebuffer = renderer.getObjects()->createFramebuffer("shadowMapBuffer");
+    
+    // Store default fbo to reuse it later
+    GLint defaultFBO = Framebuffer::getCurrentFramebuffer();
+    
+    // create texture to bind to the fbo
+    DepthMapPtr fboTexture;
+    if((fboTexture = renderer.getObjects()->getDepthMap("shadowMap")) == nullptr)
+        fboTexture = renderer.getObjects()->createDepthMap("shadowMap",
+                                                           renderer.getView()->getViewportWidth(), renderer.getView()->getViewportHeight());
+    
+    framebuffer->bindDepthMap(fboTexture, true);
+    glClear(GL_DEPTH_BUFFER_BIT);
+    
+    for(EntityArray::iterator it = entities.begin(); it != entities.end(); it++) {
+        EntityPtr entity = *it;
+        
+        entity->render(deltaTime, LIGHT_PASS, getSunViewMatrix(), getSunProjectionMatrix(), getSunPosition());
+    }
+    
+    framebuffer->unbind(defaultFBO); // Restore default fbo
+    
+    return fboTexture;
+}
+
+void World::renderSun() {
     
     ShaderPtr sunShader = renderer.getObjects()->loadShaderFile("colorShader", 0, false, false, false, false, false);
     CameraPtr camera = renderer.getObjects()->getCamera("camera");
@@ -38,7 +133,7 @@ void renderSun(Renderer& renderer) {
     camera->setPosition({0.0,0.0,0.0});
     
     // Orient model
-    vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::normalize(vmml::Vector3f(0.0, 10.f, -6.f)) * 1000.f) *
+    vmml::Matrix4f modelMatrix = vmml::create_translation(getSunPosition()) *
         vmml::create_scaling(vmml::Vector3f(60.f));
     
     /*vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f::BACKWARD * 1000.f) *
@@ -61,7 +156,7 @@ void renderSun(Renderer& renderer) {
     camera->setPosition(cameraPosition);
 }
 
-void renderSkyCube(Renderer &renderer) {
+void World::renderSkyCube() {
     
     ObjectManagerPtr objectManager = renderer.getObjects();
     
@@ -111,35 +206,30 @@ void renderSkyCube(Renderer &renderer) {
     camera->setPosition(cameraPosition);
 }
 
-void renderSunShadowMap(Renderer &renderer) {
-    FramebufferPtr framebuffer;
-    if((framebuffer = renderer.getObjects()->getFramebuffer("shadowMapBuffer")) == nullptr)
-        framebuffer = renderer.getObjects()->createFramebuffer("shadowMapBuffer");
-    
-    // Store default fbo to reuse it later
-    GLint defaultFBO = Framebuffer::getCurrentFramebuffer();
-    
-    // create texture to bind to the fbo
-    TexturePtr fboTexture;
-    if((fboTexture = renderer.getObjects()->getDepthMap("shadowMap")) == nullptr)
-        fboTexture = renderer.getObjects()->createDepthMap("shadowMap",
-                                                          renderer.getView()->getWidth(), renderer.getView()->getHeight());
-    glClear(GL_DEPTH_BUFFER_BIT);
-    framebuffer->bindTexture(fboTexture, true);
+void World::removeEntity(int id) {
+    entities.erase(std::remove_if(entities.begin(), entities.end(), [id](const auto& entity) {
+        return entity->id() == id;
+    }));
+    idManager.removeId(id); // Make id accessible again
+}
 
-    // Do work
-    // Frustum( const T left, const T right, const T bottom, const T top, const T near_plane, const T far_plane );
+void World::applySystems(const double &deltaTime) {
+    effectsBag.testEffects(deltaTime);
     
-    
-    
-    framebuffer->unbind(defaultFBO); // Restore default fbo
+    std::for_each(systems.begin(), systems.end(), [&](const auto& system) {
+        system->apply(entities, deltaTime);
+    });
 }
 
 void World::render(const double &deltaTime) {
+    glCullFace(GL_FRONT_AND_BACK);
+    
     // Apply all systems before rendering
     applySystems(deltaTime);
     
-    renderSkyCube(renderer);
+    renderSkyCube();
+    
+    DepthMapPtr shadowMap = renderSunShadowMap(deltaTime);
     
     FramebufferPtr framebuffer;
     if((framebuffer = renderer.getObjects()->getFramebuffer("firstPass")) == nullptr)
@@ -152,31 +242,38 @@ void World::render(const double &deltaTime) {
     TexturePtr fboTexture;
     if((fboTexture = renderer.getObjects()->getTexture("fbo_godray_texture")) == nullptr)
         fboTexture = renderer.getObjects()->createTexture("fbo_godray_texture",
-                                    renderer.getView()->getWidth(), renderer.getView()->getHeight());
+                                                          renderer.getView()->getWidth(), renderer.getView()->getHeight());
     glClear(GL_DEPTH_BUFFER_BIT);
     framebuffer->bindTexture(fboTexture, true);
     
     // First pass
-    renderSun(renderer);
-    std::for_each(entities.begin(), entities.end(), [&deltaTime](const auto& entity) {
+    renderSun();
+    
+    for(EntityArray::iterator it = entities.begin(); it != entities.end(); it++) {
+        EntityPtr entity = *it;
         entity->render(deltaTime, FIRST_PASS);
-    });
+    }
     
     framebuffer->unbind(defaultFBO); // Restore default fbo
     
     // Second pass
     glClear(GL_DEPTH_BUFFER_BIT);
     
-    std::for_each(entities.begin(), entities.end(), [&deltaTime](const auto& entity) {
+    renderer.getObjects()->getShader("scene1")->setUniform("ShadowMap", shadowMap);
+    renderer.getObjects()->getShader("scene1")->setUniform("sunSpaceView", getSunViewMatrix());
+    renderer.getObjects()->getShader("scene1")->setUniform("sunSpaceProjection", getSunProjectionMatrix());
+    
+    for(EntityArray::iterator it = entities.begin(); it != entities.end(); it++) {
+        EntityPtr entity = *it;
         entity->render(deltaTime, SECOND_PASS);
-    });
+    };
     
     glClear(GL_DEPTH_BUFFER_BIT);
     
     // Third pass
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-
+    
     // Create godray shader
     ShaderPtr godrayShader;
     if((godrayShader = renderer.getObjects()->getShader("godrays")) == nullptr)
@@ -193,7 +290,7 @@ void World::render(const double &deltaTime) {
     vmml::Matrix4f projection = camera->getProjectionMatrix();
     
     // Transform sun position to screen position
-    vmml::Vector4f sunPosition4f = vmml::Vector4f(-camera->getPosition() + (vmml::normalize(vmml::Vector3f(0.0, 10.f, -6.f)) * 1000.f));
+    vmml::Vector4f sunPosition4f = vmml::Vector4f(-camera->getPosition() + getSunPosition());
     
     sunPosition4f = projection * view * sunPosition4f;
     vmml::Vector2f sunPositionCube;
@@ -211,7 +308,7 @@ void World::render(const double &deltaTime) {
     geometryData->vboVertices.emplace_back(-1, 1, 0, 0, 0);
     geometryData->vboVertices.emplace_back(1, -1, 0, 0, 0);
     geometryData->vboVertices.emplace_back(1, 1, 0, 0, 0);
-   
+    
     for(int i = 0; i < 6; i++)
         geometryData->vboIndices.push_back(i);
     
@@ -225,5 +322,6 @@ void World::render(const double &deltaTime) {
     
     // Bind first pass texture and draw the fullscreen geometry
     geometry->draw();
-
+    
 }
+
