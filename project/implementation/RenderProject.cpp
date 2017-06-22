@@ -110,7 +110,7 @@ void RenderProject::initFunction()
     RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
     ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
     //EntityPtr entity = world.createRenderModel("caveAndBase", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
-	EntityPtr entity = world.createRenderModel("caveSystem", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+	EntityPtr entity = world.createRenderModel("caveSystem3", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
 
 	ShaderPtr fall = bRenderer().getObjects()->loadShaderFile("fallShader", 0, false, false, false, false, false);
 	entity = world.createRenderModel("Fall", modelTransform, modelRender, fall, FLIP_T | FLIP_Z);
