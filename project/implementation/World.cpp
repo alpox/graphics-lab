@@ -103,7 +103,7 @@ DepthMapPtr World::renderSunShadowMap(const double &deltaTime) {
     DepthMapPtr fboTexture;
     if((fboTexture = renderer.getObjects()->getDepthMap("shadowMap")) == nullptr)
         fboTexture = renderer.getObjects()->createDepthMap("shadowMap",
-                                                           renderer.getView()->getViewportWidth(), renderer.getView()->getViewportHeight());
+                                                           renderer.getView()->getWidth(), renderer.getView()->getHeight());
     
     framebuffer->bindDepthMap(fboTexture, true);
     glClear(GL_DEPTH_BUFFER_BIT);

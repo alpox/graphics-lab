@@ -28,7 +28,7 @@ void RenderProject::initFunction()
 	_randomOffset = 0.0f;
 	_cameraSpeed = 40.0f;
 	_running = false; _lastStateSpaceKey = bRenderer::INPUT_UNDEFINED; _lastBlueState = bRenderer::INPUT_UNDEFINED;
-	_viewMatrixHUD = Camera::lookAt(vmml::Vector3f(0.0f, 0.0f, 0.25f), vmml::Vector3f::ZERO, vmml::Vector3f::UP);
+	_viewMatrixHUD = Camera::lookAt(vmml::Vector3f(0.0f, 20.0f, 0.25f), vmml::Vector3f::ZERO, vmml::Vector3f::UP);
 
 	// set shader versions (optional)
 	bRenderer().getObjects()->setShaderVersionDesktop("#version 120");
@@ -68,7 +68,7 @@ void RenderProject::initFunction()
 		bRenderer().getObjects()->createTextSprite("instructions", vmml::Vector3f(1.f, 1.f, 1.f), "Press space to start", font);
 
 	// create camera
-	bRenderer().getObjects()->createCamera("camera", vmml::Vector3f(0.f, 0.f, 0.f), vmml::Vector3f(0.f, 0.f, 0.f));
+	bRenderer().getObjects()->createCamera("camera", vmml::Vector3f(20.f, -10.f, 0.f), vmml::Vector3f(0.f, 0.f, 0.f));
 
 	// create lights
 	//bRenderer().getObjects()->createLight("firstLight", vmml::Vector3f(0.0f, 50.0f, -120.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
@@ -127,7 +127,7 @@ void RenderProject::initFunction()
     
     collider = ColliderPtr(new Collider(EFFECT_BLUEVISION));
     modelMatrix = vmml::create_translation(vmml::Vector3f(10.f, 5.f, 50.f)) * vmml::create_scaling(0.3f);
-    entity = world.createRenderModel("potion2", TransformPtr(new Transform(modelMatrix)), modelRender, scene);
+    entity = world.createRenderModel("potion_blue", TransformPtr(new Transform(modelMatrix)), modelRender, scene);
     entity->addComponent(collider);
     
     

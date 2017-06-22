@@ -113,12 +113,12 @@ void main() {
 	vec2 tx2 = fragTexCoord;
 	vec2 tx3 = fragTexCoord;
 	
-	tx1.x += sin(tx1.x + offset)/15;
+	tx1.x += sin(tx1.x + offset)/15.0;
 	tx1.x += 0.5*tx1.x;
 	tx1.y -= 0.03*offset + sin(tx1.y * 50.0 + offset) / 250.0;
 
-	tx2.x += sin(tx2.x + offset)/15;
-	tx2.y -= 4*(0.03*offset + sin(tx2.y * 50.0 + offset) / 250.0);
+	tx2.x += sin(tx2.x + offset)/15.0;
+	tx2.y -= 4.0*(0.03*offset + sin(tx2.y * 50.0 + offset) / 250.0);
 
 	vec4 c1 = texture2D(fall1, tx1);
 	float ac1 = c1[3];
@@ -130,11 +130,11 @@ void main() {
 	float ac3 = c3[3];
 
 	//c1 = ac1 * vec3(c1) + (1-ac1) * ac2 * vec3(c2);
-	c1 = vec4(vec3(c1) * 5, ac1);
-	c2 = vec4(vec3(c2) * 5, ac2);
-	c3 = vec4(vec3(c3) * 5, ac3);
+	c1 = vec4(vec3(c1) * 5.0, ac1);
+	c2 = vec4(vec3(c2) * 5.0, ac2);
+	c3 = vec4(vec3(c3) * 5.0, ac3);
 
-	c1 = vec4(ac1 * vec3(c1) + (1-ac1) * ac2 * vec3(c2), ac1+ac2);
+	c1 = vec4(ac1 * vec3(c1) + (1.0-ac1) * ac2 * vec3(c2), ac1+ac2);
 	vec4 color = c2;
 
 	//vec4 color = vec4(ac1 * vec3(c1) + (1-ac1) * ac4 * vec3(c4), ac4+ac1);

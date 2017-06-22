@@ -221,7 +221,7 @@ void main() {
         gl_FragColor = ambientResult + (diffuseResult + specularResult); //* visibility; * samplingResult;
     }
     else {
-        float numColors = 6.0;
+        float numColors = 3.0;
         
         color = reduceColors(color, numColors);
         

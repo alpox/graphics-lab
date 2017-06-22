@@ -87,8 +87,10 @@
 		6478A1BB1EFBA3E200466127 /* dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1BA1EFBA3E100466127 /* dark.png */; };
 		6478A1BD1EFBA48D00466127 /* potion_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1BC1EFBA48C00466127 /* potion_spec.png */; };
 		6478A1BF1EFBA60700466127 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1BE1EFBA60700466127 /* red.png */; };
-		6478A1C21EFBA84700466127 /* potion2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1C01EFBA84600466127 /* potion2.mtl */; };
-		6478A1C31EFBA84700466127 /* potion2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1C11EFBA84600466127 /* potion2.obj */; };
+		6478A1C51EFBABC600466127 /* blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1C41EFBABC600466127 /* blue.png */; };
+		6478A1C71EFBAC9400466127 /* blue.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1C61EFBAC9400466127 /* blue.jpg */; };
+		6478A1CA1EFBACA200466127 /* potion_blue.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1C81EFBACA200466127 /* potion_blue.mtl */; };
+		6478A1CB1EFBACA200466127 /* potion_blue.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1C91EFBACA200466127 /* potion_blue.obj */; };
 		6479DBBE1EF9574E005D203C /* skyBox.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6479DBBC1EF9574E005D203C /* skyBox.frag */; };
 		6479DBBF1EF9574E005D203C /* skyBox.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6479DBBD1EF9574E005D203C /* skyBox.vert */; };
 		6480793A1EF2C280008B5D06 /* colorShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 648079391EF2C280008B5D06 /* colorShader.frag */; };
@@ -323,8 +325,10 @@
 		6478A1BA1EFBA3E100466127 /* dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dark.png; sourceTree = "<group>"; };
 		6478A1BC1EFBA48C00466127 /* potion_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potion_spec.png; sourceTree = "<group>"; };
 		6478A1BE1EFBA60700466127 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
-		6478A1C01EFBA84600466127 /* potion2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = potion2.mtl; sourceTree = "<group>"; };
-		6478A1C11EFBA84600466127 /* potion2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = potion2.obj; sourceTree = "<group>"; };
+		6478A1C41EFBABC600466127 /* blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blue.png; sourceTree = "<group>"; };
+		6478A1C61EFBAC9400466127 /* blue.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blue.jpg; sourceTree = "<group>"; };
+		6478A1C81EFBACA200466127 /* potion_blue.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = potion_blue.mtl; sourceTree = "<group>"; };
+		6478A1C91EFBACA200466127 /* potion_blue.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = potion_blue.obj; sourceTree = "<group>"; };
 		6479DBBC1EF9574E005D203C /* skyBox.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = skyBox.frag; sourceTree = "<group>"; };
 		6479DBBD1EF9574E005D203C /* skyBox.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = skyBox.vert; sourceTree = "<group>"; };
 		648079381EF2BD8B008B5D06 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -624,10 +628,12 @@
 		B47949841BA6742B00B5E9DC /* data */ = {
 			isa = PBXGroup;
 			children = (
+				6478A1C81EFBACA200466127 /* potion_blue.mtl */,
+				6478A1C91EFBACA200466127 /* potion_blue.obj */,
+				6478A1C61EFBAC9400466127 /* blue.jpg */,
+				6478A1C41EFBABC600466127 /* blue.png */,
 				6478A1BE1EFBA60700466127 /* red.png */,
 				6478A1BA1EFBA3E100466127 /* dark.png */,
-				6478A1C01EFBA84600466127 /* potion2.mtl */,
-				6478A1C11EFBA84600466127 /* potion2.obj */,
 				6478A1B01EFB95EB00466127 /* potion.mtl */,
 				6478A1B11EFB95EC00466127 /* potion.obj */,
 				6478A1B41EFB960100466127 /* bottle_health.jpg */,
@@ -1088,9 +1094,9 @@
 				6478A19B1EFB362D00466127 /* 3TD_CaveGround_002.png in Resources */,
 				644F24131ECC8EA7000CB84A /* 3td_Vino_04_SPEC.png in Resources */,
 				B47949B51BA6742B00B5E9DC /* flame.frag in Resources */,
+				6478A1CB1EFBACA200466127 /* potion_blue.obj in Resources */,
 				646D41211ED076A800C5904B /* scene.frag in Resources */,
 				6478A1AC1EFB362D00466127 /* sahara_ft.jpg in Resources */,
-				6478A1C21EFBA84700466127 /* potion2.mtl in Resources */,
 				6460F11E1EF978C400A26FA6 /* WhiteCloudFront.jpg in Resources */,
 				6478A19C1EFB362D00466127 /* 3TD_RockBase_01.jpg in Resources */,
 				6478A1B71EFB960100466127 /* bottle_mana.jpg in Resources */,
@@ -1144,6 +1150,7 @@
 				6480793F1EF2DBC5008B5D06 /* godrays.frag in Resources */,
 				6432ED5C1EC9FBD1001E2316 /* stalagmite.obj in Resources */,
 				B47949BD1BA6742B00B5E9DC /* torch.obj in Resources */,
+				6478A1CA1EFBACA200466127 /* potion_blue.mtl in Resources */,
 				B47949A71BA6742B00B5E9DC /* cave.obj in Resources */,
 				646D412E1ED2103100C5904B /* scene1.frag in Resources */,
 				644F241E1ECCB1EE000CB84A /* test21.mtl in Resources */,
@@ -1151,7 +1158,6 @@
 				6479DBBF1EF9574E005D203C /* skyBox.vert in Resources */,
 				6478A1A41EFB362D00466127 /* fallShader.frag in Resources */,
 				B47949B81BA6742B00B5E9DC /* flame.png in Resources */,
-				6478A1C31EFBA84700466127 /* potion2.obj in Resources */,
 				6478A1AD1EFB362D00466127 /* sahara_lf.jpg in Resources */,
 				646D41371ED3408500C5904B /* cube.obj in Resources */,
 				6478A19E1EFB362D00466127 /* caveAndBase.mtl in Resources */,
@@ -1169,6 +1175,7 @@
 				6432ED3B1EC99F1D001E2316 /* 3td_LayerRock_001_NRM.png in Resources */,
 				B47949BC1BA6742B00B5E9DC /* torch.mtl in Resources */,
 				642829B41EC8BF9600DBD605 /* L-Segment.mtl in Resources */,
+				6478A1C71EFBAC9400466127 /* blue.jpg in Resources */,
 				6432ED421EC99F1D001E2316 /* L_Curve.obj in Resources */,
 				6478A1BD1EFBA48D00466127 /* potion_spec.png in Resources */,
 				64B8E5B41ED6089200396BBB /* caveShader.vert in Resources */,
@@ -1189,6 +1196,7 @@
 				6460F1231EFA7FAE00A26FA6 /* test2_outer.mtl in Resources */,
 				B47949B11BA6742B00B5E9DC /* crystal.obj in Resources */,
 				B4CB8CD01B72E43300FE041B /* Project-Info.plist in Resources */,
+				6478A1C51EFBABC600466127 /* blue.png in Resources */,
 				646D413A1ED342D100C5904B /* test3.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
