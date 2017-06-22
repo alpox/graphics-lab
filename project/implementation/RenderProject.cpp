@@ -119,12 +119,16 @@ void RenderProject::initFunction()
 	StreamPtr stream = StreamPtr(new Stream());
 	entity->addComponent(stream);
     
-    /*
-    ColliderPtr collider = ColliderPtr(new Collider(EFFECT_BLUEVISION));
-    entity = world.createRenderModel("cube", TransformPtr(new Transform(vmml::create_translation(vmml::Vector3f(0.f, 30.f, 0.f)))), modelRender, scene);
-    entity->addComponent(collider);
-    */
     
+    ColliderPtr collider = ColliderPtr(new Collider(EFFECT_CEL));
+    modelMatrix = vmml::create_translation(vmml::Vector3f(0.f, 5.f, 0.f)) * vmml::create_scaling(0.3f);
+    entity = world.createRenderModel("potion", TransformPtr(new Transform(modelMatrix)), modelRender, scene);
+    entity->addComponent(collider);
+    
+    collider = ColliderPtr(new Collider(EFFECT_BLUEVISION));
+    modelMatrix = vmml::create_translation(vmml::Vector3f(10.f, 5.f, 50.f)) * vmml::create_scaling(0.3f);
+    entity = world.createRenderModel("potion2", TransformPtr(new Transform(modelMatrix)), modelRender, scene);
+    entity->addComponent(collider);
     
     
     /*** Cave stream ***/

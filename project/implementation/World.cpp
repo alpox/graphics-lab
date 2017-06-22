@@ -47,7 +47,7 @@ vmml::Vector3f max(vmml::Vector3f vec1, vmml::Vector3f vec2) {
 }
 
 vmml::Vector3f getSunPosition() {
-    return vmml::normalize(vmml::Vector3f(0.f, 0.f, 1.f)) * 1000.f;
+    return vmml::normalize(vmml::Vector3f(0.f, 0.39f, 1.f)) * 1000.f;
 }
 
 vmml::AABBf World::getFullBoundingBox() {
@@ -81,8 +81,8 @@ vmml::Matrix4f World::getSunProjectionMatrix() {
     
     vmml::AABBf boundingBoxLightDirection = transformBoundingBox(fullBoundingBox, sunViewMatrix);
     
-    vmml::Frustumf orthoFrustum(boundingBoxLightDirection.getMin().x(), // left
-                                boundingBoxLightDirection.getMax().x(), // right
+    vmml::Frustumf orthoFrustum(boundingBoxLightDirection.getMax().x(), // left
+                                boundingBoxLightDirection.getMin().x(), // right
                                 boundingBoxLightDirection.getMin().y(), // bottom
                                 boundingBoxLightDirection.getMax().y(), // top
                                 boundingBoxLightDirection.getMin().z(), // near
@@ -105,16 +105,15 @@ DepthMapPtr World::renderSunShadowMap(const double &deltaTime) {
         fboTexture = renderer.getObjects()->createDepthMap("shadowMap",
                                                            renderer.getView()->getViewportWidth(), renderer.getView()->getViewportHeight());
     
-    //framebuffer->bindDepthMap(fboTexture, true);
+    framebuffer->bindDepthMap(fboTexture, true);
     glClear(GL_DEPTH_BUFFER_BIT);
     
     for(EntityArray::iterator it = entities.begin(); it != entities.end(); it++) {
         EntityPtr entity = *it;
-        
         entity->render(deltaTime, LIGHT_PASS, getSunViewMatrix(), getSunProjectionMatrix(), getSunPosition());
     }
     
-    //framebuffer->unbind(defaultFBO); // Restore default fbo
+    framebuffer->unbind(defaultFBO); // Restore default fbo
     
     return fboTexture;
 }
@@ -134,7 +133,7 @@ void World::renderSun() {
     
     // Orient model
     vmml::Matrix4f modelMatrix = vmml::create_translation(getSunPosition()) *
-        vmml::create_scaling(vmml::Vector3f(60.f));
+        vmml::create_scaling(vmml::Vector3f(50.f));
     
     /*vmml::Matrix4f modelMatrix = vmml::create_translation(vmml::Vector3f::BACKWARD * 1000.f) *
         vmml::create_scaling(vmml::Vector3f(30.f));*/
@@ -296,8 +295,8 @@ void World::render(const double &deltaTime) {
     godrayShader->setUniform("firstPass", fboTexture);
     godrayShader->setUniform("exposure", (GLfloat)1.0);
     godrayShader->setUniform("decay", (GLfloat)1.0);
-    godrayShader->setUniform("density", (GLfloat)1.1);
-    godrayShader->setUniform("weight", (GLfloat)0.007);
+    godrayShader->setUniform("density", (GLfloat)1.0);
+    godrayShader->setUniform("weight", (GLfloat)0.005);
     
     CameraPtr camera = renderer.getObjects()->getCamera("camera");
     vmml::Matrix4f view = camera->getViewMatrix();

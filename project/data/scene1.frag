@@ -176,21 +176,21 @@ void main() {
         vec4 specularResult = vec4(specularLight * spec, 0.0);
         
         float visibility = 1.0;
-        float bias = 0.005;
+        float bias = 0.001;
         
-        vec3 sunSpacePosition = fragSunSpacePosition.xyz / fragSunSpacePosition.w;
+        vec3 sunSpacePosition = fragSunSpacePosition.xyz; /// fragSunSpacePosition.w;
         sunSpacePosition = sunSpacePosition * 0.5 + 0.5;
         
-        if(fragSunSpacePosition.z + bias > texture2D(ShadowMap, sunSpacePosition.xy).r ||
-           (sunSpaceView * model * vec4(fragNormal, 1.0)).z < 0.55) {
+        if(fragSunSpacePosition.z - bias > texture2D(ShadowMap, sunSpacePosition.xy).z) {
             visibility = 0.5;
         }
         
+        /*
         vec4 pixelSunSpace = sunSpaceProjection * sunSpaceView * fragPosition;
-        vec3 pixelPosTexture = pixelSunSpace.xyz / pixelSunSpace.w * 0.5 + 0.5;
+        vec3 pixelPosTexture = (pixelSunSpace.xyz / pixelSunSpace.w) * 0.5 + 0.5;
         
         vec4 eyeSunSpace = sunSpaceProjection * sunSpaceView * vec4(eyePosition, 1.0);
-        vec3 eyePosTexture = eyeSunSpace.xyz / eyeSunSpace.w * 0.5 + 0.5;
+        vec3 eyePosTexture = (eyeSunSpace.xyz / eyeSunSpace.w) * 0.5 + 0.5;
         
         vec3 pixelDirection = pixelPosTexture - eyePosTexture;
         
@@ -205,20 +205,20 @@ void main() {
             
             rest -= take;
             
-            if(rest < 0.05)
+            if(rest < 0.0)
                 break;
             
             sampleInterval += pixelDirection * take;
             
             float sampleDepth = texture2D(ShadowMap, sampleInterval.xy).z;
             
-            if(sampleInterval.z < sampleDepth) {
-                //samplingResult += 0.1;
+            if(sampleInterval.z - bias < sampleDepth) {
+                samplingResult += 0.1;
             }
-        }
+        }*/
         
         // Set the final color
-        gl_FragColor = ambientResult + (diffuseResult + specularResult) * visibility * samplingResult;
+        gl_FragColor = ambientResult + (diffuseResult + specularResult); //* visibility; * samplingResult;
     }
     else {
         float numColors = 6.0;

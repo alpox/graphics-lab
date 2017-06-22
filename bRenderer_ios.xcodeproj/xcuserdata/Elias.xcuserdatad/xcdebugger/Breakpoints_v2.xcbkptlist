@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "519780358.095185"
+            timestampString = "519809053.380003"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "RenderProject::updateRenderQueue(const std::string &amp;camera, const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1559,11 +1559,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/CollisionSystem.h"
-            timestampString = "519580172.634547"
+            timestampString = "519806125.176128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
             landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1575,11 +1575,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/CollisionSystem.h"
-            timestampString = "519580172.634547"
+            timestampString = "519806125.176128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1607,11 +1607,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/CollisionSystem.h"
-            timestampString = "519580172.634547"
+            timestampString = "519806125.176128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "isIn(const vmml::AABB&lt; T &gt; &amp;aabb, const vmml::Vector&lt; 4, T &gt;&amp; sphere )"
             landmarkType = "9">
          </BreakpointContent>
@@ -1623,11 +1623,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/CollisionSystem.h"
-            timestampString = "519580172.634547"
+            timestampString = "519806125.176128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "isIn(const vmml::AABB&lt; T &gt; &amp;aabb, const vmml::Vector&lt; 4, T &gt;&amp; sphere )"
             landmarkType = "9">
          </BreakpointContent>
@@ -1735,11 +1735,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/headers/CollisionSystem.h"
-            timestampString = "519581845.77589"
+            timestampString = "519806125.176128"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
          </BreakpointContent>
@@ -1863,11 +1863,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519772951.447041"
+            timestampString = "519786340.388791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "World::renderSkyCube()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1879,11 +1879,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519772951.447041"
+            timestampString = "519786340.388791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "World::renderSkyCube()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1895,11 +1895,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/World.cpp"
-            timestampString = "519772951.447041"
+            timestampString = "519786340.388791"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "World::renderSkyCube()"
             landmarkType = "7">
          </BreakpointContent>
@@ -2013,6 +2013,38 @@
             startingLineNumber = "105"
             endingLineNumber = "105"
             landmarkName = "World::renderSunShadowMap(const double &amp;deltaTime)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/World.cpp"
+            timestampString = "519786340.388791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "World::renderSunShadowMap(const double &amp;deltaTime)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project/implementation/World.cpp"
+            timestampString = "519786340.388791"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "World::render(const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

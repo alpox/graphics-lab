@@ -79,6 +79,16 @@
 		6478A1AD1EFB362D00466127 /* sahara_lf.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1941EFB362D00466127 /* sahara_lf.jpg */; };
 		6478A1AE1EFB362D00466127 /* sahara_rt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1951EFB362D00466127 /* sahara_rt.jpg */; };
 		6478A1AF1EFB362D00466127 /* sahara_up.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1961EFB362D00466127 /* sahara_up.jpg */; };
+		6478A1B21EFB95EE00466127 /* potion.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1B01EFB95EB00466127 /* potion.mtl */; };
+		6478A1B31EFB95EE00466127 /* potion.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1B11EFB95EC00466127 /* potion.obj */; };
+		6478A1B61EFB960100466127 /* bottle_health.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1B41EFB960100466127 /* bottle_health.jpg */; };
+		6478A1B71EFB960100466127 /* bottle_mana.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1B51EFB960100466127 /* bottle_mana.jpg */; };
+		6478A1B91EFB9FA000466127 /* potion_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1B81EFB9F9E00466127 /* potion_red.png */; };
+		6478A1BB1EFBA3E200466127 /* dark.png in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1BA1EFBA3E100466127 /* dark.png */; };
+		6478A1BD1EFBA48D00466127 /* potion_spec.png in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1BC1EFBA48C00466127 /* potion_spec.png */; };
+		6478A1BF1EFBA60700466127 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1BE1EFBA60700466127 /* red.png */; };
+		6478A1C21EFBA84700466127 /* potion2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1C01EFBA84600466127 /* potion2.mtl */; };
+		6478A1C31EFBA84700466127 /* potion2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6478A1C11EFBA84600466127 /* potion2.obj */; };
 		6479DBBE1EF9574E005D203C /* skyBox.frag in Resources */ = {isa = PBXBuildFile; fileRef = 6479DBBC1EF9574E005D203C /* skyBox.frag */; };
 		6479DBBF1EF9574E005D203C /* skyBox.vert in Resources */ = {isa = PBXBuildFile; fileRef = 6479DBBD1EF9574E005D203C /* skyBox.vert */; };
 		6480793A1EF2C280008B5D06 /* colorShader.frag in Resources */ = {isa = PBXBuildFile; fileRef = 648079391EF2C280008B5D06 /* colorShader.frag */; };
@@ -305,6 +315,16 @@
 		6478A1941EFB362D00466127 /* sahara_lf.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sahara_lf.jpg; sourceTree = "<group>"; };
 		6478A1951EFB362D00466127 /* sahara_rt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sahara_rt.jpg; sourceTree = "<group>"; };
 		6478A1961EFB362D00466127 /* sahara_up.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sahara_up.jpg; sourceTree = "<group>"; };
+		6478A1B01EFB95EB00466127 /* potion.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = potion.mtl; sourceTree = "<group>"; };
+		6478A1B11EFB95EC00466127 /* potion.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = potion.obj; sourceTree = "<group>"; };
+		6478A1B41EFB960100466127 /* bottle_health.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bottle_health.jpg; sourceTree = "<group>"; };
+		6478A1B51EFB960100466127 /* bottle_mana.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bottle_mana.jpg; sourceTree = "<group>"; };
+		6478A1B81EFB9F9E00466127 /* potion_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potion_red.png; sourceTree = "<group>"; };
+		6478A1BA1EFBA3E100466127 /* dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dark.png; sourceTree = "<group>"; };
+		6478A1BC1EFBA48C00466127 /* potion_spec.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = potion_spec.png; sourceTree = "<group>"; };
+		6478A1BE1EFBA60700466127 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		6478A1C01EFBA84600466127 /* potion2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = potion2.mtl; sourceTree = "<group>"; };
+		6478A1C11EFBA84600466127 /* potion2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = potion2.obj; sourceTree = "<group>"; };
 		6479DBBC1EF9574E005D203C /* skyBox.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = skyBox.frag; sourceTree = "<group>"; };
 		6479DBBD1EF9574E005D203C /* skyBox.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = skyBox.vert; sourceTree = "<group>"; };
 		648079381EF2BD8B008B5D06 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
@@ -604,6 +624,14 @@
 		B47949841BA6742B00B5E9DC /* data */ = {
 			isa = PBXGroup;
 			children = (
+				6478A1BE1EFBA60700466127 /* red.png */,
+				6478A1BA1EFBA3E100466127 /* dark.png */,
+				6478A1C01EFBA84600466127 /* potion2.mtl */,
+				6478A1C11EFBA84600466127 /* potion2.obj */,
+				6478A1B01EFB95EB00466127 /* potion.mtl */,
+				6478A1B11EFB95EC00466127 /* potion.obj */,
+				6478A1B41EFB960100466127 /* bottle_health.jpg */,
+				6478A1B51EFB960100466127 /* bottle_mana.jpg */,
 				6478A17E1EFB362D00466127 /* 3td_CaveFalls_01_NRM.png */,
 				6478A17F1EFB362D00466127 /* 3td_CaveFalls_01.png */,
 				6478A1801EFB362D00466127 /* 3TD_CaveGround_002_NRM_P.png */,
@@ -699,6 +727,7 @@
 				646D41221ED076B600C5904B /* scene.vert */,
 				646D41321ED22B1900C5904B /* specular.png */,
 				64896DF31ED486560010CE00 /* test2.mtl */,
+				6478A1BC1EFBA48C00466127 /* potion_spec.png */,
 				64896DF41ED486560010CE00 /* test2.obj */,
 				6460F1211EFA7FAC00A26FA6 /* test2_outer.mtl */,
 				6460F1221EFA7FAC00A26FA6 /* test2_outer.obj */,
@@ -716,6 +745,7 @@
 				6460F11A1EF978C400A26FA6 /* WhiteCloudFront.jpg */,
 				6460F11B1EF978C400A26FA6 /* WhiteCloudLeft.jpg */,
 				6460F11C1EF978C400A26FA6 /* WhiteCloudRight.jpg */,
+				6478A1B81EFB9F9E00466127 /* potion_red.png */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -1037,6 +1067,7 @@
 				6460F11D1EF978C400A26FA6 /* WhiteCloudBack.jpg in Resources */,
 				6432ED3D1EC99F1D001E2316 /* boulder01.mtl in Resources */,
 				6478A1AF1EFB362D00466127 /* sahara_up.jpg in Resources */,
+				6478A1B21EFB95EE00466127 /* potion.mtl in Resources */,
 				B4794A311BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949A81BA6742B00B5E9DC /* cave_d.png in Resources */,
 				B47949B01BA6742B00B5E9DC /* crystal.mtl in Resources */,
@@ -1059,8 +1090,11 @@
 				B47949B51BA6742B00B5E9DC /* flame.frag in Resources */,
 				646D41211ED076A800C5904B /* scene.frag in Resources */,
 				6478A1AC1EFB362D00466127 /* sahara_ft.jpg in Resources */,
+				6478A1C21EFBA84700466127 /* potion2.mtl in Resources */,
 				6460F11E1EF978C400A26FA6 /* WhiteCloudFront.jpg in Resources */,
 				6478A19C1EFB362D00466127 /* 3TD_RockBase_01.jpg in Resources */,
+				6478A1B71EFB960100466127 /* bottle_mana.jpg in Resources */,
+				6478A1B91EFB9FA000466127 /* potion_red.png in Resources */,
 				B47949AC1BA6742B00B5E9DC /* cave_stream.obj in Resources */,
 				642829B91EC8C10800DBD605 /* junction.obj in Resources */,
 				6432ED591EC9F8DF001E2316 /* stalagmite.mtl in Resources */,
@@ -1068,6 +1102,7 @@
 				6478A1A51EFB362D00466127 /* fallShader.vert in Resources */,
 				642829B81EC8C10800DBD605 /* junction.mtl in Resources */,
 				B47949A61BA6742B00B5E9DC /* cave.mtl in Resources */,
+				6478A1BF1EFBA60700466127 /* red.png in Resources */,
 				644F24121ECC8EA7000CB84A /* 3td_Vino_04_NRM.png in Resources */,
 				B47949B21BA6742B00B5E9DC /* crystal_d.png in Resources */,
 				B47949A21BA6742B00B5E9DC /* arial.ttf in Resources */,
@@ -1076,6 +1111,7 @@
 				642829B51EC8BF9600DBD605 /* L-Segment.obj in Resources */,
 				6478A1A71EFB362D00466127 /* main_falls_02.png in Resources */,
 				644F24181ECCA46D000CB84A /* sceneShader.frag in Resources */,
+				6478A1BB1EFBA3E200466127 /* dark.png in Resources */,
 				6480793A1EF2C280008B5D06 /* colorShader.frag in Resources */,
 				6432ED3E1EC99F1D001E2316 /* boulder01.obj in Resources */,
 				B47949B41BA6742B00B5E9DC /* crystal_s.png in Resources */,
@@ -1101,6 +1137,7 @@
 				6478A1A21EFB362D00466127 /* Fall.mtl in Resources */,
 				6478A1A01EFB362D00466127 /* caveFalls.mtl in Resources */,
 				B47949AF1BA6742B00B5E9DC /* config.json in Resources */,
+				6478A1B31EFB95EE00466127 /* potion.obj in Resources */,
 				6432ED401EC99F1D001E2316 /* Chamber02.obj in Resources */,
 				648079411EF2DBD4008B5D06 /* godrays.vert in Resources */,
 				6460F1241EFA7FAE00A26FA6 /* test2_outer.obj in Resources */,
@@ -1114,10 +1151,12 @@
 				6479DBBF1EF9574E005D203C /* skyBox.vert in Resources */,
 				6478A1A41EFB362D00466127 /* fallShader.frag in Resources */,
 				B47949B81BA6742B00B5E9DC /* flame.png in Resources */,
+				6478A1C31EFBA84700466127 /* potion2.obj in Resources */,
 				6478A1AD1EFB362D00466127 /* sahara_lf.jpg in Resources */,
 				646D41371ED3408500C5904B /* cube.obj in Resources */,
 				6478A19E1EFB362D00466127 /* caveAndBase.mtl in Resources */,
 				6478A1A91EFB362D00466127 /* RockNormal.png in Resources */,
+				6478A1B61EFB960100466127 /* bottle_health.jpg in Resources */,
 				B47949BE1BA6742B00B5E9DC /* torchSurface_Color.png in Resources */,
 				B47949B91BA6742B00B5E9DC /* flame.vert in Resources */,
 				644F24141ECC8EA7000CB84A /* 3td_Vino_04.png in Resources */,
@@ -1131,6 +1170,7 @@
 				B47949BC1BA6742B00B5E9DC /* torch.mtl in Resources */,
 				642829B41EC8BF9600DBD605 /* L-Segment.mtl in Resources */,
 				6432ED421EC99F1D001E2316 /* L_Curve.obj in Resources */,
+				6478A1BD1EFBA48D00466127 /* potion_spec.png in Resources */,
 				64B8E5B41ED6089200396BBB /* caveShader.vert in Resources */,
 				6432ED581EC9F8DF001E2316 /* 3td_StalagTex_01.jpg in Resources */,
 				6479DBBE1EF9574E005D203C /* skyBox.frag in Resources */,

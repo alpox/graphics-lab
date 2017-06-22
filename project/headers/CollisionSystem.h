@@ -28,10 +28,7 @@ protected:
         
         vmml::AABBf &aabbf = entity->model()->getBoundingBoxObjectSpace();
         
-        vmml::Vector3f min = vmml::Vector3f(model * vmml::Vector4f(aabbf.getMin(), 1.0));
-        vmml::Vector3f max = vmml::Vector3f(model * vmml::Vector4f(aabbf.getMax(), 1.0));
-        
-        vmml::AABBf aabb(min, max);
+        vmml::AABBf aabb = transformBoundingBox(aabbf, model);
         
         vmml::Vector4f playerSphere(-camera->getPosition(), 3.f);
         
@@ -40,6 +37,27 @@ protected:
             entity->effects().addEffect(collider->effect);
         }
     }
+    
+    vmml::AABBf transformBoundingBox(vmml::AABBf boundingBox, vmml::Matrix4f m) {
+        vmml::Matrix3f dimensions(m);
+        
+        vmml::Vector3f xa = dimensions.get_row(0) * boundingBox.getMin().x();
+        vmml::Vector3f xb = dimensions.get_row(0) * boundingBox.getMax().x();
+        
+        vmml::Vector3f ya = dimensions.get_row(1) * boundingBox.getMin().y();
+        vmml::Vector3f yb = dimensions.get_row(1) * boundingBox.getMax().y();
+        
+        vmml::Vector3f za = dimensions.get_row(2) * boundingBox.getMin().z();
+        vmml::Vector3f zb = dimensions.get_row(2) * boundingBox.getMax().z();
+        
+        vmml::Vector3f translation(m.get_column(3));
+        
+        return vmml::AABBf(
+                           min(xa, xb) + min(ya, yb) + min(za, zb) + translation,
+                           max(xa, xb) + max(ya, yb) + max(za, zb) + translation
+                           );
+    }
+
     
     template< typename T >
     bool isIn(const vmml::AABB< T > &aabb, const vmml::Vector< 4, T >& sphere ) const
