@@ -77,7 +77,7 @@ void RenderProject::initFunction()
 	//bRenderer().getObjects()->createLight("secondLight", vmml::Vector3f(148.0f, -3.0f, 15.0f), vmml::Vector3f(0.3f, 1.0f, 0.3f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(0.0f, 50.0f, 0.0f), vmml::Vector3f(0.5f, 0.5f, 0.5f), vmml::Vector3f(0.01f, 0.01f, 0.01f), 0.2f, 0.0f, 50.0f);
 	//bRenderer().getObjects()->createLight("thirdLight", vmml::Vector3f(218.0f, -3.0f, 0.0f), vmml::Vector3f(0.8f, 0.2f, 0.2f), vmml::Vector3f(1.0f, 1.0f, 1.0f), 100.0f, 0.8f, 100.0f);
-    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.15f, 0.15f, 0.15f), 1.5f, 0.0f, 1000.f);
+    bRenderer().getObjects()->createLight("torchLight", bRenderer().getObjects()->getCamera("camera")->getPosition(), vmml::Vector3f(0.8f, 0.8f, 0.8f), vmml::Vector3f(0.15f, 0.15f, 0.15f), 1.3f, 0.0f, 250.f);
 
 
 	// postprocessing
@@ -111,7 +111,8 @@ void RenderProject::initFunction()
     RenderPtr modelRender = RenderPtr(new Render(vmml::Vector3f({ 0.0f, 0.0f, 0.0f }), std::vector<std::string>({ "torchLight" }), false, false, false));
     ShaderPtr scene = bRenderer().getObjects()->loadShaderFile("scene1", 0, false, false, false, false, false);
 
-    EntityPtr entity = world.createRenderModel("caveAndBase", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+    //EntityPtr entity = world.createRenderModel("caveAndBase", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
+	EntityPtr entity = world.createRenderModel("caveSystem6", modelTransform, modelRender, scene, FLIP_T | FLIP_Z);
 
 	ShaderPtr fall = bRenderer().getObjects()->loadShaderFile("fallShader", 0, false, false, false, false, false);
 	entity = world.createRenderModel("Fall", modelTransform, modelRender, fall, FLIP_T | FLIP_Z);

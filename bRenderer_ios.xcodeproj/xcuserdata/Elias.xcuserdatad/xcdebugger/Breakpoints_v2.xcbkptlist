@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "519809053.380003"
+            timestampString = "519811656.163426"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "312"
-            endingLineNumber = "312"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
             landmarkName = "RenderProject::updateRenderQueue(const std::string &amp;camera, const double &amp;deltaTime)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1582,22 +1582,6 @@
             endingLineNumber = "36"
             landmarkName = "apply(EntityPtr entity, const double &amp;deltaTime)"
             landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "project/implementation/RenderProject.cpp"
-            timestampString = "519780358.095185"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "RenderProject::initFunction()"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -65,12 +65,12 @@ float phongWeight(
                   vec3 eyeDirection,
                   float shininess
                   ) {
-	//calculate halfway vector
-	vec3 h = normalize(lightDirection + eyeDirection);
-
-	//calculate specular light intensity
-	float specIntensity = pow(max(dot(h,surfaceNormal), 0.0), shininess);
-	return clamp(specIntensity, 0.0, 1.0);
+    //calculate halfway vector
+    vec3 h = normalize(lightDirection + eyeDirection);
+    
+    //calculate specular light intensity
+    float specIntensity = pow(max(dot(h,surfaceNormal), 0.0), shininess);
+    return clamp(specIntensity, 0.0, 1.0);
 }
 
 mediump mat3 tbn(vec3 tangent, vec3 normal) {
@@ -94,7 +94,7 @@ vec4 reduceColors(vec4 color, float numColors) {
 
 void main() {
     
-	vec4 blueShiftWeight = vec4(1.0, 1.0, 6.0, 1.0);
+    vec4 blueShiftWeight = vec4(1.0, 1.0, 6.0, 1.0);
     // Normalize position
     vec3 position = fragPosition.xyz;
     
@@ -107,38 +107,42 @@ void main() {
     
     // Get textures
     vec4 c4 = (blueShift == 1 ? blueShiftWeight : vec4(1.0)) * texture2D(DiffuseMap, fragTexCoord);
-	float ac4 = c4[3];
-
-	vec2 tx1 = fragTexCoord;
-	vec2 tx2 = fragTexCoord;
-	vec2 tx3 = fragTexCoord;
-	
-	tx1.x += sin(tx1.x + offset)/15.0;
-	tx1.x += 0.5*tx1.x;
-	tx1.y -= 0.03*offset + sin(tx1.y * 50.0 + offset) / 250.0;
-
-	tx2.x += sin(tx2.x + offset)/15.0;
-	tx2.y -= 4.0*(0.03*offset + sin(tx2.y * 50.0 + offset) / 250.0);
-
-	vec4 c1 = texture2D(fall1, tx1);
-	float ac1 = c1[3];
-
-	vec4 c2 = texture2D(fall2, tx2);
-	float ac2 = c2[3];
-
-	vec4 c3 = texture2D(fall3, tx3);
-	float ac3 = c3[3];
-
-	//c1 = ac1 * vec3(c1) + (1-ac1) * ac2 * vec3(c2);
-	c1 = vec4(vec3(c1) * 5.0, ac1);
-	c2 = vec4(vec3(c2) * 5.0, ac2);
-	c3 = vec4(vec3(c3) * 5.0, ac3);
-
-	c1 = vec4(ac1 * vec3(c1) + (1.0-ac1) * ac2 * vec3(c2), ac1+ac2);
-	vec4 color = c2;
-
-	//vec4 color = vec4(ac1 * vec3(c1) + (1-ac1) * ac4 * vec3(c4), ac4+ac1);
-
+    float ac4 = c4[3];
+    
+    vec2 tx1 = fragTexCoord * 0.5 - 0.5;
+    vec2 tx2 = fragTexCoord * 0.5 - 0.5;
+    vec2 tx3 = fragTexCoord * 0.5 - 0.5;
+    
+    tx1.x += tx1.x;
+    tx1.y -= 2.0*(0.03*offset + sin(tx1.y * 50.0 + offset) / 250.0);
+    
+    tx2.x += tx2.x;
+    tx2.y -= 4.0*(0.03*offset + sin(tx2.y * 50.0 + offset) / 250.0);
+    
+    tx3.x += tx3.x;
+    tx3.y -= 3.0*(0.03*offset + sin(tx3.y * 50.0 + offset) / 250.0);
+    
+    vec4 c1 = texture2D(fall1, tx1);
+    float ac1 = c1[3];
+    
+    vec4 c2 = texture2D(fall2, tx2);
+    float ac2 = c2[3];
+    
+    vec4 c3 = texture2D(fall3, tx3);
+    float ac3 = c3[3];
+    
+    //c1 = ac1 * vec3(c1) + (1.0-ac1) * ac2 * vec3(c2);
+    c1 = vec4(clamp(vec3(c1), 0.0, 1.0), ac1*1.01);
+    c2 = vec4(clamp(vec3(c2), 0.0, 1.0), ac2*1.01);
+    c3 = vec4(clamp(vec3(c3), 0.0, 1.0), ac3*1.01);
+    
+    c1 = vec4(ac1 * vec3(c1) + (1.0-ac1) * ac2 * vec3(c2), ac1+ac2);
+    ac1 = c1[3];
+    c1 = vec4(ac1 * vec3(c1) + (1.0-ac1) * ac3 * vec3(c3), ac1+ac3);
+    //vec4 color = c1;
+    
+    vec4 color = vec4(ac1 * vec3(c1) + (1.0-ac1) * ac4 * vec3(c4), ac4+ac1);
+    
     
     if(numPass == 1) {
         gl_FragColor = vec4(0.0, 0.0, 0.0, color.w); // Draw first pass as black
@@ -157,12 +161,12 @@ void main() {
     for(int i = 0; i < numLights; ++i) {
         PointLight light = lights[i];
         
-		light.radius += blueShift == 1 ? 500.0 : 0.0;
-
+        light.radius += blueShift == 1 ? 500.0 : 0.0;
+        
         // Normalize light direction
         vec3 lightVector = light.position.xyz - position;
         
-		vec3 direction = normalize(lightVector);
+        vec3 direction = normalize(lightVector);
         float distance = length(lightVector);
         
         float intensityBasedOnDistance = 0.0;
@@ -172,16 +176,16 @@ void main() {
         
         // Calculate lambert weight
         float intensity = lambertWeight(normal, direction);
-		vec3 diffuse = Kd * intensity * light.diffuse * light.intensity * intensityBasedOnDistance;
-		diffuseLight += clamp(diffuse, 0.0, 1.0);
+        vec3 diffuse = Kd * intensity * light.diffuse * light.intensity * intensityBasedOnDistance;
+        diffuseLight += clamp(diffuse, 0.0, 1.0);
         
         
         if(intensity > 0.0) {
             // Calculate phong weight
             float phong = phongWeight(direction, normal, normalize(eyePosition - position), Ns);
-			
-			vec3 specularResult = Ks * phong * light.specular * light.intensity * intensityBasedOnDistance;
-			specularLight += clamp(specularResult, 0.0, 1.0);
+            
+            vec3 specularResult = Ks * phong * light.specular * light.intensity * intensityBasedOnDistance;
+            specularLight += clamp(specularResult, 0.0, 1.0);
         }
     }
     
@@ -198,7 +202,7 @@ void main() {
         
         color = reduceColors(color, numColors);
         
-         vec3 viewDirection = normalize(eyePosition - position);
+        vec3 viewDirection = normalize(eyePosition - position);
         
         
         vec4 ambientResult = vec4(Ka * ambient, 1.0) * color;

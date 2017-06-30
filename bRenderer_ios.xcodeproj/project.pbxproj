@@ -45,6 +45,38 @@
 		6460F1201EF978C400A26FA6 /* WhiteCloudRight.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6460F11C1EF978C400A26FA6 /* WhiteCloudRight.jpg */; };
 		6460F1231EFA7FAE00A26FA6 /* test2_outer.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1211EFA7FAC00A26FA6 /* test2_outer.mtl */; };
 		6460F1241EFA7FAE00A26FA6 /* test2_outer.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6460F1221EFA7FAC00A26FA6 /* test2_outer.obj */; };
+		6461D6E41EFBB26100557177 /* 3td_Basalt_02_1024_NRM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6CF1EFBB26000557177 /* 3td_Basalt_02_1024_NRM.png */; };
+		6461D6E51EFBB26100557177 /* 3td_Basalt_02_1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D01EFBB26100557177 /* 3td_Basalt_02_1024.jpg */; };
+		6461D6E61EFBB26100557177 /* caveSystem.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D11EFBB26100557177 /* caveSystem.mtl */; };
+		6461D6E71EFBB26100557177 /* caveSystem.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D21EFBB26100557177 /* caveSystem.obj */; };
+		6461D6E81EFBB26100557177 /* caveSystem2.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D31EFBB26100557177 /* caveSystem2.mtl */; };
+		6461D6E91EFBB26100557177 /* caveSystem2.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D41EFBB26100557177 /* caveSystem2.obj */; };
+		6461D6EA1EFBB26100557177 /* caveSystem3.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D51EFBB26100557177 /* caveSystem3.mtl */; };
+		6461D6EB1EFBB26100557177 /* caveSystem3.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D61EFBB26100557177 /* caveSystem3.obj */; };
+		6461D6EC1EFBB26100557177 /* caveSystemwrong.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D71EFBB26100557177 /* caveSystemwrong.obj */; };
+		6461D6ED1EFBB26100557177 /* Potion_bottle.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D81EFBB26100557177 /* Potion_bottle.obj */; };
+		6461D6EE1EFBB26100557177 /* sphereOld.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6D91EFBB26100557177 /* sphereOld.mtl */; };
+		6461D6EF1EFBB26100557177 /* sphereOld.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6DA1EFBB26100557177 /* sphereOld.obj */; };
+		6461D6F01EFBB26100557177 /* temp.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6DB1EFBB26100557177 /* temp.txt */; };
+		6461D6F11EFBB26100557177 /* test1.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6DC1EFBB26100557177 /* test1.mtl */; };
+		6461D6F21EFBB26100557177 /* test1.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6DD1EFBB26100557177 /* test1.obj */; };
+		6461D6F31EFBB26100557177 /* test2.mtl.orig in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6DE1EFBB26100557177 /* test2.mtl.orig */; };
+		6461D6F41EFBB26100557177 /* test22.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6DF1EFBB26100557177 /* test22.mtl */; };
+		6461D6F51EFBB26100557177 /* test22.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6E01EFBB26100557177 /* test22.obj */; };
+		6461D6F61EFBB26100557177 /* test23.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6E11EFBB26100557177 /* test23.mtl */; };
+		6461D6F71EFBB26100557177 /* test23.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6E21EFBB26100557177 /* test23.obj */; };
+		6461D6F81EFBB26100557177 /* vine_01.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6E31EFBB26100557177 /* vine_01.obj */; };
+		6461D6FA1EFBBD3200557177 /* caveSystem6.obj in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6F91EFBBD3200557177 /* caveSystem6.obj */; };
+		6461D6FC1EFBBD3800557177 /* caveSystem6.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6FB1EFBBD3800557177 /* caveSystem6.mtl */; };
+		6461D6FE1EFBBD9E00557177 /* 3TD_RedCave_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6FD1EFBBD9E00557177 /* 3TD_RedCave_01.jpg */; };
+		6461D7001EFBBDCF00557177 /* 3td_StalagTex_02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6461D6FF1EFBBDCF00557177 /* 3td_StalagTex_02.jpg */; };
+		6461D7021EFBBE0E00557177 /* 3td_Cave_Fern_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461D7011EFBBE0E00557177 /* 3td_Cave_Fern_01.png */; };
+		6461D7061EFBBE1500557177 /* 3td_OverhangVino_01_NRM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461D7031EFBBE1500557177 /* 3td_OverhangVino_01_NRM.png */; };
+		6461D7071EFBBE1500557177 /* 3td_OverhangVino_01_SPEC.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461D7041EFBBE1500557177 /* 3td_OverhangVino_01_SPEC.png */; };
+		6461D7081EFBBE1500557177 /* 3td_OverhangVino_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461D7051EFBBE1500557177 /* 3td_OverhangVino_01.png */; };
+		6461D70C1EFBBE1B00557177 /* 3td_GreenHanger_01_NRM.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461D7091EFBBE1B00557177 /* 3td_GreenHanger_01_NRM.png */; };
+		6461D70D1EFBBE1B00557177 /* 3td_GreenHanger_01_SPEC.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461D70A1EFBBE1B00557177 /* 3td_GreenHanger_01_SPEC.png */; };
+		6461D70E1EFBBE1B00557177 /* 3td_GreenHanger_01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6461D70B1EFBBE1B00557177 /* 3td_GreenHanger_01.png */; };
 		646D41211ED076A800C5904B /* scene.frag in Resources */ = {isa = PBXBuildFile; fileRef = 646D41201ED076A800C5904B /* scene.frag */; };
 		646D41231ED076B600C5904B /* scene.vert in Resources */ = {isa = PBXBuildFile; fileRef = 646D41221ED076B600C5904B /* scene.vert */; };
 		646D412E1ED2103100C5904B /* scene1.frag in Resources */ = {isa = PBXBuildFile; fileRef = 646D412C1ED2102F00C5904B /* scene1.frag */; };
@@ -283,6 +315,38 @@
 		6460F11C1EF978C400A26FA6 /* WhiteCloudRight.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = WhiteCloudRight.jpg; sourceTree = "<group>"; };
 		6460F1211EFA7FAC00A26FA6 /* test2_outer.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2_outer.mtl; sourceTree = "<group>"; };
 		6460F1221EFA7FAC00A26FA6 /* test2_outer.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2_outer.obj; sourceTree = "<group>"; };
+		6461D6CF1EFBB26000557177 /* 3td_Basalt_02_1024_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Basalt_02_1024_NRM.png; sourceTree = "<group>"; };
+		6461D6D01EFBB26100557177 /* 3td_Basalt_02_1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3td_Basalt_02_1024.jpg; sourceTree = "<group>"; };
+		6461D6D11EFBB26100557177 /* caveSystem.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystem.mtl; sourceTree = "<group>"; };
+		6461D6D21EFBB26100557177 /* caveSystem.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystem.obj; sourceTree = "<group>"; };
+		6461D6D31EFBB26100557177 /* caveSystem2.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystem2.mtl; sourceTree = "<group>"; };
+		6461D6D41EFBB26100557177 /* caveSystem2.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystem2.obj; sourceTree = "<group>"; };
+		6461D6D51EFBB26100557177 /* caveSystem3.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystem3.mtl; sourceTree = "<group>"; };
+		6461D6D61EFBB26100557177 /* caveSystem3.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystem3.obj; sourceTree = "<group>"; };
+		6461D6D71EFBB26100557177 /* caveSystemwrong.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystemwrong.obj; sourceTree = "<group>"; };
+		6461D6D81EFBB26100557177 /* Potion_bottle.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Potion_bottle.obj; sourceTree = "<group>"; };
+		6461D6D91EFBB26100557177 /* sphereOld.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphereOld.mtl; sourceTree = "<group>"; };
+		6461D6DA1EFBB26100557177 /* sphereOld.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sphereOld.obj; sourceTree = "<group>"; };
+		6461D6DB1EFBB26100557177 /* temp.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = temp.txt; sourceTree = "<group>"; };
+		6461D6DC1EFBB26100557177 /* test1.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test1.mtl; sourceTree = "<group>"; };
+		6461D6DD1EFBB26100557177 /* test1.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test1.obj; sourceTree = "<group>"; };
+		6461D6DE1EFBB26100557177 /* test2.mtl.orig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test2.mtl.orig; sourceTree = "<group>"; };
+		6461D6DF1EFBB26100557177 /* test22.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test22.mtl; sourceTree = "<group>"; };
+		6461D6E01EFBB26100557177 /* test22.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test22.obj; sourceTree = "<group>"; };
+		6461D6E11EFBB26100557177 /* test23.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test23.mtl; sourceTree = "<group>"; };
+		6461D6E21EFBB26100557177 /* test23.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test23.obj; sourceTree = "<group>"; };
+		6461D6E31EFBB26100557177 /* vine_01.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vine_01.obj; sourceTree = "<group>"; };
+		6461D6F91EFBBD3200557177 /* caveSystem6.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystem6.obj; sourceTree = "<group>"; };
+		6461D6FB1EFBBD3800557177 /* caveSystem6.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = caveSystem6.mtl; sourceTree = "<group>"; };
+		6461D6FD1EFBBD9E00557177 /* 3TD_RedCave_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3TD_RedCave_01.jpg; sourceTree = "<group>"; };
+		6461D6FF1EFBBDCF00557177 /* 3td_StalagTex_02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3td_StalagTex_02.jpg; sourceTree = "<group>"; };
+		6461D7011EFBBE0E00557177 /* 3td_Cave_Fern_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_Cave_Fern_01.png; sourceTree = "<group>"; };
+		6461D7031EFBBE1500557177 /* 3td_OverhangVino_01_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_OverhangVino_01_NRM.png; sourceTree = "<group>"; };
+		6461D7041EFBBE1500557177 /* 3td_OverhangVino_01_SPEC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_OverhangVino_01_SPEC.png; sourceTree = "<group>"; };
+		6461D7051EFBBE1500557177 /* 3td_OverhangVino_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_OverhangVino_01.png; sourceTree = "<group>"; };
+		6461D7091EFBBE1B00557177 /* 3td_GreenHanger_01_NRM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_GreenHanger_01_NRM.png; sourceTree = "<group>"; };
+		6461D70A1EFBBE1B00557177 /* 3td_GreenHanger_01_SPEC.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_GreenHanger_01_SPEC.png; sourceTree = "<group>"; };
+		6461D70B1EFBBE1B00557177 /* 3td_GreenHanger_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3td_GreenHanger_01.png; sourceTree = "<group>"; };
 		646D41201ED076A800C5904B /* scene.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene.frag; sourceTree = "<group>"; };
 		646D41221ED076B600C5904B /* scene.vert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene.vert; sourceTree = "<group>"; };
 		646D412C1ED2102F00C5904B /* scene1.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = scene1.frag; sourceTree = "<group>"; };
@@ -628,6 +692,27 @@
 		B47949841BA6742B00B5E9DC /* data */ = {
 			isa = PBXGroup;
 			children = (
+				6461D6CF1EFBB26000557177 /* 3td_Basalt_02_1024_NRM.png */,
+				6461D6D01EFBB26100557177 /* 3td_Basalt_02_1024.jpg */,
+				6461D6D11EFBB26100557177 /* caveSystem.mtl */,
+				6461D6D21EFBB26100557177 /* caveSystem.obj */,
+				6461D6D31EFBB26100557177 /* caveSystem2.mtl */,
+				6461D6D41EFBB26100557177 /* caveSystem2.obj */,
+				6461D6D51EFBB26100557177 /* caveSystem3.mtl */,
+				6461D6D61EFBB26100557177 /* caveSystem3.obj */,
+				6461D6D71EFBB26100557177 /* caveSystemwrong.obj */,
+				6461D6D81EFBB26100557177 /* Potion_bottle.obj */,
+				6461D6D91EFBB26100557177 /* sphereOld.mtl */,
+				6461D6DA1EFBB26100557177 /* sphereOld.obj */,
+				6461D6DB1EFBB26100557177 /* temp.txt */,
+				6461D6DC1EFBB26100557177 /* test1.mtl */,
+				6461D6DD1EFBB26100557177 /* test1.obj */,
+				6461D6DE1EFBB26100557177 /* test2.mtl.orig */,
+				6461D6DF1EFBB26100557177 /* test22.mtl */,
+				6461D6E01EFBB26100557177 /* test22.obj */,
+				6461D6E11EFBB26100557177 /* test23.mtl */,
+				6461D6E21EFBB26100557177 /* test23.obj */,
+				6461D6E31EFBB26100557177 /* vine_01.obj */,
 				6478A1C81EFBACA200466127 /* potion_blue.mtl */,
 				6478A1C91EFBACA200466127 /* potion_blue.obj */,
 				6478A1C61EFBAC9400466127 /* blue.jpg */,
@@ -651,6 +736,8 @@
 				6478A1881EFB362D00466127 /* caveFalls.obj */,
 				6478A1891EFB362D00466127 /* Fall.mtl */,
 				6478A18A1EFB362D00466127 /* Fall.obj */,
+				6461D6F91EFBBD3200557177 /* caveSystem6.obj */,
+				6461D6FB1EFBBD3800557177 /* caveSystem6.mtl */,
 				6478A18B1EFB362D00466127 /* fallShader.frag */,
 				6478A18C1EFB362D00466127 /* fallShader.vert */,
 				6478A18D1EFB362D00466127 /* main_falls_01.png */,
@@ -691,6 +778,7 @@
 				6432ED381EC99F1D001E2316 /* L_Curve.obj */,
 				6432ED391EC99F1D001E2316 /* Y_Tube.mtl */,
 				6432ED3A1EC99F1D001E2316 /* Y_Tube.obj */,
+				6461D6FF1EFBBDCF00557177 /* 3td_StalagTex_02.jpg */,
 				642829B61EC8C10800DBD605 /* junction.mtl */,
 				642829B71EC8C10800DBD605 /* junction.obj */,
 				642829B01EC8BF9600DBD605 /* L-Segment.mtl */,
@@ -698,7 +786,14 @@
 				B47949851BA6742B00B5E9DC /* arial.ttf */,
 				B47949861BA6742B00B5E9DC /* basicTitle_light.png */,
 				B47949871BA6742B00B5E9DC /* blurShader.frag */,
+				6461D7011EFBBE0E00557177 /* 3td_Cave_Fern_01.png */,
 				B47949881BA6742B00B5E9DC /* blurShader.vert */,
+				6461D7031EFBBE1500557177 /* 3td_OverhangVino_01_NRM.png */,
+				6461D7041EFBBE1500557177 /* 3td_OverhangVino_01_SPEC.png */,
+				6461D7091EFBBE1B00557177 /* 3td_GreenHanger_01_NRM.png */,
+				6461D70A1EFBBE1B00557177 /* 3td_GreenHanger_01_SPEC.png */,
+				6461D70B1EFBBE1B00557177 /* 3td_GreenHanger_01.png */,
+				6461D7051EFBBE1500557177 /* 3td_OverhangVino_01.png */,
 				B47949891BA6742B00B5E9DC /* cave.mtl */,
 				B479498A1BA6742B00B5E9DC /* cave.obj */,
 				B479498B1BA6742B00B5E9DC /* cave_d.png */,
@@ -711,6 +806,7 @@
 				B47949921BA6742B00B5E9DC /* config.json */,
 				B47949931BA6742B00B5E9DC /* crystal.mtl */,
 				B47949941BA6742B00B5E9DC /* crystal.obj */,
+				6461D6FD1EFBBD9E00557177 /* 3TD_RedCave_01.jpg */,
 				B47949951BA6742B00B5E9DC /* crystal_d.png */,
 				B47949961BA6742B00B5E9DC /* crystal_n.png */,
 				B47949971BA6742B00B5E9DC /* crystal_s.png */,
@@ -1070,29 +1166,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6461D6E91EFBB26100557177 /* caveSystem2.obj in Resources */,
 				6460F11D1EF978C400A26FA6 /* WhiteCloudBack.jpg in Resources */,
+				6461D7021EFBBE0E00557177 /* 3td_Cave_Fern_01.png in Resources */,
 				6432ED3D1EC99F1D001E2316 /* boulder01.mtl in Resources */,
 				6478A1AF1EFB362D00466127 /* sahara_up.jpg in Resources */,
 				6478A1B21EFB95EE00466127 /* potion.mtl in Resources */,
 				B4794A311BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949A81BA6742B00B5E9DC /* cave_d.png in Resources */,
 				B47949B01BA6742B00B5E9DC /* crystal.mtl in Resources */,
+				6461D7071EFBBE1500557177 /* 3td_OverhangVino_01_SPEC.png in Resources */,
 				64A4D5421EF437F800AF8FF4 /* sphere.obj in Resources */,
 				6478A1A81EFB362D00466127 /* main_falls_03.png in Resources */,
+				6461D6F31EFBB26100557177 /* test2.mtl.orig in Resources */,
+				6461D6F51EFBB26100557177 /* test22.obj in Resources */,
 				6432ED441EC99F1D001E2316 /* Y_Tube.obj in Resources */,
 				646D412F1ED2103100C5904B /* scene1.vert in Resources */,
 				64896DF51ED486560010CE00 /* test2.mtl in Resources */,
+				6461D6E81EFBB26100557177 /* caveSystem2.mtl in Resources */,
 				646D41361ED3408500C5904B /* cube.mtl in Resources */,
 				B47949A91BA6742B00B5E9DC /* cave_n.png in Resources */,
+				6461D6FA1EFBBD3200557177 /* caveSystem6.obj in Resources */,
 				6432ED3C1EC99F1D001E2316 /* 3td_LayerRock_001.png in Resources */,
+				6461D6F21EFBB26100557177 /* test1.obj in Resources */,
 				6478A1981EFB362D00466127 /* 3td_CaveFalls_01.png in Resources */,
 				6480793C1EF2C290008B5D06 /* colorShader.vert in Resources */,
 				6460F1201EF978C400A26FA6 /* WhiteCloudRight.jpg in Resources */,
 				B47949AB1BA6742B00B5E9DC /* cave_stream.mtl in Resources */,
 				B47949B61BA6742B00B5E9DC /* flame.mtl in Resources */,
+				6461D6F01EFBB26100557177 /* temp.txt in Resources */,
 				B47949AE1BA6742B00B5E9DC /* cave_stream_n.png in Resources */,
 				6478A19B1EFB362D00466127 /* 3TD_CaveGround_002.png in Resources */,
+				6461D7061EFBBE1500557177 /* 3td_OverhangVino_01_NRM.png in Resources */,
 				644F24131ECC8EA7000CB84A /* 3td_Vino_04_SPEC.png in Resources */,
+				6461D70D1EFBBE1B00557177 /* 3td_GreenHanger_01_SPEC.png in Resources */,
 				B47949B51BA6742B00B5E9DC /* flame.frag in Resources */,
 				6478A1CB1EFBACA200466127 /* potion_blue.obj in Resources */,
 				646D41211ED076A800C5904B /* scene.frag in Resources */,
@@ -1102,11 +1209,15 @@
 				6478A1B71EFB960100466127 /* bottle_mana.jpg in Resources */,
 				6478A1B91EFB9FA000466127 /* potion_red.png in Resources */,
 				B47949AC1BA6742B00B5E9DC /* cave_stream.obj in Resources */,
+				6461D6F11EFBB26100557177 /* test1.mtl in Resources */,
 				642829B91EC8C10800DBD605 /* junction.obj in Resources */,
 				6432ED591EC9F8DF001E2316 /* stalagmite.mtl in Resources */,
+				6461D6EA1EFBB26100557177 /* caveSystem3.mtl in Resources */,
 				6432ED571EC9F8DF001E2316 /* 3td_Stalag_01_NRM.png in Resources */,
 				6478A1A51EFB362D00466127 /* fallShader.vert in Resources */,
+				6461D6EB1EFBB26100557177 /* caveSystem3.obj in Resources */,
 				642829B81EC8C10800DBD605 /* junction.mtl in Resources */,
+				6461D7081EFBBE1500557177 /* 3td_OverhangVino_01.png in Resources */,
 				B47949A61BA6742B00B5E9DC /* cave.mtl in Resources */,
 				6478A1BF1EFBA60700466127 /* red.png in Resources */,
 				644F24121ECC8EA7000CB84A /* 3td_Vino_04_NRM.png in Resources */,
@@ -1117,6 +1228,8 @@
 				642829B51EC8BF9600DBD605 /* L-Segment.obj in Resources */,
 				6478A1A71EFB362D00466127 /* main_falls_02.png in Resources */,
 				644F24181ECCA46D000CB84A /* sceneShader.frag in Resources */,
+				6461D70C1EFBBE1B00557177 /* 3td_GreenHanger_01_NRM.png in Resources */,
+				6461D6E61EFBB26100557177 /* caveSystem.mtl in Resources */,
 				6478A1BB1EFBA3E200466127 /* dark.png in Resources */,
 				6480793A1EF2C280008B5D06 /* colorShader.frag in Resources */,
 				6432ED3E1EC99F1D001E2316 /* boulder01.obj in Resources */,
@@ -1128,6 +1241,7 @@
 				B4794A2A1BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949A51BA6742B00B5E9DC /* blurShader.vert in Resources */,
 				6478A1AA1EFB362D00466127 /* sahara_bk.jpg in Resources */,
+				6461D6E41EFBB26100557177 /* 3td_Basalt_02_1024_NRM.png in Resources */,
 				6460F1081EF9585C00A26FA6 /* WhiteCloudDown.jpg in Resources */,
 				64B8E5B61ED6089200396BBB /* cel_shader.vert in Resources */,
 				64896DF61ED486560010CE00 /* test2.obj in Resources */,
@@ -1135,6 +1249,7 @@
 				B47949AA1BA6742B00B5E9DC /* cave_stream.frag in Resources */,
 				B47949AD1BA6742B00B5E9DC /* cave_stream.vert in Resources */,
 				644F241A1ECCA4B8000CB84A /* sceneShader.vert in Resources */,
+				6461D6FE1EFBBD9E00557177 /* 3TD_RedCave_01.jpg in Resources */,
 				646D413B1ED342D100C5904B /* test3.obj in Resources */,
 				646D41331ED22B1900C5904B /* specular.png in Resources */,
 				6478A1991EFB362D00466127 /* 3TD_CaveGround_002_NRM_P.png in Resources */,
@@ -1148,6 +1263,7 @@
 				648079411EF2DBD4008B5D06 /* godrays.vert in Resources */,
 				6460F1241EFA7FAE00A26FA6 /* test2_outer.obj in Resources */,
 				6480793F1EF2DBC5008B5D06 /* godrays.frag in Resources */,
+				6461D6F41EFBB26100557177 /* test22.mtl in Resources */,
 				6432ED5C1EC9FBD1001E2316 /* stalagmite.obj in Resources */,
 				B47949BD1BA6742B00B5E9DC /* torch.obj in Resources */,
 				6478A1CA1EFBACA200466127 /* potion_blue.mtl in Resources */,
@@ -1164,40 +1280,52 @@
 				6478A1A91EFB362D00466127 /* RockNormal.png in Resources */,
 				6478A1B61EFB960100466127 /* bottle_health.jpg in Resources */,
 				B47949BE1BA6742B00B5E9DC /* torchSurface_Color.png in Resources */,
+				6461D6ED1EFBB26100557177 /* Potion_bottle.obj in Resources */,
 				B47949B91BA6742B00B5E9DC /* flame.vert in Resources */,
 				644F24141ECC8EA7000CB84A /* 3td_Vino_04.png in Resources */,
 				6478A1A61EFB362D00466127 /* main_falls_01.png in Resources */,
+				6461D6E71EFBB26100557177 /* caveSystem.obj in Resources */,
 				6478A1A31EFB362D00466127 /* Fall.obj in Resources */,
 				64AEBBB61ECDF1B50089C224 /* 3td_Stone_24_NRM.png in Resources */,
+				6461D6EC1EFBB26100557177 /* caveSystemwrong.obj in Resources */,
 				6460F10C1EF9585C00A26FA6 /* WhiteCloudUp.jpg in Resources */,
 				6478A19D1EFB362D00466127 /* 3td_Stone_24_SPEC.png in Resources */,
+				6461D6FC1EFBBD3800557177 /* caveSystem6.mtl in Resources */,
 				B47949A31BA6742B00B5E9DC /* basicTitle_light.png in Resources */,
 				6432ED3B1EC99F1D001E2316 /* 3td_LayerRock_001_NRM.png in Resources */,
 				B47949BC1BA6742B00B5E9DC /* torch.mtl in Resources */,
 				642829B41EC8BF9600DBD605 /* L-Segment.mtl in Resources */,
+				6461D6F81EFBB26100557177 /* vine_01.obj in Resources */,
 				6478A1C71EFBAC9400466127 /* blue.jpg in Resources */,
 				6432ED421EC99F1D001E2316 /* L_Curve.obj in Resources */,
+				6461D6EF1EFBB26100557177 /* sphereOld.obj in Resources */,
 				6478A1BD1EFBA48D00466127 /* potion_spec.png in Resources */,
 				64B8E5B41ED6089200396BBB /* caveShader.vert in Resources */,
 				6432ED581EC9F8DF001E2316 /* 3td_StalagTex_01.jpg in Resources */,
 				6479DBBE1EF9574E005D203C /* skyBox.frag in Resources */,
 				6432ED411EC99F1D001E2316 /* L_Curve.mtl in Resources */,
+				6461D7001EFBBDCF00557177 /* 3td_StalagTex_02.jpg in Resources */,
 				6460F11F1EF978C400A26FA6 /* WhiteCloudLeft.jpg in Resources */,
 				64AEBBB71ECDF1B50089C224 /* 3td_Stone_24.jpg in Resources */,
 				B47949A41BA6742B00B5E9DC /* blurShader.frag in Resources */,
 				6478A1AB1EFB362D00466127 /* sahara_dn.jpg in Resources */,
 				B47949BB1BA6742B00B5E9DC /* sparks.png in Resources */,
+				6461D6EE1EFBB26100557177 /* sphereOld.mtl in Resources */,
 				6478A19F1EFB362D00466127 /* caveAndBase.obj in Resources */,
 				B47949BA1BA6742B00B5E9DC /* KozGoPro-ExtraLight.otf in Resources */,
 				64B8E5B51ED6089200396BBB /* cel_shader.frag in Resources */,
 				B4794A301BA6743D00B5E9DC /* LICENSE.txt in Resources */,
 				B47949B31BA6742B00B5E9DC /* crystal_n.png in Resources */,
+				6461D6E51EFBB26100557177 /* 3td_Basalt_02_1024.jpg in Resources */,
 				6432ED431EC99F1D001E2316 /* Y_Tube.mtl in Resources */,
 				6460F1231EFA7FAE00A26FA6 /* test2_outer.mtl in Resources */,
+				6461D70E1EFBBE1B00557177 /* 3td_GreenHanger_01.png in Resources */,
 				B47949B11BA6742B00B5E9DC /* crystal.obj in Resources */,
 				B4CB8CD01B72E43300FE041B /* Project-Info.plist in Resources */,
+				6461D6F71EFBB26100557177 /* test23.obj in Resources */,
 				6478A1C51EFBABC600466127 /* blue.png in Resources */,
 				646D413A1ED342D100C5904B /* test3.mtl in Resources */,
+				6461D6F61EFBB26100557177 /* test23.mtl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
